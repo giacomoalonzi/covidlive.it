@@ -16,7 +16,7 @@ const onGetRegionsData = (dispatch) => (onComplete: Function = noop, onError:Fun
   dispatch({ type: REGIONS_DATA_FETCH })
   getRegionsData()
     .then(response => {
-      // console.log('response', response)
+      console.log('response', response)
       dispatch({ type: REGIONS_DATA_SUCCESS, data: response })
     })
     .catch(error => {

@@ -1,0 +1,20 @@
+.button {
+  height: auto;
+  border: 0;
+  box-shadow: 0;
+  text-decoration: none;
+  border-radius: 0;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  @include font-size(16px, 1);
+  padding: $spacer-base;
+  @extend %family-bold;
+  text-transform: uppercase;
+  border-radius: $radius-mid;
+  text-align: center;
+  &--primary {
+    background: $primary-100;
+    color: white;
+  }
+}
