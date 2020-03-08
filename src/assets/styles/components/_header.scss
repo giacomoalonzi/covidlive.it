@@ -1,13 +1,13 @@
 .header {
   &__wrap {
-    height: 64px;
     background: white;
     border-radius: $radius-big;
     box-shadow: $shadow-100;
-    padding: 0 $spacer-mid;
+    padding: $spacer-mid;
     display: flex;
     align-items: center;
     @include breakpoint(md) {
+      padding: 0 $spacer-mid;
       height: 80px;
     }
   }
