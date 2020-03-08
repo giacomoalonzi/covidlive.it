@@ -1,7 +1,7 @@
 
 import { get } from 'lodash'
 
-export const normalizeRegionData = (response: any) => {
+export const normalizeRegionData = (response: any): any => {
  const { data } = response
  return data.map(region => ({
    id: get(region,'codice_regione', ''),
@@ -20,7 +20,7 @@ export const normalizeRegionData = (response: any) => {
  }))
 }
 
-export const normalizeNationalTrendData = (response) => {
+export const normalizeNationalTrendData = (response: any): any => {
   const { data } = response
   return data.map(region => ({
     date: get(region, 'data', ''),

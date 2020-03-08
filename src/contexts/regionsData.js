@@ -1,3 +1,4 @@
+// @flow
 import createContext from './createContext'
 import { getRegionsDataReducer } from '../reducers/regionsData'
 import { noop } from '../services/util'
@@ -12,7 +13,7 @@ const defaultStore = {
   data: [],
 }
 
-const onGetRegionsData = dispatch => (onComplete = noop, onError = noop) => {
+const onGetRegionsData = (dispatch) => (onComplete:Function = noop, onError:Function = noop) => {
   dispatch({ type: REGIONS_DATA_FETCH })
   getRegionsData()
     .then(response => {
