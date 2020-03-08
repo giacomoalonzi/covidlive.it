@@ -1,0 +1,37 @@
+@import "variables";
+@import "fontface";
+@import "mixins";
+@import "placeholder";
+// @import 'typography';
+// @import 'utils';
+
+// global rules
+
+html,
+body {
+  @extend %family-regular;
+  font-smooth: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  @include breakpoint(lg) {
+    font-size: 16px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 0 $spacer-mid;
+  margin: 0 auto;
+  width: 100%;
+  @include breakpoint(iphoneFive) {
+    padding: 0 $spacer-base;
+  }
+  @include breakpoint(md) {
+    max-width: calc(1120px + 24px);
+    padding: 0 $spacer-mlarge;
+  }
+}

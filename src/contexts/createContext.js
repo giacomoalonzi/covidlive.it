@@ -1,12 +1,16 @@
+//@ flow
 import React, { useReducer } from 'react'
 import PropTypes from 'prop-types'
 
-export default (reducer, actions, initialState) => {
+type Props = {
+  children: any,
+}
+export default (reducer: any, actions: any, initialState: any): Function => {
   const Context = React.createContext()
-  const Provider = ({ children }) => {
+  const Provider = ({ children }: Props) => {
     const [store, dispatch] = useReducer(reducer, initialState)
 
-    const boundActions = Object.keys(actions).reduce((acc, key) => {
+    const boundActions = Object.keys(actions).reduce((acc, key): any => {
       return { ...acc, [key]: actions[key](dispatch) }
     }, {})
     return <Context.Provider value={{ store, ...boundActions }}>{children}</Context.Provider>
