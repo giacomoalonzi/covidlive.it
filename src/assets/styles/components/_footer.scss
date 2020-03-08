@@ -6,6 +6,7 @@
   &__item {
     p {
       @extend %family-bold;
+      color: $neutral-200;
       @include font-size(14px, 1.5);
       a {
         color: $neutral-300;
