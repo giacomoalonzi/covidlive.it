@@ -1,5 +1,5 @@
 // @flow
-import { NATIONAL_DATA_FETCH, NATIONAL_DATA_SUCCESS, NATIONAL_DATA_FAIL } from '@Actions/nationalData'
+import { NATIONAL_DATA_FETCH, NATIONAL_DATA_SUCCESS, NATIONAL_DATA_FAIL } from '../actions/nationalData'
 
 export const getNationalTrandDataReducer = (state: any, action: any) => {
   switch (action.type) {
