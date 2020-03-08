@@ -28,6 +28,7 @@
     "react-helmet": "^5.2.1",
     "react-id-swiper": "^3.0.0",
     "reset-css": "^5.0.1",
+    "sort-object": "^3.0.3",
     "swiper": "^5.3.6"
   },
   "devDependencies": {

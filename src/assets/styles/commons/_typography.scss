@@ -2,3 +2,9 @@ h1 {
   @include font-size(48px, 1.5);
   @extend %family-black;
 }
+
+h2 {
+  @include font-size(40px, 1.5);
+  @extend %family-bold;
+  color: $neutral-200;
+}

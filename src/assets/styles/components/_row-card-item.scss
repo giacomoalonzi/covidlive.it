@@ -1,0 +1,38 @@
+.row-card-item {
+  margin-bottom: $spacer-small;
+  &__wrap {
+    @extend .card__wrap;
+    padding: $spacer-large;
+    display: flex;
+    justify-content: space-between;
+    min-height: 88px;
+    align-items: center;
+  }
+  &__item {
+    display: flex;
+    flex: 1 1 50%;
+    &--text {
+      p {
+        @include font-size(16px, 1);
+        text-transform: uppercase;
+        @extend %family-bold;
+        span {
+          color: $neutral-200;
+          margin-right: $spacer-mid;
+        }
+      }
+    }
+    &--stats {
+      flex: 0 0 40%;
+      justify-content: flex-end;
+      @include breakpoint(md) {
+        flex: 0 0 45%;
+      }
+      p {
+        margin-left: 16px;
+        @include font-size(18px, 1);
+        @extend %family-bold;
+      }
+    }
+  }
+}
