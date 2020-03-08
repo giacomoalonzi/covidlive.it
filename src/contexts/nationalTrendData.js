@@ -1,8 +1,8 @@
 import createContext from './createContext'
-import { getNationalTrandDataReducer } from '../reducers/nationalTrendData'
-import { NATIONAL_DATA_FETCH, NATIONAL_DATA_SUCCESS, NATIONAL_DATA_FAIL } from '../actions/nationalData'
-import { noop } from '../services/util'
-import { getNationalTrendData } from '../services/api'
+import { getNationalTrandDataReducer } from '@Reducers/nationalTrendData'
+import { NATIONAL_DATA_FETCH, NATIONAL_DATA_SUCCESS, NATIONAL_DATA_FAIL } from '@Actions/nationalData'
+import { noop } from '@Services/util'
+import { getNationalTrendData } from '@Services/api'
 const defaultStore = {
   pending: false,
   error: false,
