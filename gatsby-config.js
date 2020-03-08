@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `🦠covidlive`,
-    description: `covidlive.it`,
+    title: `🦠COVIDLIVE`,
+    description: `La situazione in italia in tempo reale.`,
     author: `@giacomo.alonzi`,
   },
   plugins: [
