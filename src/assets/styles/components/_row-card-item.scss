@@ -7,18 +7,29 @@
     justify-content: space-between;
     min-height: 88px;
     align-items: center;
+    flex-wrap: wrap;
   }
   &__item {
     display: flex;
-    flex: 1 1 50%;
+    flex: 1 1 100%;
+    @include breakpoint(md) {
+      flex: 1 1 50%;
+    }
     &--text {
       p {
         @include font-size(16px, 1);
         text-transform: uppercase;
         @extend %family-bold;
+        margin-bottom: $spacer-base;
+        @include breakpoint(md) {
+          margin-bottom: 0;
+        }
         span {
           color: $neutral-200;
-          margin-right: $spacer-mid;
+          margin-right: $spacer-base;
+          @include breakpoint(md) {
+            margin-right: $spacer-mid;
+          }
         }
       }
     }
@@ -29,9 +40,14 @@
         flex: 0 0 45%;
       }
       p {
-        margin-left: 16px;
-        @include font-size(18px, 1);
+        color: $neutral-300;
+        margin-right: 16px;
+        @include font-size(16px, 1);
         @extend %family-bold;
+        @include breakpoint(md) {
+          margin-left: 16px;
+          margin-right: 0;
+        }
       }
     }
   }
