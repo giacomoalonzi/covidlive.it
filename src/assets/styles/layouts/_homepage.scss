@@ -1,0 +1,21 @@
+.homepage {
+  width: 100%;
+  &__wrap {
+    display: flex;
+    margin-top: $spacer-xhuge;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__item {
+    width: 100%;
+    &--big-cards {
+      > p {
+        color: $neutral-200;
+        @extend %family-bold;
+        @include breakpoint(md) {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
