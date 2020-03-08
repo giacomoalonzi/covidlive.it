@@ -1,0 +1,34 @@
+.header {
+  &__wrap {
+    height: 64px;
+    background: white;
+    border-radius: $radius-big;
+    box-shadow: $shadow-100;
+    padding: 0 $spacer-mid;
+    display: flex;
+    align-items: center;
+    @include breakpoint(md) {
+      height: 80px;
+    }
+  }
+
+  &__item {
+    &--brand {
+      p {
+        @extend %family-black;
+        color: $neutral-400;
+        text-transform: uppercase;
+        @include font-size(24px, 1);
+        span {
+          color: $warning;
+        }
+        small {
+          @include font-size(12px, 2);
+          display: block;
+          @extend %family-bold;
+          margin-left: 32px;
+        }
+      }
+    }
+  }
+}

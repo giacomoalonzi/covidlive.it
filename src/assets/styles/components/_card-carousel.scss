@@ -1,0 +1,22 @@
+.card-carousel {
+  padding: 20px 0;
+  width: 100%;
+  &__wrap {
+    .swiper-container {
+      overflow: initial !important;
+      .swiper-wrapper {
+        height: auto;
+      }
+    }
+    @include breakpoint(lg) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 24px;
+    }
+  }
+
+  &__item {
+    height: inherit !important;
+    width: 100%;
+  }
+}

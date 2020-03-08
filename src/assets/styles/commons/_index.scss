@@ -11,6 +11,8 @@ html,
 body {
   @extend %family-regular;
   font-smooth: auto;
+  overflow-x: hidden;
+  background-color: $neutral-50;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
