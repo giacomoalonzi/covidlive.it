@@ -6,7 +6,7 @@ import SEO from "@Components/seo"
 import BigCard from '@Components/bigCard'
 import CardCarousel from '@Components/cardCarousel'
 import { get, last } from 'lodash'
-import { formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNow, parseISO } from 'date-fns'
 import { it } from 'date-fns/locale'
 const IndexPage = () => {
   // const {store: regionDataStore, onGetRegionsData} = useContext(RegionsDataContext)
@@ -46,7 +46,8 @@ const IndexPage = () => {
                   subContent="in attesa di conferma ISS" 
                 />
               </CardCarousel>
-              <p>Ultimo aggiornamento: {formatDistanceToNow(new Date(todayNationalTrendData.date), {
+              
+              <p>Ultimo aggiornamento: {formatDistanceToNow(new Date(parseISO(get(todayNationalTrendData, 'date', ''))), {
                 locale: it
               })}</p>
             </>
