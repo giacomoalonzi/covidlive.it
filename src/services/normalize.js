@@ -1,7 +1,7 @@
 
 import { get } from 'lodash'
 
-export const normalizeRegionData = (response) => {
+export const normalizeRegionData = (response: any) => {
  const { data } = response
  return data.map(region => ({
    id: get(region,'codice_regione', ''),

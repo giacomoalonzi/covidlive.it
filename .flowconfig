@@ -1,0 +1,29 @@
+[ignore]
+.*/node_modules/.*
+.*/dist/.*
+.*/.cache/.*
+.*/.vscode/.*
+.*/flow-typed/.*
+<PROJECT_ROOT>/node_modules/.*
+.*/site/static/.*
+[include]
+
+[libs]
+
+[options]
+module.name_mapper='^@Components\/\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
+module.name_mapper='^@Assets\/\(.*\)$' -> '<PROJECT_ROOT>/src/assets/\1'
+module.name_mapper='^@Images\/\(.*\)$' -> '<PROJECT_ROOT>/src/assets/images/\1'
+module.name_mapper='^@Services\/\(.*\)$' -> '<PROJECT_ROOT>/src/services/\1'
+module.name_mapper='^@Styles\/\(.*\)$' -> '<PROJECT_ROOT>/src/assets/styles/\1'
+module.name_mapper='^@Views\/\(.*\)$' -> '<PROJECT_ROOT>/src/views/\1'
+module.name_mapper='^@Types\/\(.*\)$' -> '<PROJECT_ROOT>/src/types/\1'
+module.name_mapper='^@Contexts\/\(.*\)$' -> '<PROJECT_ROOT>/src/contexts/\1'
+module.name_mapper='^@Reducers\/\(.*\)$' -> '<PROJECT_ROOT>/src/reducers/\1'
+module.name_mapper='^@Actions\/\(.*\)$' -> '<PROJECT_ROOT>/src/actions/\1'
+all=true
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flowconfig.mock-module.js'
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/flowconfig.mock-module.js'
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json

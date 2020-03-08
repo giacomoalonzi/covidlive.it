@@ -1,6 +1,7 @@
+// @flow
 import { REGIONS_DATA_FETCH, REGIONS_DATA_SUCCESS, REGIONS_DATA_FAIL } from '../actions/regionsData'
 
-export const getRegionsDataReducer = (state, action) => {
+export const getRegionsDataReducer = (state: any, action: any) => {
   switch (action.type) {
     case REGIONS_DATA_FETCH:
       return { ...state, pending: true, error: false, fetchNotStarted: true }
