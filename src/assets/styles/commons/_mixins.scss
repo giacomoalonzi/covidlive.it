@@ -1,0 +1,120 @@
+$base-font-size: 16px;
+@mixin font-size($font-size, $line-height: "auto", $important: false) {
+  @if ($important == "important") {
+    $important: unquote("!important");
+  }
+
+  @else {
+    $important: null;
+  }
+
+  font-size: $font-size $important;
+  font-size: ($font-size / $base-font-size) * 1rem $important;
+
+  @if $line-height == "auto" {
+    line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size) $important;
+  }
+
+  @else {
+    @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+      line-height: $line-height $important;
+    }
+
+    @else if ($line-height != none and $line-height != false) {
+      @warn "D’oh! ‘#{$line-height}’ is not a valid value for `line-height`.";
+    }
+  }
+}
+
+@mixin breakpoint($class) {
+  @if $class == iphoneFive {
+    @media (device-aspect-ratio: 40/71) {
+      @content;
+    }
+  }
+  // Small devices (landscape phones, 576px and up)
+  @if $class == sm {
+    @media (min-width: 576px) {
+      @content;
+    }
+  }
+  // Medium devices (tablets, 768px and up)
+  @else if $class == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  // Large devices (desktops, 992px and up)
+  @else if $class == lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+  // Extra large devices (large desktops, 1200px and up)
+  @else if $class == xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  // Extra extra large devices (large desktops, 1400px and up)
+  @else if $class == xxl {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+
+  @else if $class == x {
+    /* iPhone X and Xs Max */
+    @media only screen
+      and (min-device-width: 375px)
+      and (min-device-height: 812px)
+      and (-webkit-device-pixel-ratio: 3)
+      and (orientation: portrait) {
+      @content;
+    }
+  }
+
+  @else if $class == xr {
+    /* iPhone XR */
+    @media only screen
+      and (min-device-width: 414px)
+      and (min-device-height: 896px)
+      and (-webkit-device-pixel-ratio: 2)
+      and (orientation: portrait) {
+      @content;
+    }
+  }
+}
+
+@mixin truncate($width) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: $width;
+}
+
+@mixin text-underline-hover($color, $border-color: rgba($color, 0.75), $border-width: 0.08em) {
+  &:hover {
+    color: $color;
+    border-bottom: solid $border-width $border-color;
+  }
+}
+
+@mixin center($position: absolute) {
+  position: $position;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+@mixin center-horizontal($position: absolute) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin center-vertical($position: absolute) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}

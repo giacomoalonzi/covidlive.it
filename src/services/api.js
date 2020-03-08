@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { normalizeRegionData } from './normalize'
+import { normalizeRegionData, normalizeNationalTrendData } from './normalize'
 const baseURL = 'https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json'
 
 const http = axios.create({
@@ -14,5 +14,5 @@ export const getRegionsData = () => {
 }
 
 export const getNationalTrendData = () => {
-  return http.get('/dpc-covid19-ita-andamento-nazionale.json').then(console.log)
+  return http.get('/dpc-covid19-ita-andamento-nazionale.json').then(normalizeNationalTrendData)
 }
