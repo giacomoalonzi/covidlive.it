@@ -17,6 +17,13 @@
 
   &__item {
     height: inherit !important;
-    width: 100%;
+    width: 90% !important;
+    @include breakpoint(md) {
+      width: 48% !important;
+    }
+
+    @include breakpoint(lg) {
+      width: 100% !important;
+    }
   }
 }

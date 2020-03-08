@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react"
-// import { Context as RegionsDataContext } from '@Contexts/regionsData'
+import { Context as RegionsDataContext } from '@Contexts/regionsData'
 import { Context as NationalTrendDataContext } from '@Contexts/nationalTrendData'
 import Layout from "@Components/layout"
 import SEO from "@Components/seo"
@@ -9,10 +9,11 @@ import { get, last } from 'lodash'
 import { formatDistanceToNow, parseISO } from 'date-fns'
 import { it } from 'date-fns/locale'
 const IndexPage = () => {
-  // const {store: regionDataStore, onGetRegionsData} = useContext(RegionsDataContext)
+  const {onGetRegionsData} = useContext(RegionsDataContext)
   const {store: nationalTrendDataStore, onGetNationalTrandData} = useContext(NationalTrendDataContext)
   useEffect(() => {
     onGetNationalTrandData()
+    onGetRegionsData()
   }, [])
   
   const {data: nationalTrendData} = nationalTrendDataStore
@@ -31,7 +32,7 @@ const IndexPage = () => {
                   emoji="😷" 
                   title="Positivi" 
                   content={`${todayNationalTrendData.infected.toLocaleString()}`} 
-                  additionalContent={`+${todayNationalTrendData.newInfected}`}
+                  additionalContent={`+${todayNationalTrendData.newInfected.toLocaleString()}`}
                   subContent={`Totali fino ad oggi ${todayNationalTrendData.totalCases}`} 
                 />
                 <BigCard 

@@ -1,0 +1,4 @@
+h1 {
+  @include font-size(48px, 1.5);
+  @extend %family-black;
+}
