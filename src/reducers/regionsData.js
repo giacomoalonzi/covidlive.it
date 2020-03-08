@@ -1,5 +1,5 @@
 // @flow
-import { REGIONS_DATA_FETCH, REGIONS_DATA_SUCCESS, REGIONS_DATA_FAIL } from '../actions/regionsData'
+import { REGIONS_DATA_FETCH, REGIONS_DATA_SUCCESS, REGIONS_DATA_FAIL } from '@Actions/regionsData'
 
 export const getRegionsDataReducer = (state: any, action: any) => {
   switch (action.type) {

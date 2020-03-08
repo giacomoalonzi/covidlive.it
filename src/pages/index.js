@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react"
-import { Context as RegionsDataContext } from '../contexts/regionsData'
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import { Context as RegionsDataContext } from '@Contexts/regionsData'
+import Layout from "@Components/layout"
+import SEO from "@Components/seo"
 
 const IndexPage = () => {
   const {store, onGetRegionsData} = useContext(RegionsDataContext)
