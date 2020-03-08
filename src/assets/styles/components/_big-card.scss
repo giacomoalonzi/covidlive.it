@@ -1,0 +1,55 @@
+.big-card {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  &__wrap {
+    padding: $spacer-xlarge $spacer-large;
+    height: 100%;
+  }
+  &__item {
+    &--badge {
+      display: flex;
+      background: white;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      box-shadow: 0 11px 16px 0 rgba(185, 191, 202, 0.53);
+      top: -32px;
+      left: 32px;
+      width: 64px;
+      height: 64px;
+      span {
+        font-size: 24px;
+      }
+    }
+    &--text {
+      h5 {
+        @include font-size(32px, 1);
+        @extend %family-bold;
+        color: $neutral-200;
+      }
+      p {
+        @include font-size(80px, 1);
+        color: $neutral-300;
+        position: relative;
+        @extend %family-black;
+        margin: $spacer-small 0 $spacer-base 0;
+        display: inline-block;
+        span {
+          color: $warning;
+          @include font-size(18px, 1);
+          position: absolute;
+          top: -8px;
+          right: -32px;
+        }
+      }
+      small {
+        display: block;
+        @include font-size(14px, 1);
+        color: $neutral-300;
+        @extend %family-bold;
+      }
+    }
+  }
+}

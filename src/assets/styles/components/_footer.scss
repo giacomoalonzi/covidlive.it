@@ -1,0 +1,15 @@
+.footer {
+  &__wrap {
+    padding: $spacer-mid 0;
+  }
+
+  &__item {
+    p {
+      @extend %family-bold;
+      @include font-size(14px, 1.5);
+      a {
+        color: $neutral-300;
+      }
+    }
+  }
+}

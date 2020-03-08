@@ -8,16 +8,15 @@ import { REGIONS_DATA_FETCH, REGIONS_DATA_SUCCESS, REGIONS_DATA_FAIL } from '@Ac
 const defaultStore = {
   pending: false,
   error: false,
-  fetchNotStarted: true,
   errorMessage: '',
   data: [],
 }
 
-const onGetRegionsData = (dispatch) => (onComplete:Function = noop, onError:Function = noop) => {
+const onGetRegionsData = (dispatch) => (onComplete: Function = noop, onError:Function = noop) => {
   dispatch({ type: REGIONS_DATA_FETCH })
   getRegionsData()
     .then(response => {
-      console.log('response', response)
+      // console.log('response', response)
       dispatch({ type: REGIONS_DATA_SUCCESS, data: response })
     })
     .catch(error => {

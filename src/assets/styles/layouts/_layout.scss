@@ -1,0 +1,10 @@
+.layout {
+  &__wrap {
+    padding: $spacer-mid $spacer-mid 0 $spacer-mid;
+  }
+  &__item {
+    &--body {
+      min-height: calc(100vh - 274px);
+    }
+  }
+}
