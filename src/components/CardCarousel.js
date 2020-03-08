@@ -1,7 +1,8 @@
 import React, { useLayoutEffect, useState } from 'react'
 import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css';
-const breakpointTablet = window.matchMedia('(min-width:62em)')
+const breakpointTablet = typeof window !== `undefined` ? window.matchMedia('(min-width:62em)') : null
+
 const params = {
     slidesPerView: 'auto',
     spaceBetween: 8,
@@ -15,10 +16,11 @@ const params = {
     },
   }
 
-const CardCarousel = ({children}) => {
+const CardCarousel = ({ children }) => {
   const [isMobile, setIsMobile] = useState(!breakpointTablet.matches)
 
   useLayoutEffect(() => {
+    
     function updateSize() {
       setIsMobile(!breakpointTablet.matches)
     }

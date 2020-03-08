@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from "react"
 // import { Context as RegionsDataContext } from '@Contexts/regionsData'
 import { Context as NationalTrendDataContext } from '@Contexts/nationalTrendData'
-import Layout from "@Components/Layout"
-import SEO from "@Components/Seo"
-import BigCard from '@Components/BigCard'
-import CardCarousel from '@Components/CardCarousel'
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
+import BigCard from '../components/BigCard'
+import CardCarousel from '../components/CardCarousel'
 import { get, last } from 'lodash'
 import { formatDistanceToNow } from 'date-fns'
 import { it } from 'date-fns/locale'
