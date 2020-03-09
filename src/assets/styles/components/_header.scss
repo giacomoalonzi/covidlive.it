@@ -6,7 +6,11 @@
     padding: $spacer-mid;
     display: flex;
     align-items: center;
+    flex: 1 1 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
     @include breakpoint(md) {
+      flex-wrap: nowrap;
       padding: 0 $spacer-mid;
       height: 80px;
     }
@@ -14,6 +18,13 @@
 
   &__item {
     &--brand {
+      flex: 1 1 100%;
+      @include breakpoint(md) {
+        flex: 0 auto;
+      }
+      a {
+        text-decoration: none;
+      }
       p {
         @extend %family-black;
         color: $neutral-400;
@@ -29,6 +40,30 @@
           margin-left: 28px;
           @include breakpoint(md) {
             margin-left: 32px;
+          }
+        }
+      }
+    }
+    &--nav {
+      align-items: center;
+      margin-top: $spacer-base;
+      @include breakpoint(md) {
+        margin-top: 0;
+      }
+      nav {
+        ul {
+          li {
+            a {
+              color: $neutral-300;
+              @extend %family-black;
+              @include font-size(14px, 1);
+              text-transform: uppercase;
+              text-decoration: none;
+              margin-right: $spacer-base;
+              &:last-of-type {
+                margin-right: 0;
+              }
+            }
           }
         }
       }

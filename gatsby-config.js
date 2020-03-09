@@ -16,6 +16,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-flow`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -44,9 +45,7 @@ module.exports = {
           "@Reducers": "src/reducers",
           "@Actions": "src/actions",
         },
-        extensions: [
-          "js",
-        ],
+        extensions: ["js"],
       },
     },
     {

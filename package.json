@@ -17,6 +17,7 @@
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sass": "^2.1.30",
     "gatsby-plugin-sharp": "^2.4.3",
+    "gatsby-plugin-sitemap": "^2.2.28",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-sharp": "^2.3.13",
     "lodash": "^4.17.15",
@@ -34,7 +35,8 @@
   "devDependencies": {
     "flow-bin": "^0.120.1",
     "flow-typed": "^3.0.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
   },
   "keywords": [
     "gatsby"
@@ -48,7 +50,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "prettier:check": "prettier --check '**/*'",
+    "prettier:fix": "pretty-quick — staged"
   },
   "repository": {
     "type": "git",

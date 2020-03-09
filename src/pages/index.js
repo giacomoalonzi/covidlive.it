@@ -64,7 +64,7 @@ const IndexPage = () => {
               
               <p>Ultimo aggiornamento: {format(new Date(parseISO(get(todayNationalTrendData, 'date', ''))), 'dd/LL/yyyy – H:mm', {
                 locale: it
-              })} – <a href="http://www.protezionecivile.gov.it/home" noref="nofollow" target="_blank">Fonte</a> </p>
+              })} – <a href="http://www.protezionecivile.gov.it/home" norel="nofollow" target="_blank">Fonte</a> </p>
             </>
           )}
         </div>

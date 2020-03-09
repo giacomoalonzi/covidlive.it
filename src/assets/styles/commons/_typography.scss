@@ -8,3 +8,9 @@ h2 {
   @extend %family-bold;
   color: $neutral-200;
 }
+
+h3 {
+  @include font-size(32px, 1.5);
+  @extend %family-bold;
+  color: $neutral-300;
+}
