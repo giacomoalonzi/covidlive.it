@@ -3,6 +3,7 @@ module.exports = {
     title: `🦠COVIDLIVE`,
     description: `La situazione in Italia in tempo reale.`,
     author: `@giacomo.alonzi`,
+    siteUrl: 'https://covidlive.it'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
