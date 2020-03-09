@@ -35,9 +35,9 @@
     }
     &--stats {
       flex: 0 0 40%;
-      justify-content: flex-end;
       margin-left: 22px;
       @include breakpoint(md) {
+        justify-content: flex-end;
         margin-left: 0;
         flex: 0 0 45%;
       }

@@ -4,9 +4,15 @@ h1 {
 }
 
 h2 {
-  @include font-size(40px, 1.5);
+  @include font-size(28px, 1.5);
   @extend %family-bold;
   color: $neutral-200;
+  @include breakpoint(sm) {
+    @include font-size(32px, 1.5);
+  }
+  @include breakpoint(xl) {
+    @include font-size(40px, 1.5);
+  }
 }
 
 h3 {

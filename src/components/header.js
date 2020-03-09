@@ -19,7 +19,7 @@ const Header = () => (
           <ul>
             <li>
               <Link to="/faq">FAQ</Link>
-              {/* <Link to="/link-utili">Link utili</Link> */}
+              <Link to="/link-utili">Link utili</Link>
               <a href="mailto:ciao@covidlive.it">Contatti</a>
             </li>
           </ul>

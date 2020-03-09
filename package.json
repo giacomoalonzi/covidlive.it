@@ -6,6 +6,8 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "axios": "^0.19.2",
+    "chartist": "^0.11.4",
+    "chartist-plugin-tooltips": "^0.0.17",
     "date-fns": "^2.10.0",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
@@ -25,6 +27,7 @@
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
+    "react-chartist": "^0.14.3",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-id-swiper": "^3.0.0",

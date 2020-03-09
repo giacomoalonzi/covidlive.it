@@ -2,7 +2,7 @@
 import createContext from './createContext'
 import { getRegionsDataReducer } from '../reducers/regionsData'
 import { noop } from '@Services/util'
-import { getRegionsData, getNationalTrendData } from '@Services/api.js'
+import { getRegionsData } from '@Services/api.js'
 import { REGIONS_DATA_FETCH, REGIONS_DATA_SUCCESS, REGIONS_DATA_FAIL } from '../actions/regionsData'
 const defaultStore = {
   pending: false,
