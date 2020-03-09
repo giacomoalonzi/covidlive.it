@@ -1,0 +1,19 @@
+.text-section {
+  ul {
+    padding-left: $spacer-large;
+    @include breakpoint(md) {
+      columns: 2;
+    }
+    li {
+      margin: $spacer-base 0;
+      list-style: initial;
+      &:first-child {
+        margin: 0;
+      }
+      a {
+        @include font-size(21px, 1);
+        text-decoration: underline;
+      }
+    }
+  }
+}

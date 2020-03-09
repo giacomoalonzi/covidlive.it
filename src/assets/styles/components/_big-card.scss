@@ -3,7 +3,7 @@
   position: relative;
   height: 100%;
   &__wrap {
-    padding: $spacer-xlarge $spacer-large;
+    padding: $spacer-xlarge $spacer-large !important;
     height: 100%;
   }
   &__item {
