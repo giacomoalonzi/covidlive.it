@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `🦠COVIDLIVE`,
-    description: `La situazione in italia in tempo reale.`,
+    description: `La situazione in Italia in tempo reale.`,
     author: `@giacomo.alonzi`,
   },
   plugins: [
@@ -20,12 +20,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Covidlive.it`,
+        short_name: `Covidlive.it`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
+        background_color: `#b9bfca`,
+        theme_color: `#3e73dd`,
+        display: `standalone`,
         icon: `src/assets/images/icon.jpg`,
       },
     },
