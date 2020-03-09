@@ -45,9 +45,11 @@
       }
     }
     &--nav {
+      margin-left: 28px;
       align-items: center;
       margin-top: $spacer-base;
       @include breakpoint(md) {
+        margin-left: 0;
         margin-top: 0;
       }
       nav {
