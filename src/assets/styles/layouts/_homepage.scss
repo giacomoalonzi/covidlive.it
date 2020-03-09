@@ -2,7 +2,7 @@
   width: 100%;
   &__wrap {
     display: flex;
-    margin-top: $spacer-xhuge;
+    margin-top: $spacer-huge;
     flex-wrap: wrap;
     justify-content: space-between;
   }
@@ -12,6 +12,7 @@
       > p {
         color: $neutral-200;
         @extend %family-bold;
+        @include font-size(14px, 1);
         @include breakpoint(md) {
           text-align: right;
         }

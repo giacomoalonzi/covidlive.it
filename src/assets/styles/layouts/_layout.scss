@@ -6,13 +6,5 @@
     &--body {
       min-height: calc(100vh - 322px);
     }
-    .region-chart-wrapper {
-      ul {
-        columns: 1;
-        @include breakpoint(lg) {
-          columns: 2;
-        }
-      }
-    }
   }
 }

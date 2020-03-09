@@ -8,7 +8,8 @@ import CardCarousel from '@Components/cardCarousel'
 import { get, last } from 'lodash'
 import { format, parseISO } from 'date-fns'
 import { it } from 'date-fns/locale'
-import RowCardItem from '@Components/rowCardItem'
+import RowCardList from '@Components/rowCardList'
+
 const IndexPage = () => {
   const {store: regionsDataStore, onGetRegionsData} = useContext(RegionsDataContext)
   const {store: nationalTrendDataStore, onGetNationalTrandData} = useContext(NationalTrendDataContext)
@@ -33,7 +34,7 @@ const IndexPage = () => {
   const todayNationalTrendData = last(nationalTrendData)
   return (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Covidlive: La situazione in Italia in tempo reale" />
     <div>
     <div className="homepage">
       <div className="homepage__wrap">
@@ -63,26 +64,13 @@ const IndexPage = () => {
               
               <p>Ultimo aggiornamento: {format(new Date(parseISO(get(todayNationalTrendData, 'date', ''))), 'dd/LL/yyyy – H:mm', {
                 locale: it
-              })}</p>
+              })} – <a href="http://www.protezionecivile.gov.it/home" noref="nofollow" target="_blank">Fonte</a> </p>
             </>
           )}
         </div>
-        <div className="homepage__item homepage__item--region-chart u-margin-top-spacer-huge u-margin-bottom-spacer-xlarge">
-          <h2 className="u-margin-bottom-spacer-xlarge">Top 10 regioni</h2>
-          <div className="region-chart-wrapper">
-            <ul>
-              {regionsDataSorted.map((region, key) => (
-                <RowCardItem 
-                  key={key}
-                  index={key} 
-                  name={region.name}
-                  infected={region.infected}
-                  healed={region.healed}
-                  deaths={region.deaths}
-                />
-              ))}
-            </ul>
-          </div>
+        <div className="homepage__item homepage__item--region-chart u-margin-top-spacer-xxlarge u-margin-bottom-spacer-xlarge">
+          <h2 className="u-margin-bottom-spacer-large">Top 10 regioni</h2>
+          <RowCardList list={regionsDataSorted} />
         </div>
       </div>
     </div>

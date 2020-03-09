@@ -5,12 +5,12 @@ type Props = {
   index: number,
   name: string,
   infected: number,
-  healted: number,
+  healed: number,
   deaths: number
 }
 
-const RowCardItem = ({index, name, infected, healed, deaths}) => (
-  <div className="row-card-item">
+const RowCardItem = ({index, name, infected, healed, deaths}: Props) => (
+  <li className="row-card-item">
     <div className="row-card-item__wrap">
       <div className="row-card-item__item row-card-item__item--text">
         <p>
@@ -30,7 +30,7 @@ const RowCardItem = ({index, name, infected, healed, deaths}) => (
         </div>
       </div>
     </div>
-  </div>
+  </li>
 )
 
 RowCardItem.defaultProps = {

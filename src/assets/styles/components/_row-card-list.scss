@@ -1,0 +1,9 @@
+.row-card-list {
+  &__item {
+    columns: 1;
+    @include breakpoint(lg) {
+      columns: 2;
+      column-gap: 8px;
+    }
+  }
+}
