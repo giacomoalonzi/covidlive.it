@@ -1,19 +1,12 @@
 import React from "react"
 import ChartistGraph from "react-chartist"
 import Chartist from "chartist"
-import "chartist-plugin-tooltips"
 import { max } from 'lodash'
 const InfectedChart = ({ data, options }) => {
   const highestValue = max(data.series[0].map(d => d.value))
   const chartOptions = {
     ...options,
     high: highestValue * 1.1,
-    plugins: [
-      Chartist.plugins.tooltip({
-        appendToBody: true,
-        pointClass: 'my-cool-point'
-      })
-    ]
   }
 
   const responsiveOptions = [
