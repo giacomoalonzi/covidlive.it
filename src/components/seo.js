@@ -16,7 +16,7 @@ type Props = {
   meta?: Array<string>,
   title: string
 }
-function SEO({ description, lang, meta, title }: Props): ?Function {
+function SEO({ description, lang, meta, title }: Props): Function {
   const { site } = useStaticQuery(
     graphql`
       query {
