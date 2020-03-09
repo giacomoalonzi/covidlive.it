@@ -27,6 +27,9 @@
           display: block;
           @extend %family-bold;
           margin-left: 28px;
+          @include breakpoint(md) {
+            margin-left: 32px;
+          }
         }
       }
     }

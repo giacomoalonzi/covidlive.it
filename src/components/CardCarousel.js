@@ -16,13 +16,13 @@ const params = {
     },
   }
 
-const CardCarousel = ({ children }) => {
-  const [isMobile, setIsMobile] = useState(!breakpointTablet.matches)
+const CardCarousel = ({ children }: { children: any}) => {
+  const [isMobile, setIsMobile] = useState(breakpointTablet && !breakpointTablet.matches)
 
   useLayoutEffect(() => {
     
     function updateSize() {
-      setIsMobile(!breakpointTablet.matches)
+      setIsMobile(breakpointTablet && !breakpointTablet.matches)
     }
     window.addEventListener('resize', updateSize)
     updateSize()
