@@ -1,4 +1,3 @@
-const trackingId = process.env.NODE_ENV !== "production" ? "UA-56138240-7" : ''
 module.exports = {
   siteMetadata: {
     title: `🦠COVIDLIVE`,
