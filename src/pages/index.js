@@ -51,9 +51,14 @@ const IndexPage = () => {
 
   const renderBigCardLoadingState = (): Function => {
     return (
-    <FakeCarousel>
-      { range(3).map((key) => <div className="fake-carousel__item"><BigCard key={key} isLoading /></div> ) }
-    </FakeCarousel>)
+      <FakeCarousel>
+        {range(3).map(key => (
+          <div className="fake-carousel__item">
+            <BigCard key={key} isLoading />
+          </div>
+        ))}
+      </FakeCarousel>
+    )
   }
 
   const renderBigCardCarousel = (): Function => {
@@ -66,11 +71,11 @@ const IndexPage = () => {
           additionalContent={`+${get(todayNationalTrendData, "newInfected", "").toLocaleString()}`}
           subContent={`Totali fino ad oggi ${get(todayNationalTrendData, "totalCases", "").toLocaleString()}`}
         />
-        <BigCard emoji="😊" title="Guariti" content={get(todayNationalTrendData, "healed", "")} />
+        <BigCard emoji="😊" title="Guariti" content={get(todayNationalTrendData, "healed", "").toLocaleString()} />
         <BigCard
           emoji="😢"
           title="Deceduti"
-          content={get(todayNationalTrendData, "deaths", "")}
+          content={get(todayNationalTrendData, "deaths", "").toLocaleString()}
           subContent="In attesa di conferma ISS"
         />
       </CardCarousel>
@@ -85,7 +90,7 @@ const IndexPage = () => {
           <div className="homepage__wrap">
             <div className="homepage__item homepage__item--big-cards">
               <>
-                {!todayNationalTrendData ? renderBigCardLoadingState() : renderBigCardCarousel() }
+                {!todayNationalTrendData ? renderBigCardLoadingState() : renderBigCardCarousel()}
                 {todayNationalTrendData && (
                   <p>
                     Ultimo aggiornamento:{" "}

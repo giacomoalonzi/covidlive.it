@@ -38,10 +38,10 @@
         display: inline-block;
         span {
           color: $warning;
-          @include font-size(18px, 1);
+          @include font-size(16px, 1);
           position: absolute;
-          top: -8px;
-          right: -32px;
+          top: -10px;
+          right: -64px;
         }
       }
       small {
