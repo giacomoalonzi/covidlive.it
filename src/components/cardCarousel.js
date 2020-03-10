@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState } from "react"
+import PropTypes from "prop-types"
 import Swiper from "react-id-swiper"
 import "swiper/css/swiper.css"
-import PropTypes from "prop-types"
 const breakpointTablet = typeof window !== `undefined` ? window.matchMedia("(min-width:62em)") : null
 
 const params = {
@@ -29,14 +29,16 @@ const CardCarousel = ({ children }: { children: any }) => {
     return () => window.removeEventListener("resize", updateSize)
   }, [])
 
+  const renderItem = (child: any, key: number): Function => (
+    <div className="card-carousel__item" key={key}>
+      {child}
+    </div>
+  )
+
   const renderChildren = (): Array<Function> => {
-    // const arrayOfChildren = React.Children.toArray(children.props.children)
-    return children.map((child, key) => (
-      <div className="card-carousel__item" key={key}>
-        {child}
-      </div>
-    ))
+    return children.map(renderItem)
   }
+
   return (
     <div className="card-carousel">
       <div className="card-carousel__wrap">

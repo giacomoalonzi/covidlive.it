@@ -1,3 +1,4 @@
+// @Flow
 import React, { useEffect, useContext, useState } from "react"
 import { Context as RegionsDataContext } from "@Contexts/regionsData"
 import { Context as NationalTrendDataContext } from "@Contexts/nationalTrendData"
@@ -13,6 +14,7 @@ import { get, last, slice, range } from "lodash"
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"
 import RowCardList from "@Components/rowCardList"
+
 const IndexPage = () => {
   const { store: regionsDataStore, onGetRegionsData } = useContext(RegionsDataContext)
   const { store: nationalTrendDataStore, onGetNationalTrandData } = useContext(NationalTrendDataContext)
@@ -34,6 +36,8 @@ const IndexPage = () => {
 
     setRegionsDataSorted(sortedData)
   }, [regionsDataStore])
+
+
   const { data: nationalTrendData } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
@@ -48,19 +52,23 @@ const IndexPage = () => {
     series: [lastWeekData.map(i => i.testPerformed)],
   }
 
-  const renderBigCardLoadingState = (): Function => {
+  const renderBigCardLoadingState = (key: number): Function => {
+    return (
+      <div className="fake-carousel__item">
+        <BigCard key={key} isLoading />
+      </div>
+    )
+  }
+
+  const renderFakeCarousel = (): Function => {
     return (
       <FakeCarousel>
-        {range(3).map(key => (
-          <div className="fake-carousel__item">
-            <BigCard key={key} isLoading />
-          </div>
-        ))}
+        {range(3).map(renderBigCardLoadingState)}
       </FakeCarousel>
     )
   }
 
-  const renderBigCardCarousel = (): Function => {
+  const renderCarousel = (): Function => {
     return (
       <CardCarousel>
         <BigCard
@@ -92,7 +100,7 @@ const IndexPage = () => {
             </div>
             <div className="homepage__item homepage__item--big-cards">
               <>
-                {!todayNationalTrendData ? renderBigCardLoadingState() : renderBigCardCarousel()}
+                {!todayNationalTrendData ? renderFakeCarousel() : renderCarousel()}
                 {todayNationalTrendData && (
                   <p>
                     Ultimo aggiornamento:{" "}

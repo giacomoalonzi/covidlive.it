@@ -1,9 +1,17 @@
+// @Flow
 import React from "react"
+import PropTypes from "prop-types"
+import type { Element } from "react"
 import ChartistGraph from "react-chartist"
 import Chartist from "chartist"
 import { max } from "lodash"
 
-const InfectedChart = ({ data, options }) => {
+type Props = {
+  data: any, // tbd
+  options?: any, // tbd
+}
+
+const InfectedChart = ({ data, options }): Element<'div'> => {
   const highestValue = max(data.series[0].map(d => d.value))
   const chartOptions = {
     ...options,
@@ -32,6 +40,14 @@ const InfectedChart = ({ data, options }) => {
       </div>
     </div>
   )
+}
+
+InfectedChart.defaultProps = {
+  children: [],
+}
+
+InfectedChart.propTypes = {
+  children: PropTypes.array,
 }
 
 export default InfectedChart
