@@ -36,7 +36,7 @@ const BigCard = ({ emoji, title, content, additionalContent, subContent, isLoadi
             <div className="big-card__item big-card__item--text card__item">
               <h5>{title}</h5>
               <p>
-                {content} {additionalContent && <span>{additionalContent}</span>}
+                {content} {additionalContent && <span>{additionalContent} da ieri</span>}
               </p>
               {subContent && <small>{subContent}</small>}
             </div>
