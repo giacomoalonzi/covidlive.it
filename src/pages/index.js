@@ -33,7 +33,6 @@ const IndexPage = () => {
 
     setRegionsDataSorted(sortedData)
   }, [regionsDataStore])
-
   const { data: nationalTrendData } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
