@@ -36,7 +36,6 @@ const IndexPage = () => {
 
   const { data: nationalTrendData } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
-  console.log(todayNationalTrendData)
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
 
   const infectedChartData = {
