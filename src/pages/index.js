@@ -8,18 +8,13 @@ import CardCarousel from "@Components/cardCarousel"
 import InfectedChart from "@Components/infectedChart"
 import TestPerformedChart from "@Components/testPerformedChart"
 
-import { get, last, slice } from "lodash"
+import { get, last, slice, range } from "lodash"
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"
 import RowCardList from "@Components/rowCardList"
-
 const IndexPage = () => {
-  const { store: regionsDataStore, onGetRegionsData } = useContext(
-    RegionsDataContext
-  )
-  const { store: nationalTrendDataStore, onGetNationalTrandData } = useContext(
-    NationalTrendDataContext
-  )
+  const { store: regionsDataStore, onGetRegionsData } = useContext(RegionsDataContext)
+  const { store: nationalTrendDataStore, onGetNationalTrandData } = useContext(NationalTrendDataContext)
   const [regionsDataSorted, setRegionsDataSorted] = useState([])
   useEffect(() => {
     onGetNationalTrandData()
@@ -41,7 +36,9 @@ const IndexPage = () => {
 
   const { data: nationalTrendData } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
+  console.log(todayNationalTrendData)
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
+
   const infectedChartData = {
     labels: lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL")),
     series: [lastWeekData.map(i => ({ meta: "positivi", value: i.infected }))],
@@ -52,6 +49,31 @@ const IndexPage = () => {
     series: [lastWeekData.map(i => i.testPerformed)],
   }
 
+  const renderBigCardLoadingState = (key: number): Function => {
+    return <BigCard key={key} isLoading />
+  }
+
+  const renderBigCardCarousel = (): Function => {
+    return (
+      <>
+        <BigCard
+          emoji="😷"
+          title="Positivi"
+          content={`${get(todayNationalTrendData, "infected", "").toLocaleString()}`}
+          additionalContent={`+${get(todayNationalTrendData, "newInfected", "").toLocaleString()}`}
+          subContent={`Totali fino ad oggi ${get(todayNationalTrendData, "totalCases", "").toLocaleString()}`}
+        />
+        <BigCard emoji="😊" title="Guariti" content={get(todayNationalTrendData, "healed", "")} />
+        <BigCard
+          emoji="😢"
+          title="Deceduti"
+          content={get(todayNationalTrendData, "deaths", "")}
+          subContent="In attesa di conferma ISS"
+        />
+      </>
+    )
+  }
+
   return (
     <Layout>
       <SEO title="Covidlive: La situazione in Italia in tempo reale" />
@@ -59,61 +81,35 @@ const IndexPage = () => {
         <div className="homepage">
           <div className="homepage__wrap">
             <div className="homepage__item homepage__item--big-cards">
-              {todayNationalTrendData && (
-                <>
-                  <CardCarousel>
-                    <BigCard
-                      emoji="😷"
-                      title="Positivi"
-                      content={`${todayNationalTrendData.infected.toLocaleString()}`}
-                      additionalContent={`+${todayNationalTrendData.newInfected.toLocaleString()}`}
-                      subContent={`Totali fino ad oggi ${todayNationalTrendData.totalCases}`}
-                    />
-                    <BigCard
-                      emoji="😊"
-                      title="Guariti"
-                      content={todayNationalTrendData.healed}
-                    />
-                    <BigCard
-                      emoji="😢"
-                      title="Deceduti"
-                      content={todayNationalTrendData.deaths}
-                      subContent="in attesa di conferma ISS"
-                    />
-                  </CardCarousel>
-
+              <>
+                <CardCarousel>
+                  {!todayNationalTrendData ? <>{range(3).map(renderBigCardLoadingState)}</> : renderBigCardCarousel()}
+                </CardCarousel>
+                {todayNationalTrendData && (
                   <p>
                     Ultimo aggiornamento:{" "}
-                    {format(
-                      new Date(
-                        parseISO(get(todayNationalTrendData, "date", ""))
-                      ),
-                      "dd/LL/yyyy – H:mm",
-                      {
-                        locale: it,
-                      }
-                    )}{" "}
+                    {format(new Date(parseISO(get(todayNationalTrendData, "date", ""))), "dd/LL/yyyy – H:mm", {
+                      locale: it,
+                    })}{" "}
                     –{" "}
-                    <a
-                      href="http://www.protezionecivile.gov.it/home"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
+                    <a href="http://www.protezionecivile.gov.it/home" rel="noopener noreferrer" target="_blank">
                       Fonte
                     </a>{" "}
                   </p>
-                </>
-              )}
+                )}
+              </>
             </div>
             <div className="homepage__item homepage__item--region-chart u-margin-top-spacer-xxlarge u-margin-bottom-spacer-xlarge">
               <h2 className="u-margin-bottom-spacer-large">Top 10 regioni</h2>
-              <RowCardList list={regionsDataSorted} />
+              <RowCardList
+                list={regionsDataSorted}
+                numberOfFakeCards={10}
+                isLoading={regionsDataStore.pending && !regionsDataSorted.length > 0}
+              />
             </div>
 
             <div className="homepage__item homepage__item--half u-margin-top-spacer-xlarge u-margin-bottom-spacer-xlarge">
-              <h2 className="u-margin-bottom-spacer-large">
-                Positivi ultima settimana
-              </h2>
+              <h2 className="u-margin-bottom-spacer-large">Positivi ultima settimana</h2>
               <div className="card">
                 <div className="card__wrap">
                   <div className="card__item">
@@ -124,9 +120,7 @@ const IndexPage = () => {
             </div>
 
             <div className="homepage__item homepage__item--half u-margin-top-spacer-xlarge u-margin-bottom-spacer-xlarge">
-              <h2 className="u-margin-bottom-spacer-large">
-                Tamponi ultima settimana
-              </h2>
+              <h2 className="u-margin-bottom-spacer-large">Tamponi ultima settimana</h2>
               <div className="card">
                 <div className="card__wrap">
                   <div className="card__item">
