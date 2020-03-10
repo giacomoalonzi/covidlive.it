@@ -27,3 +27,34 @@
     }
   }
 }
+
+.fake-carousel {
+  margin-bottom: $spacer-base;
+  &__wrap {
+    display: inline-flex;
+    flex: 1 1 auto;
+    @include breakpoint(lg) {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+  }
+  &__item {
+    margin-right: $spacer-small;
+    display: block;
+    height: inherit !important;
+    width: calc(90vw - 16px) !important;
+    @include breakpoint(md) {
+      margin-right: $spacer-base;
+      width: calc(48vw - 32px) !important;
+    }
+    @include breakpoint(lg) {
+      width: 100%!important;
+      flex: 1 1 100%;
+    }    .skeleton {
+    width: auto;
+    p {
+      @include truncate(100px);
+    }
+    }
+  }
+}

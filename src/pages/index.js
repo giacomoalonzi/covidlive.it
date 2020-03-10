@@ -5,6 +5,7 @@ import Layout from "@Components/layout"
 import SEO from "@Components/seo"
 import BigCard from "@Components/bigCard"
 import CardCarousel from "@Components/cardCarousel"
+import FakeCarousel from "@Components/fakeCarousel"
 import InfectedChart from "@Components/infectedChart"
 import TestPerformedChart from "@Components/testPerformedChart"
 
@@ -48,8 +49,11 @@ const IndexPage = () => {
     series: [lastWeekData.map(i => i.testPerformed)],
   }
 
-  const renderBigCardLoadingState = (key: number): Function => {
-    return <BigCard key={key} isLoading />
+  const renderBigCardLoadingState = (): Function => {
+    return (
+    <FakeCarousel>
+      { range(3).map((key) => <div className="fake-carousel__item"><BigCard key={key} isLoading /></div> ) }
+    </FakeCarousel>)
   }
 
   const renderBigCardCarousel = (): Function => {
@@ -81,11 +85,7 @@ const IndexPage = () => {
           <div className="homepage__wrap">
             <div className="homepage__item homepage__item--big-cards">
               <>
-                {!todayNationalTrendData ? (
-                  <CardCarousel>{range(3).map(renderBigCardLoadingState)}</CardCarousel>
-                ) : (
-                  renderBigCardCarousel()
-                )}
+                {!todayNationalTrendData ? renderBigCardLoadingState() : renderBigCardCarousel() }
                 {todayNationalTrendData && (
                   <p>
                     Ultimo aggiornamento:{" "}
