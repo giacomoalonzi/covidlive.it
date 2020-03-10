@@ -8,6 +8,9 @@
     min-height: 88px;
     align-items: center;
     flex-wrap: wrap;
+    .skeleton {
+      width: 100%;
+    }
   }
   &__item {
     display: flex;

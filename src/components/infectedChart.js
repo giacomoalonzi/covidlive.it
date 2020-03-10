@@ -2,6 +2,7 @@ import React from "react"
 import ChartistGraph from "react-chartist"
 import Chartist from "chartist"
 import { max } from 'lodash'
+
 const InfectedChart = ({ data, options }) => {
   const highestValue = max(data.series[0].map(d => d.value))
   const chartOptions = {
