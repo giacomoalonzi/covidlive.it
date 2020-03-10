@@ -1,3 +1,4 @@
+const trackingId = process.env.NODE_ENV !== "production" ? "UA-56138240-7" : ''
 module.exports = {
   siteMetadata: {
     title: `🦠COVIDLIVE`,
@@ -53,7 +54,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-56138240-7",
+        trackingId,
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
         // Setting this parameter is optional
