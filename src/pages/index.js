@@ -8,7 +8,7 @@ import CardCarousel from "@Components/cardCarousel"
 import FakeCarousel from "@Components/fakeCarousel"
 import InfectedChart from "@Components/infectedChart"
 import TestPerformedChart from "@Components/testPerformedChart"
-
+import MessageBox from '@Components/messageBox'
 import { get, last, slice, range } from "lodash"
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"
@@ -67,7 +67,7 @@ const IndexPage = () => {
           emoji="😷"
           title="Positivi"
           content={`${get(todayNationalTrendData, "infected", "").toLocaleString()}`}
-          additionalContent={`+${get(todayNationalTrendData, "newInfected", "").toLocaleString()}`}
+          additionalContent={`+${get(todayNationalTrendData, "newInfected", "").toLocaleString()} da ieri`}
           subContent={`Totali fino ad oggi ${get(todayNationalTrendData, "totalCases", "").toLocaleString()}`}
         />
         <BigCard emoji="😊" title="Guariti" content={get(todayNationalTrendData, "healed", "").toLocaleString()} />
@@ -83,10 +83,13 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Covidlive: la situazione in Italia in tempo reale" />
+      <SEO title="Covid Live: la situazione in tempo reale" />
       <div>
         <div className="homepage">
           <div className="homepage__wrap">
+            <div style={{marginLeft: 'auto', marginRight: 'auto'}} className="u-margin-bottom-spacer-huge">
+              <MessageBox type="error"><p>Attenzione: i dati del 10/03 relativi alla Regione Lombardia non sono completi.</p></MessageBox>
+            </div>
             <div className="homepage__item homepage__item--big-cards">
               <>
                 {!todayNationalTrendData ? renderBigCardLoadingState() : renderBigCardCarousel()}
@@ -105,7 +108,7 @@ const IndexPage = () => {
               </>
             </div>
             <div className="homepage__item homepage__item--region-chart u-margin-top-spacer-xxlarge u-margin-bottom-spacer-xlarge">
-              <h2 className="u-margin-bottom-spacer-large">Top 10 regioni</h2>
+              <h2 className="u-margin-bottom-spacer-large">Le regioni più colpite</h2>
               <RowCardList list={regionsDataSorted} numberOfFakeCards={10} isLoading={!regionsDataSorted.length} />
             </div>
 
