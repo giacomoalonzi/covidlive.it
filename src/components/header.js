@@ -10,8 +10,8 @@ const Header = () => (
           <Link to="/">
             <span role="img">🦠</span>
             {` `}covid<span>live</span>
+            <small>La situazione in italia in tempo reale</small>
           </Link>
-          <small>La situazione in italia in tempo reale</small>
         </p>
       </div>
       <div className="header__item header__item--nav">

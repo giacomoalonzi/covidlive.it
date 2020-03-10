@@ -1,3 +1,4 @@
+// @flow
 /**
  * SEO component that queries for data with
  *  Gatsby's useStaticQuery React hook
@@ -16,6 +17,7 @@ type Props = {
   meta?: Array<string>,
   title: string,
 }
+
 function SEO({ description, lang, meta, title }: Props): Function {
   const { site } = useStaticQuery(
     graphql`
