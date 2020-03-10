@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `🦠COVIDLIVE`,
-    description: `La situazione in Italia in tempo reale.`,
+    title: `Covid Live: la situazione in tempo reale`,
+    description: `Tutti i dati aggiornati sulla diffusione di Covid-19 in Italia`,
     author: `@giacomo.alonzi`,
     siteUrl: 'https://covidlive.it'
   },

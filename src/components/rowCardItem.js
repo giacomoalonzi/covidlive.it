@@ -29,19 +29,19 @@ const RowCardItem = ({ index, name, infected, healed, deaths, isLoading }: Props
           <div className="row-card-item__item row-card-item__item--stats">
             <div className="row-card-item-stat">
               <p>
-                <span>😷</span>
+                <span role="img">😷</span>
                 {infected}
               </p>
             </div>
             <div className="row-card-item-stat">
               <p>
-                <span>😊</span>
+                <span role="img">😊</span>
                 {healed}
               </p>
             </div>
             <div className="row-card-item-stat">
               <p>
-                <span>😢</span>
+                <span role="img">😢</span>
                 {deaths}
               </p>
             </div>
