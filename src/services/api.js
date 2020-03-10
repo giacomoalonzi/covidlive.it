@@ -1,6 +1,5 @@
 import axios from "axios"
 import { normalizeRegionData, normalizeNationalTrendData } from "./normalize"
-import { delay } from "@Services/util"
 const baseURL = "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json"
 
 const http = axios.create({
@@ -9,11 +8,11 @@ const http = axios.create({
 })
 
 export const getRegionsData = () => {
-  return http.get("/dpc-covid19-ita-regioni.json").then(res => delay(3000).then(() => normalizeRegionData(res)))
+  return http.get("/dpc-covid19-ita-regioni.json").then(normalizeRegionData)
 }
 
 export const getNationalTrendData = () => {
   return http
     .get("/dpc-covid19-ita-andamento-nazionale.json")
-    .then(res => delay(3000).then(() => normalizeNationalTrendData(res)))
+    .then(normalizeNationalTrendData)
 }

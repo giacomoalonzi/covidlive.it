@@ -103,7 +103,7 @@ const IndexPage = () => {
               <RowCardList
                 list={regionsDataSorted}
                 numberOfFakeCards={10}
-                isLoading={regionsDataStore.pending && !regionsDataSorted.length > 0}
+                isLoading={!regionsDataSorted.length}
               />
             </div>
 
