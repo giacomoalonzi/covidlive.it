@@ -30,8 +30,8 @@ const CardCarousel = ({ children }: { children: any }) => {
   }, [])
 
   const renderChildren = (): Array<Function> => {
-    const arrayOfChildren = React.Children.toArray(children.props.children)
-    return arrayOfChildren.map((child, key) => (
+    // const arrayOfChildren = React.Children.toArray(children.props.children)
+    return children.map((child, key) => (
       <div className="card-carousel__item" key={key}>
         {child}
       </div>
@@ -47,11 +47,11 @@ const CardCarousel = ({ children }: { children: any }) => {
 }
 
 CardCarousel.defaultProps = {
-  children: {},
+  children: [],
 }
 
 CardCarousel.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.array,
 }
 
 export default CardCarousel

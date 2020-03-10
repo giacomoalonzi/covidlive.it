@@ -10,7 +10,7 @@ type Props = {
   numberOfFakeCards: number,
 }
 
-const RowCardList = ({ list, isLoading, numberOfFakeCards }: Props): Element<'div'> => {
+const RowCardList = ({ list, isLoading, numberOfFakeCards }: Props): Element<"div"> => {
   const renderRowElements = (): Array<Function> => {
     return list.map((item, key) => (
       <RowCardItem

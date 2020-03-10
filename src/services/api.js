@@ -12,7 +12,5 @@ export const getRegionsData = () => {
 }
 
 export const getNationalTrendData = () => {
-  return http
-    .get("/dpc-covid19-ita-andamento-nazionale.json")
-    .then(normalizeNationalTrendData)
+  return http.get("/dpc-covid19-ita-andamento-nazionale.json").then(normalizeNationalTrendData)
 }

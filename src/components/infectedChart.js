@@ -1,7 +1,7 @@
 import React from "react"
 import ChartistGraph from "react-chartist"
 import Chartist from "chartist"
-import { max } from 'lodash'
+import { max } from "lodash"
 
 const InfectedChart = ({ data, options }) => {
   const highestValue = max(data.series[0].map(d => d.value))
@@ -27,12 +27,7 @@ const InfectedChart = ({ data, options }) => {
     <div className="chart">
       <div className="chart__wrap">
         <div className="chart__item">
-          <ChartistGraph
-            data={data}
-            options={chartOptions}
-            type="Line"
-            responsiveOptions={responsiveOptions}
-          />
+          <ChartistGraph data={data} options={chartOptions} type="Line" responsiveOptions={responsiveOptions} />
         </div>
       </div>
     </div>

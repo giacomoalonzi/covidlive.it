@@ -54,7 +54,7 @@ const IndexPage = () => {
 
   const renderBigCardCarousel = (): Function => {
     return (
-      <>
+      <CardCarousel>
         <BigCard
           emoji="😷"
           title="Positivi"
@@ -69,21 +69,23 @@ const IndexPage = () => {
           content={get(todayNationalTrendData, "deaths", "")}
           subContent="In attesa di conferma ISS"
         />
-      </>
+      </CardCarousel>
     )
   }
 
   return (
     <Layout>
-      <SEO title="Covidlive: La situazione in Italia in tempo reale" />
+      <SEO title="Covidlive: la situazione in Italia in tempo reale" />
       <div>
         <div className="homepage">
           <div className="homepage__wrap">
             <div className="homepage__item homepage__item--big-cards">
               <>
-                <CardCarousel>
-                  {!todayNationalTrendData ? <>{range(3).map(renderBigCardLoadingState)}</> : renderBigCardCarousel()}
-                </CardCarousel>
+                {!todayNationalTrendData ? (
+                  <CardCarousel>{range(3).map(renderBigCardLoadingState)}</CardCarousel>
+                ) : (
+                  renderBigCardCarousel()
+                )}
                 {todayNationalTrendData && (
                   <p>
                     Ultimo aggiornamento:{" "}
@@ -100,11 +102,7 @@ const IndexPage = () => {
             </div>
             <div className="homepage__item homepage__item--region-chart u-margin-top-spacer-xxlarge u-margin-bottom-spacer-xlarge">
               <h2 className="u-margin-bottom-spacer-large">Top 10 regioni</h2>
-              <RowCardList
-                list={regionsDataSorted}
-                numberOfFakeCards={10}
-                isLoading={!regionsDataSorted.length}
-              />
+              <RowCardList list={regionsDataSorted} numberOfFakeCards={10} isLoading={!regionsDataSorted.length} />
             </div>
 
             <div className="homepage__item homepage__item--half u-margin-top-spacer-xlarge u-margin-bottom-spacer-xlarge">

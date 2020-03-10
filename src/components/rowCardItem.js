@@ -11,7 +11,7 @@ type Props = {
   isLoading?: boolean,
 }
 
-const RowCardItem = ({ index, name, infected, healed, deaths, isLoading }: Props): Element<'li'> => (
+const RowCardItem = ({ index, name, infected, healed, deaths, isLoading }: Props): Element<"li"> => (
   <li className="row-card-item">
     <div className="row-card-item__wrap">
       {isLoading ? (
