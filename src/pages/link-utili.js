@@ -1,3 +1,4 @@
+// @flow
 import React from "react"
 import Layout from "@Components/layout"
 import SEO from "@Components/seo"
@@ -25,8 +26,7 @@ const LinkUtili = () => {
                 <a href="http://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=73594" rel="noopener noreferrer" target="_blank">DPCM 8 marzo 2020</a>
               </li>
               <li>
-              <a href="http://www.salute.gov.it/portale/nuovocoronavirus/archivioNormativaNuovoCoronavirus.jsp  " rel="noopener noreferrer" target="_blank">Norme e ordinanze</a>
-
+                <a href="http://www.salute.gov.it/portale/nuovocoronavirus/archivioNormativaNuovoCoronavirus.jsp  " rel="noopener noreferrer" target="_blank">Norme e ordinanze</a>
               </li>
               </ul>
             </div>

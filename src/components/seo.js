@@ -1,3 +1,4 @@
+// @flow
 /**
  * SEO component that queries for data with
  *  Gatsby's useStaticQuery React hook
@@ -9,13 +10,14 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import ogImage from "@Assets/images/fb.jpg"
+import ogImage from "@Assets/images/image-og.jpg"
 type Props = {
   description?: string,
   lang?: string,
   meta?: Array<string>,
   title: string,
 }
+
 function SEO({ description, lang, meta, title }: Props): Function {
   const { site } = useStaticQuery(
     graphql`

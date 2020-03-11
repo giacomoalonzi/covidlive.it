@@ -1,3 +1,4 @@
+// @flow
 import React, { useEffect, useContext, useState } from "react"
 import { Context as RegionsDataContext } from "@Contexts/regionsData"
 import { Context as NationalTrendDataContext } from "@Contexts/nationalTrendData"
@@ -9,6 +10,7 @@ import FakeCarousel from "@Components/fakeCarousel"
 import InfectedChart from "@Components/infectedChart"
 import TestPerformedChart from "@Components/testPerformedChart"
 import { get, last, slice, range , merge} from "lodash"
+import MessageBox from '@Components/messageBox'
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"
 import RowCardList from "@Components/rowCardList"
@@ -34,6 +36,7 @@ const IndexPage = () => {
 
     setRegionsDataSorted(sortedData)
   }, [regionsDataStore])
+
 
   const { data: nationalTrendData } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
@@ -126,28 +129,37 @@ const IndexPage = () => {
     ]
   }
 
-  const renderBigCardLoadingState = () => {
+  const renderBigCardLoadingState = (key: number): Function => {
     return (
-    <FakeCarousel>
-      { range(3).map((key) => <div className="fake-carousel__item"><BigCard key={key} isLoading /></div> ) }
-    </FakeCarousel>)
+      <div className="fake-carousel__item">
+        <BigCard key={key} isLoading />
+      </div>
+    )
   }
 
-  const renderBigCardCarousel = () => {
+  const renderFakeCarousel = (): Function => {
+    return (
+      <FakeCarousel>
+        {range(3).map(renderBigCardLoadingState)}
+      </FakeCarousel>
+    )
+  }
+
+  const renderCarousel = (): Function => {
     return (
       <CardCarousel>
         <BigCard
           emoji="😷"
           title="Positivi"
           content={`${get(todayNationalTrendData, "infected", "").toLocaleString()}`}
-          additionalContent={`+${get(todayNationalTrendData, "newInfected", "").toLocaleString()}`}
+          additionalContent={`+${get(todayNationalTrendData, "newInfected", "").toLocaleString()} da ieri`}
           subContent={`Totali fino ad oggi ${get(todayNationalTrendData, "totalCases", "").toLocaleString()}`}
         />
-        <BigCard emoji="😊" title="Guariti" content={get(todayNationalTrendData, "healed", "")} />
+        <BigCard emoji="😊" title="Guariti" content={get(todayNationalTrendData, "healed", "").toLocaleString()} />
         <BigCard
           emoji="😢"
           title="Deceduti"
-          content={get(todayNationalTrendData, "deaths", "")}
+          content={get(todayNationalTrendData, "deaths", "").toLocaleString()}
           subContent="In attesa di conferma ISS"
         />
       </CardCarousel>
@@ -156,13 +168,16 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Covidlive: la situazione in Italia in tempo reale" />
+      <SEO title="Covid Live: la situazione in tempo reale" />
       <div>
         <div className="homepage">
           <div className="homepage__wrap">
+            <div style={{marginLeft: 'auto', marginRight: 'auto'}} className="u-margin-bottom-spacer-huge">
+              <MessageBox type="error"><p>Attenzione: i dati del 10/03 relativi alla Regione Lombardia non sono completi.</p></MessageBox>
+            </div>
             <div className="homepage__item homepage__item--big-cards">
               <>
-                {!todayNationalTrendData ? renderBigCardLoadingState() : renderBigCardCarousel() }
+                {!todayNationalTrendData ? renderFakeCarousel() : renderCarousel()}
                 {todayNationalTrendData && (
                   <p>
                     Ultimo aggiornamento:{" "}
@@ -178,7 +193,7 @@ const IndexPage = () => {
               </>
             </div>
             <div className="homepage__item homepage__item--region-chart u-margin-top-spacer-xxlarge u-margin-bottom-spacer-xlarge">
-              <h2 className="u-margin-bottom-spacer-large">Top 10 regioni</h2>
+              <h2 className="u-margin-bottom-spacer-large">Le regioni più colpite</h2>
               <RowCardList list={regionsDataSorted} numberOfFakeCards={10} isLoading={!regionsDataSorted.length} />
             </div>
 

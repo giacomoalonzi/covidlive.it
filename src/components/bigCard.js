@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Skeleton from "@Components/skeleton"
+import type { Element } from "react"
 type Props = {
   emoji: string,
   title: string,
@@ -10,7 +11,7 @@ type Props = {
   isLoading: boolean,
 }
 
-const BigCard = ({ emoji, title, content, additionalContent, subContent, isLoading }: Props) => {
+const BigCard = ({ emoji, title, content, additionalContent, subContent, isLoading }: Props): Element<'div'> => {
   return (
     <div className="big-card card">
       <div className="big-card__wrap card__wrap">

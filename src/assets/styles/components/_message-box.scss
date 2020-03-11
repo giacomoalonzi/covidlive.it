@@ -1,0 +1,32 @@
+.message-box {
+  border-radius: 4px;
+  background-color: $neutral-50;
+  line-height: 1.4;
+  width: 100%;
+  padding: $spacer-mid;
+  @include breakpoint(iphoneFive) {
+    padding: $spacer-small;
+  }
+  &:empty {
+    display: none;
+  }
+  p {
+    @extend %family-bold;
+    @include breakpoint(md) {
+      @include font-size(16px, 1.4);
+    }
+    @include breakpoint(iphoneFive) {
+      @include font-size(14px, 1.4);
+    }
+  }
+  &--success {
+    background: $success;
+  }
+  &--error {
+    background: $warning;
+    color: white;
+  }
+  &.is-small {
+    padding: $spacer-base;
+  }
+}
