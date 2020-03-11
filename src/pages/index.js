@@ -8,11 +8,11 @@ import CardCarousel from "@Components/cardCarousel"
 import FakeCarousel from "@Components/fakeCarousel"
 import InfectedChart from "@Components/infectedChart"
 import TestPerformedChart from "@Components/testPerformedChart"
-
-import { get, last, slice, range } from "lodash"
+import { get, last, slice, range , merge} from "lodash"
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"
 import RowCardList from "@Components/rowCardList"
+
 const IndexPage = () => {
   const { store: regionsDataStore, onGetRegionsData } = useContext(RegionsDataContext)
   const { store: nationalTrendDataStore, onGetNationalTrandData } = useContext(NationalTrendDataContext)
@@ -38,25 +38,60 @@ const IndexPage = () => {
   const { data: nationalTrendData } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
-
+  const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL")); 
+  const testsPerformed = lastWeekData.map(i => i.testPerformed);
+  const infected = lastWeekData.map(i => i.infected);
+  
   const infectedChartData = {
-    labels: lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL")),
-    series: [lastWeekData.map(i => ({ meta: "positivi", value: i.infected }))],
-  }
+    labels,
+    datasets: [
+      {
+        label: 'Infetti',
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: 'rgba(75,192,192,1)',
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: 'rgba(75,192,192,1)',
+        pointBackgroundColor: '#fff',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: infected
+      }
+    ]
+  };
 
   const testPerformedChartData = {
-    labels: lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL")),
-    series: [lastWeekData.map(i => i.testPerformed)],
+    labels,
+    datasets: [
+      {
+        label: `Tamponi effettuati`,
+        data: testsPerformed,
+        backgroundColor: 'rgba(255,99,132,0.2)',
+        borderColor: 'rgba(255,99,132,1)',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+        hoverBorderColor: 'rgba(255,99,132,1)',
+      }
+    ]
   }
 
-  const renderBigCardLoadingState = (): Function => {
+  const renderBigCardLoadingState = () => {
     return (
     <FakeCarousel>
       { range(3).map((key) => <div className="fake-carousel__item"><BigCard key={key} isLoading /></div> ) }
     </FakeCarousel>)
   }
 
-  const renderBigCardCarousel = (): Function => {
+  const renderBigCardCarousel = () => {
     return (
       <CardCarousel>
         <BigCard

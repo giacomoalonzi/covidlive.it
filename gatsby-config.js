@@ -45,6 +45,7 @@ module.exports = {
           "@Contexts": "src/contexts",
           "@Reducers": "src/reducers",
           "@Actions": "src/actions",
+          "@Core": "src/core",
         },
         extensions: ["js"],
       },
