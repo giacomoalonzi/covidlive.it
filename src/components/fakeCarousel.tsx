@@ -2,7 +2,7 @@
 import * as React from "react"
 import * as PropTypes from "prop-types"
 type Props = {
-  children: []
+  children: [] | {}
 }
 const FakeCarousel = ({ children }: Props) => (
   <div className="fake-carousel">

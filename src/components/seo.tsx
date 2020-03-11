@@ -10,8 +10,9 @@ import * as React from "react"
 import * as PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-// @ts-ignore
-import ogImage from "../assets/images/image-og.jpg"
+
+const ogImage = require("@Assets/images/image-og.jpg")
+
 type Props = {
   description?: string
   lang?: string

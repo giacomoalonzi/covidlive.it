@@ -130,14 +130,13 @@ const IndexPage = () => {
 
   const renderBigCardLoadingState = (key: number) => {
     return (
-      <div className="fake-carousel__item">
-        <BigCard key={key} isLoading />
+      <div key={key} className="fake-carousel__item">
+        <BigCard isLoading />
       </div>
     )
   }
 
   const renderFakeCarousel = () => {
-    // @ts-ignore
     return <FakeCarousel>{range(3).map(renderBigCardLoadingState)}</FakeCarousel>
   }
 
