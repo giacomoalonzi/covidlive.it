@@ -6,12 +6,11 @@ import "swiper/css/swiper.css"
 const breakpointTablet = typeof window !== `undefined` ? window.matchMedia("(min-width:62em)") : null
 
 const params = {
-  slidesPerView: "auto",
+  slidesPerView: 'auto' as 'auto',
   spaceBetween: 8,
   preloadImages: true,
   shouldSwiperUpdate: true,
   autoHeight: false,
-  pagination: false,
   "768": {
     slidesPerView: 2,
     spaceBetween: 8,
@@ -47,7 +46,6 @@ const CardCarousel = ({ children }: Props) => {
     <div className="card-carousel">
       <div className="card-carousel__wrap">
         {isMobile ? (
-          // @ts-ignore
           <Swiper {...params}>{renderChildren()}</Swiper>
         ) : (
           renderChildren()
