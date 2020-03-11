@@ -14,11 +14,12 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
+
+    `gatsby-plugin-typescript`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-flow`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -45,7 +46,6 @@ module.exports = {
           "@Contexts": "src/contexts",
           "@Reducers": "src/reducers",
           "@Actions": "src/actions",
-          "@Core": "src/core",
         },
         extensions: ["js"],
       },

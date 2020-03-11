@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "esnext",
+        "jsx": "react",
+        "lib": ["dom", "es2015", "es2017"],
+        "baseUrl": "./src",
+        "paths": {
+            "@Components/*": ["components/*"],
+            "@Layouts/*": ["layouts/*"],
+            "@Pages/*": ["pages/*"],
+            "@Assets/*": ["assets/*"],
+            "@Services/*": ["services/*"],
+            "@Types/*": ["types/*"],
+            "@Contexts/*": ["contexts/*"],
+            "@Reducers/*": ["reducers/*"],
+            "@Actions/*": ["actions/*"],
+        }
+    },
+    "include": [
+        "./src/**/*"
+    ],
+}
