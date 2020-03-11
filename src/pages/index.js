@@ -41,30 +41,72 @@ const IndexPage = () => {
   const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL")); 
   const testsPerformed = lastWeekData.map(i => i.testPerformed);
   const infected = lastWeekData.map(i => i.infected);
+  const healed = lastWeekData.map(i => i.healed);
+  const deaths = lastWeekData.map(i => i.deaths);
   
   const infectedChartData = {
     labels,
     datasets: [
       {
-        label: 'Infetti',
+        label: 'Positivi',
         fill: false,
         lineTension: 0.1,
-        backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: 'rgba(75,192,192,1)',
+        backgroundColor: '#E86379',
+        borderColor: '#E86379',
         borderCapStyle: 'butt',
         borderDash: [],
         borderDashOffset: 0.0,
         borderJoinStyle: 'miter',
-        pointBorderColor: 'rgba(75,192,192,1)',
+        pointBorderColor: '#E86379',
         pointBackgroundColor: '#fff',
         pointBorderWidth: 1,
         pointHoverRadius: 5,
-        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+        pointHoverBackgroundColor: '#E86379',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBorderWidth: 5,
+        data: infected
+      },
+      {
+        label: 'Guariti',
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: '#20D6A5',
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: '#20D6A5',
+        pointBackgroundColor: '#fff',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: '#20D6A5',
         pointHoverBorderColor: 'rgba(220,220,220,1)',
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: infected
+        data: healed
+      },
+      {
+        label: 'Deceduti',
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: '#000b33',
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: '#000b33',
+        pointBackgroundColor: '#000b33',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: '#000b33',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: deaths
       }
     ]
   };
@@ -141,7 +183,7 @@ const IndexPage = () => {
             </div>
 
             <div className="homepage__item homepage__item--half u-margin-top-spacer-xlarge u-margin-bottom-spacer-xlarge">
-              <h2 className="u-margin-bottom-spacer-large">Positivi ultima settimana</h2>
+              <h2 className="u-margin-bottom-spacer-large">Dati ultima settimana</h2>
               <div className="card">
                 <div className="card__wrap">
                   <div className="card__item">
