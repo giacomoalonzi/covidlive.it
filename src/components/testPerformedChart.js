@@ -1,7 +1,8 @@
 // @Flow
 import React from "react"
-import ChartistGraph from "react-chartist"
 import type { Element } from "react"
+import { Bar } from 'react-chartjs-2';
+
 type Props = {
   data: any, //tbd,
   options?: any, //tbd
@@ -29,11 +30,11 @@ const TestPerformedChart = ({ data, options }: Props ): Element<'div'> => {
     <div className="chart">
       <div className="chart__wrap">
         <div className="chart__item">
-          <ChartistGraph
+          <Bar
             data={data}
-            options={chartOptions}
-            type="Bar"
-            responsiveOptions={responsiveOptions}
+            width={100}
+            height={50}
+            options={{ maintainAspectRatio: false, ...options }}
           />
         </div>
       </div>
