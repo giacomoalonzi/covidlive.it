@@ -20,7 +20,7 @@ const Faq = () => {
                     <p>
                       Non si può uscire di casa se non per validi motivi. Le limitazioni agli spostamenti sono le stesse
                       in tutte le Regioni italiane e sono in vigore dal 10 marzo e fino al 3 aprile 2020. Ci saranno
-                      controlli da parte delle forze di Polizia. E’ previsto il divieto assoluto di uscire di casa per
+                      controlli da parte delle forze di Polizia. È previsto il divieto assoluto di uscire di casa per
                       chi è sottoposto a quarantena o risulti positivo al virus. In caso di sintomi da infezione
                       respiratoria o febbre superiore a 37,5 gradi è fortemente raccomandato di rimanere a casa, di
                       rivolgersi al proprio medico e di limitare al massimo il contatto con altre persone
@@ -55,11 +55,11 @@ const Faq = () => {
                   </div>
                   <div className="faq__item">
                     <h3>
-                      Sì, e non c’è alcuna necessità di accaparrarseli perché i negozi saranno sempre riforniti. Non c’è
-                      nessuna limitazione al transito delle merci: tutte le merci, quindi non solo quelle di prima
-                      necessità, possono circolare sul territorio nazionale
+                      È possibile uscire per acquistare generi alimentari?
                     </h3>
-                    <p></p>
+                    <p>Sì, e non c’è alcuna necessità di accaparrarseli perché i negozi saranno sempre riforniti. Non c’è
+                      nessuna limitazione al transito delle merci: tutte le merci, quindi non solo quelle di prima
+                      necessità, possono circolare sul territorio nazionale</p>
                   </div>
                   <div className="faq__item">
                     <h3>Si può uscire per acquistare beni diversi da quelli alimentari?</h3>
