@@ -1,3 +1,4 @@
+// @flow
 import React from "react"
 import Layout from "@Components/layout"
 import SEO from "@Components/seo"

@@ -1,9 +1,9 @@
 // @Flow
 import React from 'react' 
 import PropTypes from "prop-types"
-import type { Element } from "react"
+import type { Element, Node } from "react"
 type Props = {
-  children: Array<Function>
+  children: Array<Node>
 }
 const FakeCarousel = ({children}: Props): Element<'div'> => (
   <div className="fake-carousel">
@@ -18,7 +18,7 @@ FakeCarousel.defaultProps = {
 }
 
 FakeCarousel.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.arrayOf(PropTypes.node).isRequired,
 }
 
 export default FakeCarousel

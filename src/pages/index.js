@@ -1,4 +1,4 @@
-// @Flow
+// @flow
 import React, { useEffect, useContext, useState } from "react"
 import { Context as RegionsDataContext } from "@Contexts/regionsData"
 import { Context as NationalTrendDataContext } from "@Contexts/nationalTrendData"

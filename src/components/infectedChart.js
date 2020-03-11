@@ -11,7 +11,7 @@ type Props = {
   options?: any, // tbd
 }
 
-const InfectedChart = ({ data, options }): Element<'div'> => {
+const InfectedChart = ({ data, options }: Props): Element<'div'> => {
   const highestValue = max(data.series[0].map(d => d.value))
   const chartOptions = {
     ...options,
@@ -43,11 +43,13 @@ const InfectedChart = ({ data, options }): Element<'div'> => {
 }
 
 InfectedChart.defaultProps = {
-  children: [],
+  data: [], // tbd
+  options: [], // tbd
 }
 
 InfectedChart.propTypes = {
-  children: PropTypes.array,
+  data: PropTypes.any, // tbd
+  options: PropTypes.any, // tbd
 }
 
 export default InfectedChart

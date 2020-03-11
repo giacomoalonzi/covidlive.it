@@ -1,5 +1,7 @@
+// @flow
 import React, { useLayoutEffect, useState } from "react"
 import PropTypes from "prop-types"
+import type { Element } from "react"
 import Swiper from "react-id-swiper"
 import "swiper/css/swiper.css"
 const breakpointTablet = typeof window !== `undefined` ? window.matchMedia("(min-width:62em)") : null
@@ -16,8 +18,11 @@ const params = {
     spaceBetween: 8,
   },
 }
+type Props = {
+  children: Array<Object>
+}
 
-const CardCarousel = ({ children }: { children: any }) => {
+const CardCarousel = ({ children }: Props): Element<'div'> => {
   const [isMobile, setIsMobile] = useState(breakpointTablet && !breakpointTablet.matches)
 
   useLayoutEffect(() => {

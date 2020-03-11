@@ -1,6 +1,8 @@
+// @flow
 import React from "react"
+import type { Element } from "react"
 
-const Footer = () => (
+const Footer = (): Element<'footer'> => (
   <footer className="footer">
     <div className="footer__wrap">
       <div className="footer__item">
