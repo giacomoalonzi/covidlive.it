@@ -20,10 +20,10 @@ const Faq = () => {
                     <p>
                       Non si può uscire di casa se non per validi motivi. Le limitazioni agli spostamenti sono le stesse
                       in tutte le Regioni italiane e sono in vigore dal 10 marzo e fino al 3 aprile 2020. Ci saranno
-                      controlli da parte delle forze di Polizia. È previsto il divieto assoluto di uscire di casa per
+                      controlli da parte delle forze di Polizia. E’ previsto il divieto assoluto di uscire di casa per
                       chi è sottoposto a quarantena o risulti positivo al virus. In caso di sintomi da infezione
                       respiratoria o febbre superiore a 37,5 gradi è fortemente raccomandato di rimanere a casa, di
-                      rivolgersi al proprio medico e di limitare al massimo il contatto con altre persone
+                      rivolgersi al proprio medico e di limitare al massimo il contatto con altre persone.
                     </p>
                   </div>
                   <div className="faq__item">
@@ -32,63 +32,55 @@ const Faq = () => {
                       Si può uscire di casa per andare a lavoro, per ragioni di salute o situazioni di necessità. Per
                       provare queste esigenze dovrà essere compilata un’autodichiarazione che potrà essere resa anche
                       seduta stante sui moduli in dotazione alle forze di Polizia. La veridicità delle dichiarazioni
-                      sarà oggetto di controlli successivi
+                      sarà oggetto di controlli successivi.
                     </p>
                   </div>
                   <div className="faq__item">
                     <h3>Chi si trova fuori dal proprio 3 domicilio, abitazione o residenza può rientravi?</h3>
                     <p>
                       Sì, fermo restando che poi si potrà spostare solo per esigenze lavorative, situazioni di necessità
-                      e motivi di salute
+                      e motivi di salute.
                     </p>
                   </div>
                   <div className="faq__item">
-                    <h3>Se abito in un comune e lavoro in altro </h3>
-                    <p>Sì, se è uno spostamento giustificato per esigenze lavorative</p>
+                    <h3>Se abito in un comune e lavoro in altro posso fare "avanti" e "indietro"?</h3>
+                    <p>Sì, se è uno spostamento giustificato per esigenze lavorative.</p>
                   </div>
                   <div className="faq__item">
-                    <h3>Posso utilizzare i mezzi di </h3>
+                    <h3>Posso utilizzare i mezzi di trasporto pubblico?</h3>
                     <p>
                       Nessun blocco dei trasporti. Tutti i mezzi di trasporto pubblico, e anche privato, funzionano
-                      regolarmente
+                      regolarmente.
                     </p>
-                  </div>
-                  <div className="faq__item">
-                    <h3>
-                      È possibile uscire per acquistare generi alimentari?
-                    </h3>
-                    <p>Sì, e non c’è alcuna necessità di accaparrarseli perché i negozi saranno sempre riforniti. Non c’è
-                      nessuna limitazione al transito delle merci: tutte le merci, quindi non solo quelle di prima
-                      necessità, possono circolare sul territorio nazionale</p>
                   </div>
                   <div className="faq__item">
                     <h3>Si può uscire per acquistare beni diversi da quelli alimentari?</h3>
                     <p>
                       Sì, ma solo in caso di stretta necessità, quindi unicamente per l’acquisto di beni legati ad
-                      esigenze primarie non rimandabili
+                      esigenze primarie non rimandabili.
                     </p>
                   </div>
                   <div className="faq__item">
                     <h3>Posso andare a mangiare dai parenti?</h3>
-                    <p>No, perché non è uno spostamento necessario e quindi non rientra tra quelli ammessi</p>
+                    <p>No, perché non è uno spostamento necessario e quindi non rientra tra quelli ammessi.</p>
                   </div>
                   <div className="faq__item">
                     <h3>Posso andare ad assistere i miei cari anziani non autosufficienti?</h3>
                     <p>
                       Sì. Ricordate però che gli anziani sono le persone più vulnerabili e quindi cercate di proteggerli
-                      il più possibile dai contatti
+                      il più possibile dai contatti.
                     </p>
                   </div>
                   <div className="faq__item">
-                    <h3>È consentito fare attività 11 Posso uscire con il mio cane? 12 motoria all’aperto?</h3>
+                    <h3>È consentito fare attività motoria all’aperto?</h3>
                     <p>
                       Lo sport e le attività motorie svolte negli spazi aperti sono ammessi nel rispetto della distanza
-                      interpersonale di un metro. In ogni caso bisogna evitare assembramenti
+                      interpersonale di un metro. In ogni caso bisogna evitare assembramenti.
                     </p>
                   </div>
                   <div className="faq__item">
                     <h3>Posso uscire con il mio cane?</h3>
-                    <p>Sì, per la gestione quotidiana delle sue esigenze fisiologiche e per i controlli veterinari</p>
+                    <p>Sì, per la gestione quotidiana delle sue esigenze fisiologiche e per i controlli veterinari.</p>
                   </div>
                   <div className="faq__item">
                     <h3>Che succede a chi non rispetta le limitazioni?</h3>
@@ -96,11 +88,11 @@ const Faq = () => {
                       La violazione delle prescrizioni è punita con l'arresto fino a tre mesi o con l'ammenda fino a 206
                       euro, secondo quanto previsto dall'articolo 650 del codice penale sull'inosservanza di un
                       provvedimento di un'autorità. Ma pene più severe possono essere comminate a chi adotterà
-                      comportamenti che configurino più gravi ipotesi di reato
+                      comportamenti che configurino più gravi ipotesi di reato.
                     </p>
                   </div>
                   <div className="faq__item">
-                    <h3>Quali sono le misure previste in Italia? </h3>
+                    <h3>Quali sono le misure previste in Italia?</h3>
                     <p>
                       L'8 marzo il Presidente del Consiglio dei Ministri ha emanato un nuovo Decreto che sostituisce i
                       DPCM del 1 e 4 marzo 2020 e stabilisce nuove misure di contenimento dell'epidemia. In particolare
