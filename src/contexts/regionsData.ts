@@ -1,4 +1,4 @@
-// @flow
+// 
 import createContext from "./createContext"
 import { getRegionsDataReducer } from "@Reducers/regionsData"
 import { noop } from "@Services/util"

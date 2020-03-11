@@ -1,4 +1,4 @@
-// @flow
+// 
 /**
  * SEO component that queries for data with
  *  Gatsby's useStaticQuery React hook

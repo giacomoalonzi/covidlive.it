@@ -1,4 +1,3 @@
-// @flow
 import * as React from "react"
 import { Context as RegionsDataContext } from "@Contexts/regionsData"
 import { Context as NationalTrendDataContext } from "@Contexts/nationalTrendData"
@@ -9,7 +8,7 @@ import CardCarousel from "@Components/cardCarousel"
 import FakeCarousel from "@Components/fakeCarousel"
 import InfectedChart from "@Components/infectedChart"
 import TestPerformedChart from "@Components/testPerformedChart"
-import { get, last, slice, range, merge } from "lodash"
+import { get, last, slice, range } from "lodash"
 import MessageBox from "@Components/messageBox"
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"

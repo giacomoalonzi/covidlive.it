@@ -1,4 +1,3 @@
-// @Flow
 import * as React from "react"
 import * as PropTypes from "prop-types"
 import { Line } from "react-chartjs-2"
