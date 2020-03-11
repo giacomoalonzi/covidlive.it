@@ -1,13 +1,8 @@
-import config from "gatsby-plugin-config"
 import axios from "axios"
 import { normalizeRegionData, normalizeNationalTrendData } from "./normalize"
 
-console.log(config)
-
-const baseURL = "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json"
-
 const http = axios.create({
-  baseURL,
+  baseURL: process.env.API_URL,
   timeout: process.env.NODE_ENV !== "production" ? 100000 : 10000,
 })
 
