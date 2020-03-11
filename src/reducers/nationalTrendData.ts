@@ -1,4 +1,4 @@
-// 
+//
 import { NATIONAL_DATA_FETCH, NATIONAL_DATA_SUCCESS, NATIONAL_DATA_FAIL } from "@Actions/nationalData"
 
 export const getNationalTrandDataReducer = (state: any, action: any) => {

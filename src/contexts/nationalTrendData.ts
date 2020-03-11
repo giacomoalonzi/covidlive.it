@@ -1,4 +1,4 @@
-// 
+//
 import createContext from "./createContext"
 import { getNationalTrandDataReducer } from "@Reducers/nationalTrendData"
 import { NATIONAL_DATA_FETCH, NATIONAL_DATA_SUCCESS, NATIONAL_DATA_FAIL } from "@Actions/nationalData"

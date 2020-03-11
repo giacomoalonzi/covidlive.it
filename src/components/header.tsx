@@ -1,4 +1,4 @@
-// 
+//
 import * as React from "react"
 import * as PropTypes from "prop-types"
 import { Link } from "gatsby"
@@ -9,7 +9,9 @@ const Header = () => (
       <div className="header__item header__item--brand">
         <p>
           <Link to="/">
-            <span role="img" aria-labelledby="emoji">🦠</span>
+            <span role="img" aria-labelledby="emoji">
+              🦠
+            </span>
             {` `}covid<span>live</span>
             <small>La situazione in italia in tempo reale</small>
           </Link>

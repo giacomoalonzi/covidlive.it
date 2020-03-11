@@ -1,4 +1,4 @@
-// 
+//
 import * as React from "react"
 import * as PropTypes from "prop-types"
 import Swiper from "react-id-swiper"
@@ -6,7 +6,7 @@ import "swiper/css/swiper.css"
 const breakpointTablet = typeof window !== `undefined` ? window.matchMedia("(min-width:62em)") : null
 
 const params = {
-  slidesPerView: 'auto' as 'auto',
+  slidesPerView: "auto" as "auto",
   spaceBetween: 8,
   preloadImages: true,
   shouldSwiperUpdate: true,
@@ -45,11 +45,7 @@ const CardCarousel = ({ children }: Props) => {
   return (
     <div className="card-carousel">
       <div className="card-carousel__wrap">
-        {isMobile ? (
-          <Swiper {...params}>{renderChildren()}</Swiper>
-        ) : (
-          renderChildren()
-        )}
+        {isMobile ? <Swiper {...params}>{renderChildren()}</Swiper> : renderChildren()}
       </div>
     </div>
   )

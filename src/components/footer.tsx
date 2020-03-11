@@ -18,7 +18,11 @@ const Footer = () => (
             Dipartimento della Protezione Civile
           </a>{" "}
           <br />
-          Developed with <span role="img" aria-labelledby="img">❤️</span> by{" "}
+          Developed with{" "}
+          <span role="img" aria-labelledby="img">
+            ❤️
+          </span>{" "}
+          by{" "}
           <a rel="noopener noreferrer" href="https://twitter.com/realbardaxx">
             @giacomo.alonzi
           </a>

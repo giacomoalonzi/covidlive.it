@@ -1,2 +1,2 @@
 declare const graphql: (query: TemplateStringsArray) => void
-declare module 'gatsby-plugin-config'
+declare module "gatsby-plugin-config"

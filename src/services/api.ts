@@ -1,4 +1,4 @@
-import config from 'gatsby-plugin-config';
+import config from "gatsby-plugin-config"
 import axios from "axios"
 import { normalizeRegionData, normalizeNationalTrendData } from "./normalize"
 
