@@ -1,7 +1,12 @@
+// @Flow
 import React from "react"
 import ChartistGraph from "react-chartist"
-
-const TestPerformedChart = ({ data, options }) => {
+import type { Element } from "react"
+type Props = {
+  data: any, //tbd,
+  options?: any, //tbd
+}
+const TestPerformedChart = ({ data, options }: Props ): Element<'div'> => {
   const chartOptions = {
     ...options,
     low: 0,
@@ -12,7 +17,7 @@ const TestPerformedChart = ({ data, options }) => {
       "screen and (max-width: 640px)",
       {
         axisX: {
-          labelInterpolationFnc: function(value, index) {
+          labelInterpolationFnc: function(value: string, index: number): ?string {
             return index % 4 === 0 ? value : null
           },
         },

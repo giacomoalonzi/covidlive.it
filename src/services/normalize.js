@@ -1,7 +1,9 @@
 
 import { get } from 'lodash'
+import type { NationalTrendDataType } from '@Types/nationalTrendData'
+import type { RegionDataType } from '@Types/regionData'
 
-export const normalizeRegionData = (response: any): any => {
+export const normalizeRegionData = (response: any): Array<RegionDataType> => {
  const { data } = response
  return data.map(region => ({
    id: get(region,'codice_regione', ''),
@@ -20,7 +22,7 @@ export const normalizeRegionData = (response: any): any => {
  }))
 }
 
-export const normalizeNationalTrendData = (response: any): any => {
+export const normalizeNationalTrendData = (response: any): Array<NationalTrendDataType> => {
   const { data } = response
   return data.map(nation => ({
     date: get(nation, 'data', ''),

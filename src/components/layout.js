@@ -7,13 +7,17 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import type { Node } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import "../assets/styles/styles.scss"
 import Header from "@Components/header"
 import Footer from '@Components/footer'
-    
 
-const Layout = ({ children } : {children: any}) => {
+type Props = {
+  children: Node
+}
+
+const Layout = ({ children }: Props): Node => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
