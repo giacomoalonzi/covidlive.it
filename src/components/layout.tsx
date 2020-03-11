@@ -13,7 +13,7 @@ import Header from "@Components/header"
 import Footer from "@Components/footer"
 
 interface Props {
-  children: []
+  children: [] | {}
 }
 
 const Layout = ({ children }: Props) => {

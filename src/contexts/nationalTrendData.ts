@@ -7,13 +7,13 @@ import { getNationalTrendData } from "@Services/api"
 import { NationalTrendDataType } from "@Types/nationalTrendData"
 
 interface Store {
-  pending: false
-  error: false
-  errorMessage: ""
-  data: [NationalTrendDataType]
+  pending: boolean
+  error: boolean
+  errorMessage: string
+  data: [NationalTrendDataType] | []
 }
 
-const defaultStore = {
+const defaultStore: Store = {
   pending: false,
   error: false,
   errorMessage: "",
@@ -25,9 +25,11 @@ const onGetNationalTrandData = (dispatch: Function) => (onComplete: Function = n
   getNationalTrendData()
     .then(response => {
       dispatch({ type: NATIONAL_DATA_SUCCESS, data: response })
+      onComplete()
     })
     .catch(error => {
       console.log(error)
+      onError()
       dispatch({ type: NATIONAL_DATA_FAIL, errorMessage: "Something went wrong" })
     })
 }
@@ -37,5 +39,5 @@ export const { Context, Provider } = createContext(
   {
     onGetNationalTrandData,
   },
-  defaultStore
+  defaultStore,
 )

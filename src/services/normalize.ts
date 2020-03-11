@@ -4,7 +4,7 @@ import { RegionDataType } from "@Types/regionData"
 
 export const normalizeRegionData = (response: any): [RegionDataType] => {
   const { data } = response
-  return data.map(region => ({
+  return data.map((region: any) => ({
     id: get(region, "codice_regione", ""),
     name: get(region, "denominazione_regione", ""),
     infected: get(region, "totale_attualmente_positivi", 0), // Total amount of current positive cases (Hospitalised patients + Home confinement)
@@ -23,7 +23,7 @@ export const normalizeRegionData = (response: any): [RegionDataType] => {
 
 export const normalizeNationalTrendData = (response: any): [NationalTrendDataType] => {
   const { data } = response
-  return data.map(nation => ({
+  return data.map((nation: any) => ({
     date: get(nation, "data", ""),
     hospitalized: get(nation, "totale_ospedalizzati", 0),
     infected: get(nation, "totale_attualmente_positivi", 0), // Total amount of current positive cases (Hospitalised patients + Home confinement)

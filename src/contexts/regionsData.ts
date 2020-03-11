@@ -2,7 +2,7 @@
 import createContext from "./createContext"
 import { getRegionsDataReducer } from "@Reducers/regionsData"
 import { noop } from "@Services/util"
-import { getRegionsData } from "@Services/api.js"
+import { getRegionsData } from "@Services/api"
 import { REGIONS_DATA_FETCH, REGIONS_DATA_SUCCESS, REGIONS_DATA_FAIL } from "@Actions/regionsData"
 import { RegionDataType } from "@Types/regionData"
 
@@ -10,7 +10,7 @@ interface Store {
   pending: boolean
   error: boolean
   errorMessage: string
-  data: [RegionDataType]
+  data: [RegionDataType] | []
 }
 
 const defaultStore: Store = {

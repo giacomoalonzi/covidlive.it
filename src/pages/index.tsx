@@ -14,6 +14,7 @@ import MessageBox from "@Components/messageBox"
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"
 import RowCardList from "@Components/rowCardList"
+import { NationalTrendDataType } from '@Types/nationalTrendData'
 
 const IndexPage = () => {
   const { store: regionsDataStore, onGetRegionsData } = React.useContext(RegionsDataContext)
@@ -28,7 +29,7 @@ const IndexPage = () => {
     const { data } = regionsDataStore
     const dailyData = data.splice(data.length - 20, data.length)
     const sortedData = dailyData
-      .sort(function(a, b) {
+      .sort(function(a: any, b: any) {
         return a.infected - b.infected
       })
       .reverse()
@@ -37,7 +38,7 @@ const IndexPage = () => {
     setRegionsDataSorted(sortedData)
   }, [regionsDataStore])
 
-  const { data: nationalTrendData } = nationalTrendDataStore
+  const { data: nationalTrendData }: { data: [NationalTrendDataType] } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
   const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL"))
@@ -56,7 +57,6 @@ const IndexPage = () => {
         backgroundColor: "#E86379",
         borderColor: "#E86379",
         borderCapStyle: "butt",
-        borderDash: [],
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderColor: "#E86379",
@@ -75,7 +75,6 @@ const IndexPage = () => {
         backgroundColor: "rgba(75,192,192,0.4)",
         borderColor: "#20D6A5",
         borderCapStyle: "butt",
-        borderDash: [],
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderColor: "#20D6A5",
@@ -96,7 +95,6 @@ const IndexPage = () => {
         backgroundColor: "rgba(75,192,192,0.4)",
         borderColor: "#000b33",
         borderCapStyle: "butt",
-        borderDash: [],
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderColor: "#000b33",
@@ -128,7 +126,7 @@ const IndexPage = () => {
     ],
   }
 
-  const renderBigCardLoadingState = (key: number): Function => {
+  const renderBigCardLoadingState = (key: number) => {
     return (
       <div className="fake-carousel__item">
         <BigCard key={key} isLoading />
@@ -136,11 +134,11 @@ const IndexPage = () => {
     )
   }
 
-  const renderFakeCarousel = (): Function => {
+  const renderFakeCarousel = () => {
     return <FakeCarousel>{range(3).map(renderBigCardLoadingState)}</FakeCarousel>
   }
 
-  const renderCarousel = (): Function => {
+  const renderCarousel = () => {
     return (
       <CardCarousel>
         <BigCard
@@ -163,8 +161,8 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Covid Live: la situazione in tempo reale" />
       <div>
+      <SEO title="Covid Live: la situazione in tempo reale" />
         <div className="homepage">
           <div className="homepage__wrap">
             <div style={{ marginLeft: "auto", marginRight: "auto" }} className="u-margin-bottom-spacer-huge">

@@ -11,7 +11,7 @@ type Props = {
 
 const RowCardList = ({ list, isLoading, numberOfFakeCards }: Props) => {
   const renderRowElements = (): Array<Function> => {
-    return list.map((item, key: number) => (
+    return list.map((item: any, key: number) => (
       <RowCardItem
         key={key}
         index={key}
