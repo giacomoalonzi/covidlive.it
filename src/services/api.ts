@@ -1,6 +1,8 @@
 import axios from "axios"
 import { normalizeRegionData, normalizeNationalTrendData } from "./normalize"
 
+console.log(process.env.API_URL)
+
 const http = axios.create({
   baseURL: process.env.API_URL,
   timeout: process.env.NODE_ENV !== "production" ? 100000 : 10000,
