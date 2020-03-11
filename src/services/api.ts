@@ -1,8 +1,5 @@
-import config from "gatsby-plugin-config"
 import axios from "axios"
 import { normalizeRegionData, normalizeNationalTrendData } from "./normalize"
-
-console.log(config)
 
 const baseURL = "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json"
 
