@@ -5,12 +5,12 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import * as React from 'react'
+import * as React from "react"
 import * as PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import "../assets/styles/styles.scss"
 import Header from "@Components/header"
-import Footer from '@Components/footer'
+import Footer from "@Components/footer"
 
 interface Props {
   children: []
@@ -35,7 +35,7 @@ const Layout = ({ children }: Props) => {
             <Header />
           </div>
           <div className="layout__item layout__item--body">
-             <main>{children}</main>
+            <main>{children}</main>
           </div>
           <div className="layout__item layout__item--footer">
             <Footer />

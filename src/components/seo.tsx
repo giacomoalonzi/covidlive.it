@@ -6,16 +6,16 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import * as React from 'react'
+import * as React from "react"
 import * as PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import ogImage from "../assets/images/image-og.jpg"
 type Props = {
-  description?: string,
-  lang?: string,
-  meta?: Array<string>,
-  title: string,
+  description?: string
+  lang?: string
+  meta?: Array<string>
+  title: string
 }
 
 function SEO({ description, lang, meta, title }: Props): Function {

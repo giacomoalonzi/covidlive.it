@@ -1,26 +1,26 @@
 // @flow
-import createContext from './createContext'
-import { getRegionsDataReducer } from '@Reducers/regionsData'
-import { noop } from '@Services/util'
-import { getRegionsData } from '@Services/api.js'
-import { REGIONS_DATA_FETCH, REGIONS_DATA_SUCCESS, REGIONS_DATA_FAIL } from '@Actions/regionsData'
-import { RegionDataType } from '@Types/regionData'
+import createContext from "./createContext"
+import { getRegionsDataReducer } from "@Reducers/regionsData"
+import { noop } from "@Services/util"
+import { getRegionsData } from "@Services/api.js"
+import { REGIONS_DATA_FETCH, REGIONS_DATA_SUCCESS, REGIONS_DATA_FAIL } from "@Actions/regionsData"
+import { RegionDataType } from "@Types/regionData"
 
 interface Store {
-  pending: boolean,
-  error: boolean,
-  errorMessage: string,
+  pending: boolean
+  error: boolean
+  errorMessage: string
   data: [RegionDataType]
 }
 
 const defaultStore: Store = {
   pending: false,
   error: false,
-  errorMessage: '',
+  errorMessage: "",
   data: [],
 }
 
-const onGetRegionsData = (dispatch: Function) => (onComplete: Function = noop, onError:Function = noop) => {
+const onGetRegionsData = (dispatch: Function) => (onComplete: Function = noop, onError: Function = noop) => {
   dispatch({ type: REGIONS_DATA_FETCH })
   getRegionsData()
     .then(response => {
@@ -28,12 +28,8 @@ const onGetRegionsData = (dispatch: Function) => (onComplete: Function = noop, o
     })
     .catch(error => {
       console.log(error)
-      dispatch({ type: REGIONS_DATA_FAIL, errorMessage: 'Something went wrong' })
+      dispatch({ type: REGIONS_DATA_FAIL, errorMessage: "Something went wrong" })
     })
 }
 
-export const { Context, Provider } = createContext(
-  getRegionsDataReducer,
-  { onGetRegionsData },
-  defaultStore
-)
+export const { Context, Provider } = createContext(getRegionsDataReducer, { onGetRegionsData }, defaultStore)

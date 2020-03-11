@@ -3,7 +3,7 @@ module.exports = {
     title: `Covid Live: la situazione in tempo reale`,
     description: `Tutti i dati aggiornati sulla diffusione di Covid-19 in Italia`,
     author: `@giacomo.alonzi`,
-    siteUrl: 'https://covidlive.it'
+    siteUrl: "https://covidlive.it",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

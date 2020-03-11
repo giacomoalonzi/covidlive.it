@@ -1,5 +1,5 @@
 // @flow
-import * as React  from "react"
+import * as React from "react"
 import * as PropTypes from "prop-types"
 import Swiper from "react-id-swiper"
 import "swiper/css/swiper.css"

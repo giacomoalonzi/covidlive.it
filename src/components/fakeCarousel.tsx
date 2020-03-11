@@ -1,14 +1,12 @@
 // @Flow
-import * as React from 'react'
+import * as React from "react"
 import * as PropTypes from "prop-types"
 type Props = {
   children: []
 }
-const FakeCarousel = ({children}: Props) => (
+const FakeCarousel = ({ children }: Props) => (
   <div className="fake-carousel">
-    <div className="fake-carousel__wrap">
-      {children}
-    </div>
+    <div className="fake-carousel__wrap">{children}</div>
   </div>
 )
 

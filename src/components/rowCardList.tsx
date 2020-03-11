@@ -1,15 +1,15 @@
-import * as React from 'react'
+import * as React from "react"
 import * as PropTypes from "prop-types"
 import RowCardItem from "@Components/rowCardItem"
 import { range } from "lodash"
 
 type Props = {
-  list: any,
-  isLoading: boolean,
-  numberOfFakeCards: number,
+  list: any
+  isLoading: boolean
+  numberOfFakeCards: number
 }
 
-const RowCardList = ({ list, isLoading, numberOfFakeCards }: Props)=> {
+const RowCardList = ({ list, isLoading, numberOfFakeCards }: Props) => {
   const renderRowElements = (): Array<Function> => {
     return list.map((item, key: number) => (
       <RowCardItem

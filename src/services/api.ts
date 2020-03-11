@@ -1,4 +1,3 @@
-
 import axios from "axios"
 
 import { normalizeRegionData, normalizeNationalTrendData } from "./normalize"

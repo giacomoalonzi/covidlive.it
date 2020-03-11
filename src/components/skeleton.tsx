@@ -1,11 +1,11 @@
 // flow
-import * as React from 'react'
+import * as React from "react"
 import * as PropTypes from "prop-types"
 
 interface Props {
-  children: {} | [],
-  type: string,
-  fullHeight?: boolean,
+  children: {} | []
+  type: string
+  fullHeight?: boolean
 }
 const Skeleton = ({ children, type, fullHeight }: Props) => {
   return (

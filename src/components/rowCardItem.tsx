@@ -1,14 +1,14 @@
-import * as React from 'react'
+import * as React from "react"
 import * as PropTypes from "prop-types"
 import Skeleton from "@Components/skeleton"
 
 interface Props {
-  index?: number,
-  name?: string,
-  infected?: number,
-  healed?: number,
-  deaths?: number,
-  isLoading?: boolean,
+  index?: number
+  name?: string
+  infected?: number
+  healed?: number
+  deaths?: number
+  isLoading?: boolean
 }
 
 const RowCardItem = ({ index, name, infected, healed, deaths, isLoading }: Props) => (

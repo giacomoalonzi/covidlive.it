@@ -1,14 +1,14 @@
-import * as React from 'react'
+import * as React from "react"
 import * as PropTypes from "prop-types"
 import Skeleton from "@Components/skeleton"
 
 interface Props {
-  emoji: string,
-  title: string,
-  content: string | number,
-  subContent: string,
-  additionalContent?: string,
-  isLoading: boolean,
+  emoji: string
+  title: string
+  content: string | number
+  subContent: string
+  additionalContent?: string
+  isLoading: boolean
 }
 
 const BigCard = ({ emoji, title, content, additionalContent, subContent, isLoading }: Props) => {

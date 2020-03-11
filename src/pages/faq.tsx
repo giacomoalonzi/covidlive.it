@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react"
 import Layout from "@Components/layout"
 import SEO from "@Components/seo"
 const Faq = () => {
@@ -53,12 +53,12 @@ const Faq = () => {
                     </p>
                   </div>
                   <div className="faq__item">
-                    <h3>
-                      È possibile uscire per acquistare generi alimentari?
-                    </h3>
-                    <p>Sì, e non c’è alcuna necessità di accaparrarseli perché i negozi saranno sempre riforniti. Non c’è
+                    <h3>È possibile uscire per acquistare generi alimentari?</h3>
+                    <p>
+                      Sì, e non c’è alcuna necessità di accaparrarseli perché i negozi saranno sempre riforniti. Non c’è
                       nessuna limitazione al transito delle merci: tutte le merci, quindi non solo quelle di prima
-                      necessità, possono circolare sul territorio nazionale</p>
+                      necessità, possono circolare sul territorio nazionale
+                    </p>
                   </div>
                   <div className="faq__item">
                     <h3>Si può uscire per acquistare beni diversi da quelli alimentari?</h3>

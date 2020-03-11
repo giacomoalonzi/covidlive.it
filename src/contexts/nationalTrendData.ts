@@ -1,22 +1,22 @@
 // @flow
-import createContext from './createContext'
-import { getNationalTrandDataReducer } from '@Reducers/nationalTrendData'
-import { NATIONAL_DATA_FETCH, NATIONAL_DATA_SUCCESS, NATIONAL_DATA_FAIL } from '@Actions/nationalData'
-import { noop } from '@Services/util'
-import { getNationalTrendData } from '@Services/api'
-import { NationalTrendDataType } from '@Types/nationalTrendData'
+import createContext from "./createContext"
+import { getNationalTrandDataReducer } from "@Reducers/nationalTrendData"
+import { NATIONAL_DATA_FETCH, NATIONAL_DATA_SUCCESS, NATIONAL_DATA_FAIL } from "@Actions/nationalData"
+import { noop } from "@Services/util"
+import { getNationalTrendData } from "@Services/api"
+import { NationalTrendDataType } from "@Types/nationalTrendData"
 
 interface Store {
-  pending: false,
-  error: false,
-  errorMessage: '',
+  pending: false
+  error: false
+  errorMessage: ""
   data: [NationalTrendDataType]
 }
 
 const defaultStore = {
   pending: false,
   error: false,
-  errorMessage: '',
+  errorMessage: "",
   data: [],
 }
 
@@ -28,10 +28,9 @@ const onGetNationalTrandData = (dispatch: Function) => (onComplete: Function = n
     })
     .catch(error => {
       console.log(error)
-      dispatch({ type: NATIONAL_DATA_FAIL, errorMessage: 'Something went wrong' })
+      dispatch({ type: NATIONAL_DATA_FAIL, errorMessage: "Something went wrong" })
     })
 }
-
 
 export const { Context, Provider } = createContext(
   getNationalTrandDataReducer,

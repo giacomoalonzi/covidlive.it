@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react'
+import * as React from "react"
 import * as PropTypes from "prop-types"
 import { Link } from "gatsby"
 

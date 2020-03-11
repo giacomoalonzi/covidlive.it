@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect, useContext, useState } from "react"
+import * as React from "react"
 import { Context as RegionsDataContext } from "@Contexts/regionsData"
 import { Context as NationalTrendDataContext } from "@Contexts/nationalTrendData"
 import Layout from "@Components/layout"
@@ -9,22 +9,22 @@ import CardCarousel from "@Components/cardCarousel"
 import FakeCarousel from "@Components/fakeCarousel"
 import InfectedChart from "@Components/infectedChart"
 import TestPerformedChart from "@Components/testPerformedChart"
-import { get, last, slice, range , merge} from "lodash"
-import MessageBox from '@Components/messageBox'
+import { get, last, slice, range, merge } from "lodash"
+import MessageBox from "@Components/messageBox"
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"
 import RowCardList from "@Components/rowCardList"
 
 const IndexPage = () => {
-  const { store: regionsDataStore, onGetRegionsData } = useContext(RegionsDataContext)
-  const { store: nationalTrendDataStore, onGetNationalTrandData } = useContext(NationalTrendDataContext)
-  const [regionsDataSorted, setRegionsDataSorted] = useState([])
-  useEffect(() => {
+  const { store: regionsDataStore, onGetRegionsData } = React.useContext(RegionsDataContext)
+  const { store: nationalTrendDataStore, onGetNationalTrandData } = React.useContext(NationalTrendDataContext)
+  const [regionsDataSorted, setRegionsDataSorted] = React.useState([])
+  React.useEffect(() => {
     onGetNationalTrandData()
     onGetRegionsData()
   }, [])
 
-  useEffect(() => {
+  React.useEffect(() => {
     const { data } = regionsDataStore
     const dailyData = data.splice(data.length - 20, data.length)
     const sortedData = dailyData
@@ -37,82 +37,81 @@ const IndexPage = () => {
     setRegionsDataSorted(sortedData)
   }, [regionsDataStore])
 
-
   const { data: nationalTrendData } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
-  const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL")); 
-  const testsPerformed = lastWeekData.map(i => i.testPerformed);
-  const infected = lastWeekData.map(i => i.infected);
-  const healed = lastWeekData.map(i => i.healed);
-  const deaths = lastWeekData.map(i => i.deaths);
-  
+  const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL"))
+  const testsPerformed = lastWeekData.map(i => i.testPerformed)
+  const infected = lastWeekData.map(i => i.infected)
+  const healed = lastWeekData.map(i => i.healed)
+  const deaths = lastWeekData.map(i => i.deaths)
+
   const infectedChartData = {
     labels,
     datasets: [
       {
-        label: 'Positivi',
+        label: "Positivi",
         fill: false,
         lineTension: 0.1,
-        backgroundColor: '#E86379',
-        borderColor: '#E86379',
-        borderCapStyle: 'butt',
+        backgroundColor: "#E86379",
+        borderColor: "#E86379",
+        borderCapStyle: "butt",
         borderDash: [],
         borderDashOffset: 0.0,
-        borderJoinStyle: 'miter',
-        pointBorderColor: '#E86379',
-        pointBackgroundColor: '#fff',
+        borderJoinStyle: "miter",
+        pointBorderColor: "#E86379",
+        pointBackgroundColor: "#fff",
         pointBorderWidth: 1,
         pointHoverRadius: 5,
-        pointHoverBackgroundColor: '#E86379',
-        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBackgroundColor: "#E86379",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
         pointHoverBorderWidth: 5,
-        data: infected
+        data: infected,
       },
       {
-        label: 'Guariti',
+        label: "Guariti",
         fill: false,
         lineTension: 0.1,
-        backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: '#20D6A5',
-        borderCapStyle: 'butt',
+        backgroundColor: "rgba(75,192,192,0.4)",
+        borderColor: "#20D6A5",
+        borderCapStyle: "butt",
         borderDash: [],
         borderDashOffset: 0.0,
-        borderJoinStyle: 'miter',
-        pointBorderColor: '#20D6A5',
-        pointBackgroundColor: '#fff',
+        borderJoinStyle: "miter",
+        pointBorderColor: "#20D6A5",
+        pointBackgroundColor: "#fff",
         pointBorderWidth: 1,
         pointHoverRadius: 5,
-        pointHoverBackgroundColor: '#20D6A5',
-        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBackgroundColor: "#20D6A5",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: healed
+        data: healed,
       },
       {
-        label: 'Deceduti',
+        label: "Deceduti",
         fill: false,
         lineTension: 0.1,
-        backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: '#000b33',
-        borderCapStyle: 'butt',
+        backgroundColor: "rgba(75,192,192,0.4)",
+        borderColor: "#000b33",
+        borderCapStyle: "butt",
         borderDash: [],
         borderDashOffset: 0.0,
-        borderJoinStyle: 'miter',
-        pointBorderColor: '#000b33',
-        pointBackgroundColor: '#000b33',
+        borderJoinStyle: "miter",
+        pointBorderColor: "#000b33",
+        pointBackgroundColor: "#000b33",
         pointBorderWidth: 1,
         pointHoverRadius: 5,
-        pointHoverBackgroundColor: '#000b33',
-        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBackgroundColor: "#000b33",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: deaths
-      }
-    ]
-  };
+        data: deaths,
+      },
+    ],
+  }
 
   const testPerformedChartData = {
     labels,
@@ -120,13 +119,13 @@ const IndexPage = () => {
       {
         label: `Tamponi effettuati`,
         data: testsPerformed,
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
+        backgroundColor: "rgba(255,99,132,0.2)",
+        borderColor: "rgba(255,99,132,1)",
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
-      }
-    ]
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)",
+      },
+    ],
   }
 
   const renderBigCardLoadingState = (key: number): Function => {
@@ -138,11 +137,7 @@ const IndexPage = () => {
   }
 
   const renderFakeCarousel = (): Function => {
-    return (
-      <FakeCarousel>
-        {range(3).map(renderBigCardLoadingState)}
-      </FakeCarousel>
-    )
+    return <FakeCarousel>{range(3).map(renderBigCardLoadingState)}</FakeCarousel>
   }
 
   const renderCarousel = (): Function => {
@@ -172,8 +167,10 @@ const IndexPage = () => {
       <div>
         <div className="homepage">
           <div className="homepage__wrap">
-            <div style={{marginLeft: 'auto', marginRight: 'auto'}} className="u-margin-bottom-spacer-huge">
-              <MessageBox type="error"><p>Attenzione: i dati del 10/03 relativi alla Regione Lombardia non sono completi.</p></MessageBox>
+            <div style={{ marginLeft: "auto", marginRight: "auto" }} className="u-margin-bottom-spacer-huge">
+              <MessageBox type="error">
+                <p>Attenzione: i dati del 10/03 relativi alla Regione Lombardia non sono completi.</p>
+              </MessageBox>
             </div>
             <div className="homepage__item homepage__item--big-cards">
               <>

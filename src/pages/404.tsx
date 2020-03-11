@@ -1,6 +1,6 @@
 // @flow
-import * as React from 'react'
-import {Link} from 'gatsby'
+import * as React from "react"
+import { Link } from "gatsby"
 import Layout from "@Components/layout"
 import SEO from "@Components/seo"
 
@@ -11,7 +11,9 @@ const NotFoundPage = () => (
       <div className="notfound-page__wrap">
         <div className="notfound-page__item">
           <h1>Pagina non trovata trovata</h1>
-          <Link className="button button--primary" to="/">Torna alla home</Link>
+          <Link className="button button--primary" to="/">
+            Torna alla home
+          </Link>
         </div>
       </div>
     </div>
