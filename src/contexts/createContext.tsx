@@ -7,10 +7,10 @@ interface Props {
 }
 
 export default (reducer: any, actions: any, initialState: any) => {
-  const Context = React.createContext({store: initialState})
+  const Context = React.createContext({ store: initialState })
   const Provider = ({ children }: Props) => {
     const [store, dispatch] = React.useReducer(reducer, initialState)
-    
+
     const boundActions = Object.keys(actions).reduce((acc, key): any => {
       return { ...acc, [key]: actions[key](dispatch) }
     }, {})

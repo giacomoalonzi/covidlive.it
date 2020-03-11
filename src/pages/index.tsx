@@ -14,10 +14,12 @@ import MessageBox from "@Components/messageBox"
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"
 import RowCardList from "@Components/rowCardList"
-import { NationalTrendDataType } from '@Types/nationalTrendData'
+import { NationalTrendDataType } from "@Types/nationalTrendData"
 
 const IndexPage = () => {
+  // @ts-ignore
   const { store: regionsDataStore, onGetRegionsData } = React.useContext(RegionsDataContext)
+  // @ts-ignore
   const { store: nationalTrendDataStore, onGetNationalTrandData } = React.useContext(NationalTrendDataContext)
   const [regionsDataSorted, setRegionsDataSorted] = React.useState([])
   React.useEffect(() => {
@@ -135,6 +137,7 @@ const IndexPage = () => {
   }
 
   const renderFakeCarousel = () => {
+    // @ts-ignore
     return <FakeCarousel>{range(3).map(renderBigCardLoadingState)}</FakeCarousel>
   }
 
@@ -162,7 +165,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <div>
-      <SEO title="Covid Live: la situazione in tempo reale" />
+        <SEO title="Covid Live: la situazione in tempo reale" />
         <div className="homepage">
           <div className="homepage__wrap">
             <div style={{ marginLeft: "auto", marginRight: "auto" }} className="u-margin-bottom-spacer-huge">

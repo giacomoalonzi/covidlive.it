@@ -10,6 +10,7 @@ import * as React from "react"
 import * as PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+// @ts-ignore
 import ogImage from "../assets/images/image-og.jpg"
 type Props = {
   description?: string
@@ -42,7 +43,9 @@ function SEO({ description, lang, meta, title }: Props): any {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      //@ts-ignore
       meta={[
+        ...meta,
         {
           name: `description`,
           content: metaDescription,
@@ -79,7 +82,7 @@ function SEO({ description, lang, meta, title }: Props): any {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]}
     />
   )
 }

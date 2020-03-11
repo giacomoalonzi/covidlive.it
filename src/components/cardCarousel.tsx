@@ -46,7 +46,12 @@ const CardCarousel = ({ children }: Props) => {
   return (
     <div className="card-carousel">
       <div className="card-carousel__wrap">
-        {isMobile ? <Swiper {...params}>{renderChildren()}</Swiper> : renderChildren()}
+        {isMobile ? (
+          // @ts-ignore
+          <Swiper {...params}>{renderChildren()}</Swiper>
+        ) : (
+          renderChildren()
+        )}
       </div>
     </div>
   )

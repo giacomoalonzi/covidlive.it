@@ -39,5 +39,5 @@ export const { Context, Provider } = createContext(
   {
     onGetNationalTrandData,
   },
-  defaultStore,
+  defaultStore
 )
