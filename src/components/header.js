@@ -1,8 +1,10 @@
+// @flow
 import PropTypes from "prop-types"
 import React from "react"
 import { Link } from "gatsby"
+import type { Element } from "react"
 
-const Header = () => (
+const Header = (): Element<'header'> => (
   <header className="header">
     <div className="header__wrap">
       <div className="header__item header__item--brand">

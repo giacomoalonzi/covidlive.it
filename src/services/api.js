@@ -1,4 +1,6 @@
+// @flow
 import axios from "axios"
+
 import { normalizeRegionData, normalizeNationalTrendData } from "./normalize"
 const baseURL = "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json"
 

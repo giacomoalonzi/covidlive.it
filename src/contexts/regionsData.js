@@ -1,17 +1,26 @@
 // @flow
 import createContext from './createContext'
-import { getRegionsDataReducer } from '../reducers/regionsData'
+import { getRegionsDataReducer } from '@Reducers/regionsData'
 import { noop } from '@Services/util'
 import { getRegionsData } from '@Services/api.js'
-import { REGIONS_DATA_FETCH, REGIONS_DATA_SUCCESS, REGIONS_DATA_FAIL } from '../actions/regionsData'
-const defaultStore = {
+import { REGIONS_DATA_FETCH, REGIONS_DATA_SUCCESS, REGIONS_DATA_FAIL } from '@Actions/regionsData'
+import type { RegionDataType } from '@Types/regionData'
+
+type Store = {
+  pending: boolean,
+  error: boolean,
+  errorMessage: string,
+  data: Array<RegionDataType>
+}
+
+const defaultStore: Store = {
   pending: false,
   error: false,
   errorMessage: '',
   data: [],
 }
 
-const onGetRegionsData = (dispatch) => (onComplete: Function = noop, onError:Function = noop) => {
+const onGetRegionsData = (dispatch: Function) => (onComplete: Function = noop, onError:Function = noop) => {
   dispatch({ type: REGIONS_DATA_FETCH })
   getRegionsData()
     .then(response => {
