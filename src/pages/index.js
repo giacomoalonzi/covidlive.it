@@ -173,7 +173,10 @@ const IndexPage = () => {
         <div className="homepage">
           <div className="homepage__wrap">
             <div style={{marginLeft: 'auto', marginRight: 'auto'}} className="u-margin-bottom-spacer-huge">
-              <MessageBox type="error"><p>Attenzione: i dati del 10/03 relativi alla Regione Lombardia non sono completi.</p></MessageBox>
+              <MessageBox type="error">
+                <p>10/03/2020: dati Regione Lombardia parziali.</p>
+                <p>11/03/2020: dati Regione Abruzzo non pervenuti.</p>
+              </MessageBox>
             </div>
             <div className="homepage__item homepage__item--big-cards">
               <>
