@@ -23,8 +23,12 @@ const Footer = () => (
             ❤️
           </span>{" "}
           by{" "}
-          <a rel="noopener noreferrer" href="https://twitter.com/realbardaxx">
+          <a rel="noopener noreferrer" target="_blank" href="https://twitter.com/realbardaxx">
             @giacomo.alonzi
+          </a>{" "}
+          —{" "}
+          <a href="https://github.com/giacomoalonzi/covidlive.it" rel="noopener noreferrer" target="_blank">
+            Contribuisci al progetto
           </a>
         </p>
       </div>
