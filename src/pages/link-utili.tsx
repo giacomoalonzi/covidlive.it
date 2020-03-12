@@ -32,6 +32,15 @@ const LinkUtili = () => {
                 </li>
                 <li>
                   <a
+                    href="https://www.gofundme.com/f/aiutiamo-la-rianimazione-dell039ospedale-sacco"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Ospedale Luigi Sacco di Milano
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="https://www.ilfoglio.it/sezioni/714/donazioni-spallanzani"
                     rel="noopener noreferrer"
                     target="_blank"
