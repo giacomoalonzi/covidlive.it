@@ -20,3 +20,7 @@ h3 {
   @extend %family-bold;
   color: $neutral-300;
 }
+
+strong {
+  @extend %family-bold;
+}
