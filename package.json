@@ -10,7 +10,7 @@
     "chartist": "^0.11.4",
     "chartist-plugin-tooltips": "^0.0.17",
     "date-fns": "^2.10.0",
-    "gatsby": "^2.19.7",
+    "gatsby": "^2.19.41",
     "gatsby-env-variables": "^2.0.0",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-alias-imports": "^1.0.5",
@@ -29,10 +29,10 @@
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
+    "react": "^16.13.0",
     "react-chartist": "^0.14.3",
     "react-chartjs-2": "^2.9.0",
-    "react-dom": "^16.12.0",
+    "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1",
     "react-id-swiper": "^3.0.0",
     "reset-css": "^5.0.1",
@@ -46,10 +46,16 @@
     "@types/react-dom": "^16.9.5",
     "@types/react-helmet": "^5.0.15",
     "@types/swiper": "^5.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
     "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
     "flow-bin": "^0.120.1",
     "flow-typed": "^3.0.0",
     "gatsby-plugin-config": "^1.0.7",
+    "husky": "^4.2.3",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1"
   },
@@ -66,7 +72,13 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "prettier:check": "prettier --check '**/*'",
-    "prettier:fix": "pretty-quick — staged"
+    "prettier:fix": "pretty-quick — staged",
+    "lint": "./node_modules/.bin/eslint ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettier:fix && yarn lint && tsc"
+    }
   },
   "repository": {
     "type": "git",
