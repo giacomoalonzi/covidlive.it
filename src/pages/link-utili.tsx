@@ -7,7 +7,7 @@ const LinkUtili = () => {
       <SEO title="Link Utili" />
 
       <div className="layout-wrap">
-        <h2 className="u-margin-bottom-spacer-large">"Per effettuare una donazione</h2>
+        <h2 className="u-margin-bottom-spacer-large">Per effettuare una donazione</h2>
         <div className="card text-section">
           <div className="card__wrap text__wrap">
             <div className="card__item text__item">
