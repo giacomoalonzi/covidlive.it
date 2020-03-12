@@ -5,7 +5,7 @@ import { getRegionsData } from "@Services/api"
 import { REGIONS_DATA_FETCH, REGIONS_DATA_SUCCESS, REGIONS_DATA_FAIL } from "@Actions/regionsData"
 import { RegionDataType } from "@Types/regionData"
 
-interface Store {
+type Store = {
   pending: boolean
   error: boolean
   errorMessage: string
