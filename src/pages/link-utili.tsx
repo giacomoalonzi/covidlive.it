@@ -100,6 +100,15 @@ const LinkUtili = () => {
                 </li>
                 <li>
                   <a
+                    href="https://www.interno.gov.it/it/speciali/coronavirus"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Regole e modulo scaricabile per gli spostamenti
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports/"
                     rel="noopener noreferrer"
                     target="_blank"
