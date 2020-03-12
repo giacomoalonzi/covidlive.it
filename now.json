@@ -1,5 +1,5 @@
 {
-  "build": {
+  "production": {
     "env": {
       "API_URL": "@covidlive-api-url",
       "GOOGLE_ANALYTICS": "@covidlive-google-analytics"
