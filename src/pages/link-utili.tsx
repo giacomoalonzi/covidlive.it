@@ -7,7 +7,84 @@ const LinkUtili = () => {
       <SEO title="Link Utili" />
 
       <div className="layout-wrap">
-        <h2 className="u-margin-bottom-spacer-large">Link utili</h2>
+        <h2 className="u-margin-bottom-spacer-large">Per effettuare una donazione</h2>
+        <div className="card text-section">
+          <div className="card__wrap text__wrap">
+            <div className="card__item text__item">
+              <ul>
+                <li>
+                  <a
+                    href="https://www.regione.lombardia.it/wps/portal/istituzionale/HP/DettaglioRedazionale/servizi-e-informazioni/cittadini/salute-e-prevenzione/coronavirus/coronavirus-raccolta-fondi"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Regione Lombardia
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.gofundme.com/f/aiutiamo-ospedale-niguarda-covid19"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Ospedale Niguarda di Milano
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.gofundme.com/f/aiutiamo-la-rianimazione-dell039ospedale-sacco"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Ospedale Luigi Sacco di Milano
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.ilfoglio.it/sezioni/714/donazioni-spallanzani"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Ospedale Spallanzani di Roma
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.ao.pr.it/la-squadra-piu-forte-di-parma-dal-parma-calcio-donazione-di-25-000-euro/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Ospedale Maggiore di Parma
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.gofundme.com/f/raccolta-fondi-per-il-cotugno-di-napolicovid19"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Ospedale Cotugno di Napoli
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.gofundme.com/f/aiutami-la-terapia-intensiva-santanna"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Ospedale Sant’Anna di Como
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:ciao@covidlive.it" rel="noopener noreferrer" target="_blank">
+                    <strong>Segnala altre possibilità di donazione</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <h2 className="u-margin-bottom-spacer-large u-margin-top-spacer-large">Link utili</h2>
         <div className="card text-section">
           <div className="card__wrap text__wrap">
             <div className="card__item text__item">
@@ -37,20 +114,11 @@ const LinkUtili = () => {
                 </li>
                 <li>
                   <a
-                    href="http://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=73594"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    DPCM 8 marzo 2020
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="http://www.salute.gov.it/portale/nuovocoronavirus/archivioNormativaNuovoCoronavirus.jsp  "
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    Norme e ordinanze
+                    Norme, circolari e ordinanze
                   </a>
                 </li>
               </ul>

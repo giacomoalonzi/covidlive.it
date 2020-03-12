@@ -65,6 +65,11 @@
               &:last-of-type {
                 margin-right: 0;
               }
+              color: $neutral-300;
+              transition: color 0.1s ease;
+              &:hover {
+                color: $neutral-200;
+              }
             }
           }
         }

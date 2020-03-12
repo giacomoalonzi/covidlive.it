@@ -6,13 +6,19 @@
     }
     li {
       margin: $spacer-base 0;
-      list-style: initial;
       &:first-child {
         margin: 0;
       }
       a {
-        @include font-size(21px, 1);
+        @include font-size(21px, 1.2);
+        padding: 8px 0;
         text-decoration: underline;
+        text-decoration: none;
+        color: $neutral-300;
+        transition: color 0.1s ease;
+        &:hover {
+          color: $neutral-200;
+        }
       }
     }
   }
