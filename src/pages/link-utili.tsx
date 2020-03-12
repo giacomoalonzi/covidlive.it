@@ -68,7 +68,7 @@ const LinkUtili = () => {
                 </li>
                 <li>
                   <a href="mailto:ciao@covidlive.it" rel="noopener noreferrer" target="_blank">
-                    <strong>Segnala altre donazioni.</strong>
+                    <strong>Segnala altre donazioni</strong>
                   </a>
                 </li>
               </ul>
@@ -105,20 +105,11 @@ const LinkUtili = () => {
                 </li>
                 <li>
                   <a
-                    href="http://www.trovanorme.salute.gov.it/norme/dettaglioAtto?id=73594"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    DPCM 8 marzo 2020
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="http://www.salute.gov.it/portale/nuovocoronavirus/archivioNormativaNuovoCoronavirus.jsp  "
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    Norme e ordinanze
+                    Norme, circoalari e ordinanze
                   </a>
                 </li>
               </ul>
