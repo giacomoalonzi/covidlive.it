@@ -46,10 +46,16 @@
     "@types/react-dom": "^16.9.5",
     "@types/react-helmet": "^5.0.15",
     "@types/swiper": "^5.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
     "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
     "flow-bin": "^0.120.1",
     "flow-typed": "^3.0.0",
     "gatsby-plugin-config": "^1.0.7",
+    "husky": "^4.2.3",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1"
   },
@@ -66,7 +72,13 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "prettier:check": "prettier --check '**/*'",
-    "prettier:fix": "pretty-quick — staged"
+    "prettier:fix": "pretty-quick — staged",
+    "lint": "./node_modules/.bin/eslint ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettier:fix && yarn lint && tsc"
+    }
   },
   "repository": {
     "type": "git",

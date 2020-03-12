@@ -10,7 +10,6 @@ interface Props {
   additionalContent?: string
   isLoading: boolean
 }
-
 const BigCard = ({ emoji, title, content, additionalContent, subContent, isLoading }: Props) => {
   return (
     <div className="big-card card">
