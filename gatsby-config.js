@@ -1,9 +1,13 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}` || '.env'
+})
+
 module.exports = {
   siteMetadata: {
     title: `Covid Live: la situazione in tempo reale`,
     description: `Tutti i dati aggiornati sulla diffusione di Covid-19 in Italia`,
     author: `@giacomo.alonzi`,
-    siteUrl: 'https://covidlive.it'
+    siteUrl: "https://covidlive.it",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -14,11 +18,12 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
+
+    `gatsby-plugin-typescript`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-flow`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -45,7 +50,6 @@ module.exports = {
           "@Contexts": "src/contexts",
           "@Reducers": "src/reducers",
           "@Actions": "src/actions",
-          "@Core": "src/core",
         },
         extensions: ["js"],
       },
@@ -54,7 +58,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-56138240-7",
+        trackingId: process.env.GOOGLE_ANALYTICS,
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
         // Setting this parameter is optional
