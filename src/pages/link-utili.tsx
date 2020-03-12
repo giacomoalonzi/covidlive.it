@@ -121,6 +121,11 @@ const LinkUtili = () => {
                     Norme, circolari e ordinanze
                   </a>
                 </li>
+                <li>
+                  <a href="https://solidarietadigitale.agid.gov.it/" rel="noopener noreferrer" target="_blank">
+                    Solidarità Digitale
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
