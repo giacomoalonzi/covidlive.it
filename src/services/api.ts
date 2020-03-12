@@ -1,7 +1,7 @@
 import axios from "axios"
 import { normalizeRegionData, normalizeNationalTrendData } from "./normalize"
 
-console.log(process.env.API_URL)
+console.log(process.env.GATSBY_API_URL)
 
 const http = axios.create({
   baseURL: process.env.API_URL,
