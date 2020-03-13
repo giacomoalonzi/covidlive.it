@@ -35,14 +35,11 @@ const IndexPage = () => {
         return a.infected - b.infected
       })
       .reverse()
-    // .splice(0, 10)
 
     setRegionsDataSorted(sortedData)
-    console.log(sortedData)
   }, [regionsDataStore])
 
   const onShowMoreClick = () => {
-    console.log(regionsDataSorted)
     setShouldShowAllRegion(!shouldShowAllRegions)
   }
   const { data: nationalTrendData }: { data: [NationalTrendDataType] } = nationalTrendDataStore
@@ -52,7 +49,6 @@ const IndexPage = () => {
   const testsPerformed = lastWeekData.map(i => i.testPerformed)
   const infected = lastWeekData.map(i => i.infected)
   const newInfected = lastWeekData.map(i => i.newInfected)
-  console.log(newInfected)
   const healed = lastWeekData.map(i => i.healed)
   const deaths = lastWeekData.map(i => i.deaths)
 

@@ -1,6 +1,12 @@
 .row-card-item {
   &.is-selected {
-    grid-row-end: span 384px;
+    z-index: 1;
+  }
+  &.is-loading {
+    .row-card-item__wrap {
+      min-height: 88px;
+      padding: $spacer-mid;
+    }
   }
   &__wrap {
     @extend .card__wrap;

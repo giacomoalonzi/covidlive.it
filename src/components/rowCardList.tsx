@@ -43,13 +43,9 @@ const RowCardList = ({ list, isLoading, numberOfFakeCards }: Props) => {
     <div className="row-card-list">
       <div className="row-card-list__wrap">
         <div className="row-card-list__item">
-          {isLoading ? (
-            range(numberOfFakeCards).map(renderLoadingElement)
-          ) : (
-            <>
-              <Accordion onChange={onAccordionChange}>{list.map(renderRowElements)}</Accordion>
-            </>
-          )}
+          <Accordion onChange={onAccordionChange}>
+            {isLoading ? range(numberOfFakeCards).map(renderLoadingElement) : list.map(renderRowElements)}
+          </Accordion>
         </div>
       </div>
     </div>
