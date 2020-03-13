@@ -1,6 +1,12 @@
 .row-card-item {
   &.is-selected {
     z-index: 1;
+    .row-card-item-chevron {
+      transform: translateY(-50%) rotateZ(-180deg);
+      @include breakpoint(md) {
+        transform: rotateZ(-180deg);
+      }
+    }
   }
   &.is-loading {
     .row-card-item__wrap {
@@ -23,6 +29,8 @@
       width: 100%;
     }
     .accordion__button {
+      position: relative;
+
       display: flex;
       transition: background-color 0.1s ease;
       &:hover {
@@ -45,6 +53,21 @@
     }
   }
   &__item {
+    .row-card-item-chevron {
+      width: 16px;
+      height: 16px;
+      margin-left: $spacer-base;
+      opacity: 0.4;
+      position: absolute;
+      top: 50%;
+      right: $spacer-large;
+      transform: translateY(-50%);
+      @include breakpoint(md) {
+        right: 0;
+        position: relative;
+        transform: translateY(0);
+      }
+    }
     &--text {
       flex: 0 auto;
       p {
@@ -92,7 +115,6 @@
           @include font-size(11px, 1);
           color: red;
           display: block;
-          // @extend %family-regular;
           white-space: nowrap;
           bottom: -80%;
           @include breakpoint(md) {

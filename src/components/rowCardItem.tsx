@@ -1,6 +1,8 @@
 import * as React from "react"
 import * as PropTypes from "prop-types"
 import Skeleton from "@Components/skeleton"
+
+const chevronSvg = require("@Assets/images/icons/chevron.svg")
 import {
   AccordionItem,
   AccordionItemHeading,
@@ -85,6 +87,9 @@ const RowCardItemAccordion = ({
                       </span>
                       {deaths}
                     </p>
+                  </div>
+                  <div className="row-card-item-chevron ">
+                    <img src={chevronSvg} />
                   </div>
                 </div>
               </AccordionItemButton>
