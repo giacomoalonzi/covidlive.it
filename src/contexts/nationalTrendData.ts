@@ -5,7 +5,7 @@ import { noop } from "@Services/util"
 import { getNationalTrendData } from "@Services/api"
 import { NationalTrendDataType } from "@Types/nationalTrendData"
 
-interface Store {
+type Store = {
   pending: boolean
   error: boolean
   errorMessage: string

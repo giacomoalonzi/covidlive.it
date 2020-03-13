@@ -1,7 +1,7 @@
 import * as React from "react"
 import * as PropTypes from "prop-types"
 
-interface Props {
+type Props = {
   children: any
 }
 

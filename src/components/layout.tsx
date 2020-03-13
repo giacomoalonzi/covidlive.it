@@ -11,7 +11,7 @@ import "../assets/styles/styles.scss"
 import Header from "@Components/header"
 import Footer from "@Components/footer"
 
-interface Props {
+type Props = {
   children: [] | {}
 }
 

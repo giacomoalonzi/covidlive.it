@@ -2,7 +2,7 @@ import * as React from "react"
 import * as PropTypes from "prop-types"
 import Skeleton from "@Components/skeleton"
 
-interface Props {
+type Props = {
   emoji: string
   title: string
   content: string | number
@@ -10,6 +10,7 @@ interface Props {
   additionalContent?: string
   isLoading: boolean
 }
+
 const BigCard = ({ emoji, title, content, additionalContent, subContent, isLoading }: Props) => {
   return (
     <div className="big-card card">

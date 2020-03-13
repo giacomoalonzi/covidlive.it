@@ -2,7 +2,7 @@ import * as React from "react"
 import * as PropTypes from "prop-types"
 import Skeleton from "@Components/skeleton"
 
-interface Props {
+type Props = {
   index?: number
   name?: string
   infected?: number

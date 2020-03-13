@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Bar } from "react-chartjs-2"
 
-interface Props {
+type Props = {
   data: any //tbd,
   options?: any //tbd
 }
