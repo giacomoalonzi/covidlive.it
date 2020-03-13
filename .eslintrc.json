@@ -26,5 +26,14 @@
   "rules": {
     "no-console": 1,
     "no-unused-vars": 2
-  }
+  },
+  "overrides": [
+    // this is a workaround to fix no-unused-var for types and interface (to be improved)
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": [2, { "args": "none" }]
+      }
+    }
+  ]
 }
