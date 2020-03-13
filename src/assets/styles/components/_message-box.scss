@@ -1,5 +1,5 @@
 .message-box {
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: $neutral-50;
   line-height: 1.4;
   width: 100%;
@@ -23,7 +23,7 @@
     background: $success;
   }
   &--error {
-    background: $warning;
+    background: $error;
     color: white;
   }
   &.is-small {

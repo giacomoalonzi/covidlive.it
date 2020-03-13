@@ -26,6 +26,9 @@
       }
     }
     &--region-chart {
+      .homepage-region-chart-cta {
+        text-align: center;
+      }
       a {
         text-align: center;
         margin: $spacer-large auto;

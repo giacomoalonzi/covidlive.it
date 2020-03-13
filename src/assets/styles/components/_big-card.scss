@@ -37,7 +37,7 @@
         margin: $spacer-small 0 $spacer-base 0;
         display: inline-block;
         span {
-          color: $warning;
+          color: $error;
           @include font-size(16px, 1);
           position: absolute;
           top: -10px;

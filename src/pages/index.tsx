@@ -21,6 +21,7 @@ const IndexPage = () => {
   // @ts-ignore
   const { store: nationalTrendDataStore, onGetNationalTrandData } = React.useContext(NationalTrendDataContext)
   const [regionsDataSorted, setRegionsDataSorted] = React.useState([])
+  const [shouldShowAllRegions, setShouldShowAllRegion] = React.useState<boolean>(false)
   React.useEffect(() => {
     onGetNationalTrandData()
     onGetRegionsData()
@@ -28,7 +29,7 @@ const IndexPage = () => {
 
   React.useEffect(() => {
     const { data } = regionsDataStore
-    const dailyData = data.splice(data.length - 21, data.length)
+    const dailyData = slice(data, data.length - 21, data.length)
     const sortedData = dailyData
       .sort(function(a: any, b: any) {
         return a.infected - b.infected
@@ -40,12 +41,18 @@ const IndexPage = () => {
     console.log(sortedData)
   }, [regionsDataStore])
 
+  const onShowMoreClick = () => {
+    console.log(regionsDataSorted)
+    setShouldShowAllRegion(!shouldShowAllRegions)
+  }
   const { data: nationalTrendData }: { data: [NationalTrendDataType] } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
   const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL"))
   const testsPerformed = lastWeekData.map(i => i.testPerformed)
   const infected = lastWeekData.map(i => i.infected)
+  const newInfected = lastWeekData.map(i => i.newInfected)
+  console.log(newInfected)
   const healed = lastWeekData.map(i => i.healed)
   const deaths = lastWeekData.map(i => i.deaths)
 
@@ -69,6 +76,24 @@ const IndexPage = () => {
         pointHoverBorderColor: "rgba(220,220,220,1)",
         pointHoverBorderWidth: 5,
         data: infected,
+      },
+      {
+        label: "Nuovi positivi",
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: "#fcdca3",
+        borderColor: "#fcdca3",
+        borderCapStyle: "butt",
+        borderDashOffset: 0.0,
+        borderJoinStyle: "miter",
+        pointBorderColor: "#fcdca3",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "#fcdca3",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 5,
+        data: newInfected,
       },
       {
         label: "Guariti",
@@ -191,12 +216,18 @@ const IndexPage = () => {
               </>
             </div>
             <div className="homepage__item homepage__item--region-chart u-margin-top-spacer-xxlarge u-margin-bottom-spacer-xlarge">
-              <h2 className="u-margin-bottom-spacer-large">Le regioni più colpite</h2>
-              <RowCardList list={regionsDataSorted} numberOfFakeCards={10} isLoading={!regionsDataSorted.length} />
-              <div>
-                <a onClick={() => {}} className="button button--primary">
-                  Mostra altro
-                </a>
+              <div className="container--internal">
+                <h2 className="u-margin-bottom-spacer-large">Le regioni più colpite</h2>
+                <RowCardList
+                  list={!shouldShowAllRegions ? [...regionsDataSorted.slice(0, 10)] : regionsDataSorted}
+                  numberOfFakeCards={10}
+                  isLoading={!regionsDataSorted.length}
+                />
+                <div className="homepage-region-chart-cta">
+                  <a onClick={onShowMoreClick} className="button button--primary">
+                    {!shouldShowAllRegions ? "Mostra altro" : "Mostra meno"}
+                  </a>
+                </div>
               </div>
             </div>
 
