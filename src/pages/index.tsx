@@ -46,7 +46,7 @@ const IndexPage = () => {
   const todayNationalTrendData = last(nationalTrendData)
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
   const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL"))
-  const testsPerformed = lastWeekData.map(i => i.testPerformed)
+  // const testsPerformed = lastWeekData.map(i => i.testPerformed)
   const infected = lastWeekData.map(i => i.infected)
   const newInfected = lastWeekData.map(i => i.newInfected)
   const healed = lastWeekData.map(i => i.healed)
