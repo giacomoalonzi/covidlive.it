@@ -11,10 +11,10 @@ type Props = {
 }
 
 const RowCardList = ({ list, isLoading, numberOfFakeCards }: Props) => {
-  const onAccordionChange = (uuid: [number]): void => {
+  const onAccordionChange = (uuid: [string]): void => {
     setSelectedAccordionId(uuid)
   }
-  const [selectedAccordionId, setSelectedAccordionId] = React.useState<[number]>([0])
+  const [selectedAccordionId, setSelectedAccordionId] = React.useState<[string]>([""])
   const renderRowElements = (item: any, key: number): any => {
     return (
       <RowCardItem
@@ -43,7 +43,7 @@ const RowCardList = ({ list, isLoading, numberOfFakeCards }: Props) => {
     <div className="row-card-list">
       <div className="row-card-list__wrap">
         <div className="row-card-list__item">
-          <Accordion onChange={onAccordionChange}>
+          <Accordion allowZeroExpanded onChange={onAccordionChange}>
             {isLoading ? range(numberOfFakeCards).map(renderLoadingElement) : list.map(renderRowElements)}
           </Accordion>
         </div>

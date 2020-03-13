@@ -22,7 +22,7 @@ type Props = {
   hospitalized?: number
   intensiveCare?: number
   hospitalizedWithSymptoms?: number
-  selectedAccordionId?: [number]
+  selectedAccordionId?: [string]
   newInfected?: number
 }
 
@@ -43,11 +43,11 @@ const RowCardItemAccordion = ({
 }: Props) => {
   return (
     <div
-      className={`row-card-item ${selectedAccordionId.includes(index) ? "is-selected" : ""} ${
+      className={`row-card-item ${selectedAccordionId.includes(name) ? "is-selected" : ""} ${
         isLoading ? "is-loading" : ""
       }`}
     >
-      <AccordionItem className="row-card-item__wrap" uuid={index}>
+      <AccordionItem className="row-card-item__wrap" uuid={name}>
         {isLoading ? (
           <Skeleton>
             <p>Loading</p>
@@ -171,7 +171,7 @@ RowCardItemAccordion.defaultProps = {
   hospitalized: 0,
   intensiveCare: 0,
   hospitalizedWithSymptoms: 0,
-  selectedAccordionId: [],
+  selectedAccordionId: [""],
   newInfected: 0,
 }
 
