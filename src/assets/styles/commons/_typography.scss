@@ -11,7 +11,7 @@ h2 {
     @include font-size(32px, 1.5);
   }
   @include breakpoint(xl) {
-    @include font-size(40px, 1.5);
+    @include font-size(36px, 1.5);
   }
 }
 

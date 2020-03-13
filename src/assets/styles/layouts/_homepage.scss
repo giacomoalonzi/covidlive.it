@@ -25,5 +25,15 @@
         flex-basis: calc(50% - 16px);
       }
     }
+    &--region-chart {
+      .homepage-region-chart-cta {
+        text-align: center;
+      }
+      a {
+        text-align: center;
+        margin: $spacer-large auto;
+        display: inline-block;
+      }
+    }
   }
 }
