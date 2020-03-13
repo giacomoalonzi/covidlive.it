@@ -1,9 +1,13 @@
 .row-card-list {
   &__item {
-    columns: 1;
-    @include breakpoint(lg) {
-      columns: 2;
-      column-gap: 8px;
+    .accordion {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 8px;
+      @include breakpoint(lg) {
+        grid-template-columns: repeat(2, 1fr);
+        // grid-auto-rows: 88px;
+      }
     }
   }
 }

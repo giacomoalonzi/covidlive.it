@@ -2,6 +2,7 @@ import * as React from "react"
 import * as PropTypes from "prop-types"
 import RowCardItem from "@Components/rowCardItem"
 import { range } from "lodash"
+import { Accordion } from "react-accessible-accordion"
 
 type Props = {
   list: any
@@ -10,17 +11,28 @@ type Props = {
 }
 
 const RowCardList = ({ list, isLoading, numberOfFakeCards }: Props) => {
-  const renderRowElements = (): Array<Function> => {
-    return list.map((item: any, key: number) => (
+  const onAccordionChange = (uuid: [number]): void => {
+    setSelectedAccordionId(uuid)
+  }
+  const [selectedAccordionId, setSelectedAccordionId] = React.useState<[number]>([0])
+  const renderRowElements = (item: any, key: number): any => {
+    return (
       <RowCardItem
         key={key}
         index={key}
         name={item.name}
         infected={item.infected}
+        newInfected={item.newInfected}
         healed={item.healed}
         deaths={item.deaths}
+        testPerformed={item.testPerformed}
+        homeConfinement={item.homeConfinement}
+        hospitalized={item.hospitalized}
+        intensiveCare={item.intensiveCare}
+        hospitalizedWithSymptoms={item.hospitalizedWithSymptoms}
+        selectedAccordionId={selectedAccordionId}
       />
-    ))
+    )
   }
 
   const renderLoadingElement = (key: number) => {
@@ -30,9 +42,15 @@ const RowCardList = ({ list, isLoading, numberOfFakeCards }: Props) => {
   return (
     <div className="row-card-list">
       <div className="row-card-list__wrap">
-        <ul className="row-card-list__item">
-          {isLoading ? range(numberOfFakeCards).map(renderLoadingElement) : renderRowElements()}
-        </ul>
+        <div className="row-card-list__item">
+          {isLoading ? (
+            range(numberOfFakeCards).map(renderLoadingElement)
+          ) : (
+            <>
+              <Accordion onChange={onAccordionChange}>{list.map(renderRowElements)}</Accordion>
+            </>
+          )}
+        </div>
       </div>
     </div>
   )

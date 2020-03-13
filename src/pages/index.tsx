@@ -28,15 +28,16 @@ const IndexPage = () => {
 
   React.useEffect(() => {
     const { data } = regionsDataStore
-    const dailyData = data.splice(data.length - 20, data.length)
+    const dailyData = data.splice(data.length - 21, data.length)
     const sortedData = dailyData
       .sort(function(a: any, b: any) {
         return a.infected - b.infected
       })
       .reverse()
-      .splice(0, 10)
+    // .splice(0, 10)
 
     setRegionsDataSorted(sortedData)
+    console.log(sortedData)
   }, [regionsDataStore])
 
   const { data: nationalTrendData }: { data: [NationalTrendDataType] } = nationalTrendDataStore
@@ -192,6 +193,11 @@ const IndexPage = () => {
             <div className="homepage__item homepage__item--region-chart u-margin-top-spacer-xxlarge u-margin-bottom-spacer-xlarge">
               <h2 className="u-margin-bottom-spacer-large">Le regioni più colpite</h2>
               <RowCardList list={regionsDataSorted} numberOfFakeCards={10} isLoading={!regionsDataSorted.length} />
+              <div>
+                <a onClick={() => {}} className="button button--primary">
+                  Mostra altro
+                </a>
+              </div>
             </div>
 
             <div className="homepage__item homepage__item--half u-margin-top-spacer-xlarge u-margin-bottom-spacer-xlarge">
