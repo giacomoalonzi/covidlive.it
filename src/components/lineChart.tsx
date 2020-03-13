@@ -7,7 +7,7 @@ type Props = {
   options?: any // tbd
 }
 
-const InfectedChart = ({ data, options }: Props) => {
+const LineChart = ({ data, options }: Props) => {
   return (
     <div className="chart">
       <div className="chart__wrap">
@@ -19,14 +19,14 @@ const InfectedChart = ({ data, options }: Props) => {
   )
 }
 
-InfectedChart.defaultProps = {
+LineChart.defaultProps = {
   data: [], // tbd
   options: [], // tbd
 }
 
-InfectedChart.propTypes = {
+LineChart.propTypes = {
   data: PropTypes.any, // tbd
   options: PropTypes.any, // tbd
 }
 
-export default InfectedChart
+export default LineChart

@@ -5,7 +5,7 @@ type Props = {
   data: any //tbd,
   options?: any //tbd
 }
-const TestPerformedChart = ({ data, options }: Props) => {
+const BarChart = ({ data, options }: Props) => {
   return (
     <div className="chart">
       <div className="chart__wrap">
@@ -17,4 +17,4 @@ const TestPerformedChart = ({ data, options }: Props) => {
   )
 }
 
-export default TestPerformedChart
+export default BarChart

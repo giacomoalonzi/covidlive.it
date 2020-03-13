@@ -6,8 +6,8 @@ import SEO from "@Components/seo"
 import BigCard from "@Components/bigCard"
 import CardCarousel from "@Components/cardCarousel"
 import FakeCarousel from "@Components/fakeCarousel"
-import InfectedChart from "@Components/infectedChart"
-import TestPerformedChart from "@Components/testPerformedChart"
+import LineChart from "@Components/lineChart"
+import BarChart from "@Components/barChart"
 import { get, last, slice, range } from "lodash"
 import MessageBox from "@Components/messageBox"
 import { format, parseISO } from "date-fns"
@@ -211,18 +211,18 @@ const IndexPage = () => {
               <div className="card">
                 <div className="card__wrap">
                   <div className="card__item">
-                    <InfectedChart data={infectedChartData} />
+                    <LineChart data={infectedChartData} />
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="homepage__item homepage__item--half u-margin-top-spacer-xlarge u-margin-bottom-spacer-xlarge">
-              <h2 className="u-margin-bottom-spacer-large">Tamponi ultima settimana</h2>
+              <h2 className="u-margin-bottom-spacer-large">Nuovi positivi ultima settimana</h2>
               <div className="card">
                 <div className="card__wrap">
                   <div className="card__item">
-                    <TestPerformedChart data={testPerformedChartData} />
+                    <BarChart data={testPerformedChartData} />
                   </div>
                 </div>
               </div>
