@@ -58,15 +58,15 @@ const IndexPage = () => {
       {
         label: "Positivi",
         fill: false,
-        lineTension: 0.1,
+        lineTension: 0.2,
         backgroundColor: "#E86379",
         borderColor: "#E86379",
         borderCapStyle: "butt",
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderColor: "#E86379",
-        pointBackgroundColor: "#fff",
-        pointBorderWidth: 1,
+        pointBackgroundColor: "#E86379",
+        pointBorderWidth: 4,
         pointHoverRadius: 5,
         pointHoverBackgroundColor: "#E86379",
         pointHoverBorderColor: "#E86379",
@@ -77,14 +77,14 @@ const IndexPage = () => {
         label: "Guariti",
         fill: false,
         lineTension: 0.1,
-        backgroundColor: "#20D6A5)",
+        backgroundColor: "#20D6A5",
         borderColor: "#20D6A5",
         borderCapStyle: "butt",
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderColor: "#20D6A5",
-        pointBackgroundColor: "#fff",
-        pointBorderWidth: 1,
+        pointBackgroundColor: "#20D6A5",
+        pointBorderWidth: 4,
         pointHoverRadius: 5,
         pointHoverBackgroundColor: "#20D6A5",
         pointHoverBorderColor: "#20D6A5",
@@ -104,7 +104,7 @@ const IndexPage = () => {
         borderJoinStyle: "miter",
         pointBorderColor: "#000b33",
         pointBackgroundColor: "#000b33",
-        pointBorderWidth: 1,
+        pointBorderWidth: 4,
         pointHoverRadius: 5,
         pointHoverBackgroundColor: "#000b33",
         pointHoverBorderColor: "rgba(220,220,220,1)",
@@ -146,15 +146,15 @@ const IndexPage = () => {
         <BigCard
           emoji="😷"
           title="Positivi"
-          content={`${get(todayNationalTrendData, "infected", "").toLocaleString()}`}
-          additionalContent={`+${get(todayNationalTrendData, "newInfected", "").toLocaleString()} da ieri`}
-          subContent={`Totali fino ad oggi ${get(todayNationalTrendData, "totalCases", "").toLocaleString()}`}
+          content={`${get(todayNationalTrendData, "infected", 0).toLocaleString()}`}
+          additionalContent={`+${get(todayNationalTrendData, "newInfected", 0).toLocaleString()} da ieri`}
+          subContent={`Totali fino ad oggi ${get(todayNationalTrendData, "totalCases", 0).toLocaleString()}`}
         />
-        <BigCard emoji="😊" title="Guariti" content={get(todayNationalTrendData, "healed", "").toLocaleString()} />
+        <BigCard emoji="😊" title="Guariti" content={get(todayNationalTrendData, "healed", 0).toLocaleString()} />
         <BigCard
           emoji="😢"
           title="Deceduti"
-          content={get(todayNationalTrendData, "deaths", "").toLocaleString()}
+          content={get(todayNationalTrendData, "deaths", 0).toLocaleString()}
           subContent="In attesa di conferma ISS"
         />
       </CardCarousel>
@@ -211,7 +211,12 @@ const IndexPage = () => {
               <div className="card">
                 <div className="card__wrap">
                   <div className="card__item">
-                    <LineChart data={infectedChartData} />
+                    <LineChart
+                      data={infectedChartData}
+                      options={{
+                        legend: { position: "bottom", labels: { fontFamily: "Lato", padding: 16, fontStyle: "bold" } },
+                      }}
+                    />
                   </div>
                 </div>
               </div>
@@ -222,7 +227,12 @@ const IndexPage = () => {
               <div className="card">
                 <div className="card__wrap">
                   <div className="card__item">
-                    <BarChart data={testPerformedChartData} />
+                    <BarChart
+                      data={testPerformedChartData}
+                      options={{
+                        legend: { display: false },
+                      }}
+                    />
                   </div>
                 </div>
               </div>

@@ -68,8 +68,8 @@ const RowCardItemAccordion = ({
                       <span role="img" aria-labelledby="img">
                         😷
                       </span>
-                      {infected}
-                      <small>+{newInfected.toLocaleString()}</small>
+                      {infected.toLocaleString()}
+                      <small>+{newInfected}</small>
                     </p>
                   </div>
                   <div className="row-card-item-stat">
@@ -77,7 +77,7 @@ const RowCardItemAccordion = ({
                       <span role="img" aria-labelledby="img">
                         😊
                       </span>
-                      {healed}
+                      {healed.toLocaleString()}
                     </p>
                   </div>
                   <div className="row-card-item-stat">
@@ -85,7 +85,7 @@ const RowCardItemAccordion = ({
                       <span role="img" aria-labelledby="img">
                         😢
                       </span>
-                      {deaths}
+                      {deaths.toLocaleString()}
                     </p>
                   </div>
                   <div className="row-card-item-chevron ">
@@ -104,7 +104,7 @@ const RowCardItemAccordion = ({
                           <p>Totale tamponi </p>
                         </div>
                         <div className="row-card-table-row__item">
-                          <p>{testPerformed}</p>
+                          <p>{testPerformed.toLocaleString()}</p>
                         </div>
                       </div>
                     </div>
@@ -114,7 +114,7 @@ const RowCardItemAccordion = ({
                           <p>Totale ospedalizzati</p>
                         </div>
                         <div className="row-card-table-row__item">
-                          <p>{hospitalized}</p>
+                          <p>{hospitalized.toLocaleString()}</p>
                         </div>
                       </div>
                     </div>
@@ -124,7 +124,7 @@ const RowCardItemAccordion = ({
                           <p>Terapia intensiva </p>
                         </div>
                         <div className="row-card-table-row__item">
-                          <p>{intensiveCare}</p>
+                          <p>{intensiveCare.toLocaleString()}</p>
                         </div>
                       </div>
                     </div>
@@ -134,7 +134,7 @@ const RowCardItemAccordion = ({
                           <p>Ospedalizzati con sintomi </p>
                         </div>
                         <div className="row-card-table-row__item">
-                          <p>{hospitalizedWithSymptoms}</p>
+                          <p>{hospitalizedWithSymptoms.toLocaleString()}</p>
                         </div>
                       </div>
                     </div>
@@ -144,7 +144,7 @@ const RowCardItemAccordion = ({
                           <p>Isolamento domiciliare </p>
                         </div>
                         <div className="row-card-table-row__item">
-                          <p>{homeConfinement}</p>
+                          <p>{homeConfinement.toLocaleString()}</p>
                         </div>
                       </div>
                     </div>
