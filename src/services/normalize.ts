@@ -30,7 +30,7 @@ export const normalizeNationalTrendData = (response: any): [NationalTrendDataTyp
     newInfected: get(nation, "nuovi_attualmente_positivi", 0), // News amount of current positive cases (Hospitalised patients + Home confinement)
     healed: get(nation, "dimessi_guariti", 0),
     totalCases: get(nation, "totale_casi", 0),
-    deaths: get(nation, "deceduti", ""),
+    deaths: get(nation, "deceduti", 0),
     homeConfinement: get(nation, "isolamento_domiciliare", 0),
     intensiveCare: get(nation, "terapia_intensiva", 0),
     testPerformed: get(nation, "tamponi", 0),

@@ -12,7 +12,45 @@ const LineChart = ({ data, options }: Props) => {
     <div className="chart">
       <div className="chart__wrap">
         <div className="chart__item">
-          <Line data={data} width={100} height={50} options={{ maintainAspectRatio: false, ...options }} />
+          <Line
+            data={data}
+            width={100}
+            height={50}
+            options={{
+              scales: {
+                xAxes: [
+                  {
+                    scaleLabel: {
+                      display: true,
+                      labelString: "",
+                    },
+                    gridLines: {
+                      color: "rgba(0, 0, 0, 0.05)",
+                    },
+                  },
+                ],
+                yAxes: [
+                  {
+                    gridLines: {
+                      display: false,
+                    },
+                  },
+                ],
+              },
+              tooltips: {
+                backgroundColor: "#000",
+                titleFontFamily: "Lato",
+                bodyFontFamily: "Lato",
+                bodySpacing: 32,
+                cornerRadius: 8,
+                caretSize: 0,
+                displayColors: false,
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              ...options,
+            }}
+          />
         </div>
       </div>
     </div>
