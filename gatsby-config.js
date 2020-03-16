@@ -55,21 +55,20 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-zeit-now",
+      resolve: 'gatsby-plugin-zeit-now',
       options: {
         globalHeaders: {
-          "referrer-policy": "same-origin",
-          "content-security-policy":
-            "base-uri 'self'; default-src 'self' https://fonts.googleapis.com data:; object-src 'none'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; style-src 'self' 'https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com",
-          "feature-policy": "geolocation 'self'; microphone 'self'; camera 'self'",
-          "expect-ct": "max-age=604800, enforce",
-          "strict-transport-security": "max-age=31536000; includeSubDomains",
-          "x-frame-options": "DENY",
-          "x-xss-protection": "1; mode=block",
-          "x-content-type-options": "nosniff",
-          "x-download-options": "noopen",
-        },
-      },
+          'referrer-policy': 'same-origin',
+          'feature-policy':
+            "geolocation 'self'; microphone 'self'; camera 'self'",
+          'expect-ct': 'max-age=604800, enforce',
+          'strict-transport-security': 'max-age=31536000; includeSubDomains',
+          'x-frame-options': 'DENY',
+          'x-xss-protection': '1; mode=block',
+          'x-content-type-options': 'nosniff',
+          'x-download-options': 'noopen'
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
