@@ -9,7 +9,7 @@
     "chart.js": "^2.9.3",
     "chartist": "^0.11.4",
     "chartist-plugin-tooltips": "^0.0.17",
-    "date-fns": "^2.10.0",
+    "date-fns": "^2.11.0",
     "gatsby": "^2.19.41",
     "gatsby-env-variables": "^2.0.0",
     "gatsby-image": "^2.2.39",
