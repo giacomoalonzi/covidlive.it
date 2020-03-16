@@ -49,6 +49,11 @@ const IndexPage = () => {
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
   const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL"))
   // const testsPerformed = lastWeekData.map(i => i.testPerformed)
+  const differenceFromYesterdayHealed =
+    get(todayNationalTrendData, "healed", 0) - get(dayBeforeTodayNationTrendDaata, "healed", 0)
+  const differenceFromYesterdayDeaths =
+    // @ts-ignore
+    get(todayNationalTrendData, "deaths", 0) - get(dayBeforeTodayNationTrendDaata, "deaths", 0)
   const infected = lastWeekData.map(i => i.infected)
   const newInfected = lastWeekData.map(i => i.newInfected)
   const healed = lastWeekData.map(i => i.healed)
@@ -155,14 +160,14 @@ const IndexPage = () => {
         <BigCard
           emoji="😊"
           additionalContentType="success"
-          additionalContent={`+${get(dayBeforeTodayNationTrendDaata, "healed", 0).toLocaleString()} da ieri`}
+          additionalContent={`+${differenceFromYesterdayHealed.toLocaleString()} da ieri`}
           title="Guariti"
           content={get(todayNationalTrendData, "healed", 0).toLocaleString()}
         />
         <BigCard
           emoji="😢"
           title="Deceduti"
-          additionalContent={`+${get(dayBeforeTodayNationTrendDaata, "deaths", 0).toLocaleString()} da ieri`}
+          additionalContent={`+${differenceFromYesterdayDeaths.toLocaleString()} da ieri`}
           content={get(todayNationalTrendData, "deaths", 0).toLocaleString()}
           subContent="In attesa di conferma ISS"
         />
