@@ -98,16 +98,7 @@ const RowCardItemAccordion = ({
               <div className="row-card-item__item row-card-item__item--panel">
                 <div className="row-card-table">
                   <div className="row-card-table__wrap">
-                    <div className="row-card-table-row">
-                      <div className="row-card-table-row__wrap">
-                        <div className="row-card-table-row__item">
-                          <p>Totale tamponi </p>
-                        </div>
-                        <div className="row-card-table-row__item">
-                          <p>{testPerformed.toLocaleString()}</p>
-                        </div>
-                      </div>
-                    </div>
+                    <div className="row-card-table-row"></div>
                     <div className="row-card-table-row">
                       <div className="row-card-table-row__wrap">
                         <div className="row-card-table-row__item">
@@ -121,7 +112,7 @@ const RowCardItemAccordion = ({
                     <div className="row-card-table-row">
                       <div className="row-card-table-row__wrap">
                         <div className="row-card-table-row__item">
-                          <p>Terapia intensiva </p>
+                          <p>In terapia intensiva </p>
                         </div>
                         <div className="row-card-table-row__item">
                           <p>{intensiveCare.toLocaleString()}</p>
@@ -141,11 +132,19 @@ const RowCardItemAccordion = ({
                     <div className="row-card-table-row">
                       <div className="row-card-table-row__wrap">
                         <div className="row-card-table-row__item">
-                          <p>Isolamento domiciliare </p>
+                          <p>In isolamento domiciliare </p>
                         </div>
                         <div className="row-card-table-row__item">
                           <p>{homeConfinement.toLocaleString()}</p>
                         </div>
+                      </div>
+                    </div>
+                    <div className="row-card-table-row__wrap">
+                      <div className="row-card-table-row__item">
+                        <p>Totale tamponi </p>
+                      </div>
+                      <div className="row-card-table-row__item">
+                        <p>{testPerformed.toLocaleString()}</p>
                       </div>
                     </div>
                   </div>
