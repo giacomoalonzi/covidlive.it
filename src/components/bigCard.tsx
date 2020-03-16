@@ -2,6 +2,8 @@ import * as React from "react"
 import * as PropTypes from "prop-types"
 import Skeleton from "@Components/skeleton"
 
+type AdditionalContentType = "warning" | "success" | "error"
+
 type Props = {
   emoji: string
   title: string
@@ -9,9 +11,10 @@ type Props = {
   subContent: string
   additionalContent?: string
   isLoading: boolean
+  additionalContentType: AdditionalContentType
 }
 
-const BigCard = ({ emoji, title, content, additionalContent, subContent, isLoading }: Props) => {
+const BigCard = ({ emoji, title, content, additionalContent, subContent, isLoading, additionalContentType }: Props) => {
   return (
     <div className="big-card card">
       <div className="big-card__wrap card__wrap">
@@ -37,7 +40,8 @@ const BigCard = ({ emoji, title, content, additionalContent, subContent, isLoadi
             <div className="big-card__item big-card__item--text card__item">
               <h5>{title}</h5>
               <p>
-                {content} {additionalContent && <span>{additionalContent}</span>}
+                {content}{" "}
+                {additionalContent && <span className={`is-${additionalContentType}`}>{additionalContent}</span>}
               </p>
               {subContent && <small>{subContent}</small>}
             </div>
@@ -55,6 +59,7 @@ BigCard.defaultProps = {
   subContent: "",
   additionalContent: "",
   isLoading: false,
+  additionalContentType: "error",
 }
 
 BigCard.propTypes = {
@@ -64,6 +69,7 @@ BigCard.propTypes = {
   subContent: PropTypes.string,
   additionalContent: PropTypes.string,
   isLoading: PropTypes.bool,
+  additionalContentType: PropTypes.string,
 }
 
 export default BigCard

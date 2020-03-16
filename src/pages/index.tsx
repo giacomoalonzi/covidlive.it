@@ -9,7 +9,7 @@ import FakeCarousel from "@Components/fakeCarousel"
 import LineChart from "@Components/lineChart"
 import BarChart from "@Components/barChart"
 import { get, last, slice, range } from "lodash"
-import MessageBox from "@Components/messageBox"
+// import MessageBox from "@Components/messageBox"
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"
 import RowCardList from "@Components/rowCardList"
@@ -44,6 +44,8 @@ const IndexPage = () => {
   }
   const { data: nationalTrendData }: { data: [NationalTrendDataType] } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
+  const dayBeforeTodayNationTrendDaata = nationalTrendData[nationalTrendData.length - 2]
+
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
   const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL"))
   // const testsPerformed = lastWeekData.map(i => i.testPerformed)
@@ -150,10 +152,17 @@ const IndexPage = () => {
           additionalContent={`+${get(todayNationalTrendData, "newInfected", 0).toLocaleString()} da ieri`}
           subContent={`Totali fino ad oggi ${get(todayNationalTrendData, "totalCases", 0).toLocaleString()}`}
         />
-        <BigCard emoji="😊" title="Guariti" content={get(todayNationalTrendData, "healed", 0).toLocaleString()} />
+        <BigCard
+          emoji="😊"
+          additionalContentType="success"
+          additionalContent={`+${get(dayBeforeTodayNationTrendDaata, "healed", 0).toLocaleString()} da ieri`}
+          title="Guariti"
+          content={get(todayNationalTrendData, "healed", 0).toLocaleString()}
+        />
         <BigCard
           emoji="😢"
           title="Deceduti"
+          additionalContent={`+${get(dayBeforeTodayNationTrendDaata, "deaths", 0).toLocaleString()} da ieri`}
           content={get(todayNationalTrendData, "deaths", 0).toLocaleString()}
           subContent="In attesa di conferma ISS"
         />
@@ -168,10 +177,10 @@ const IndexPage = () => {
         <div className="homepage">
           <div className="homepage__wrap">
             <div style={{ marginLeft: "auto", marginRight: "auto" }} className="u-margin-bottom-spacer-huge">
-              <MessageBox type="error">
+              {/* <MessageBox type="error">
                 <p>10/03/2020: dati Regione Lombardia parziali.</p>
                 <p>11/03/2020: dati Regione Abruzzo non pervenuti.</p>
-              </MessageBox>
+              </MessageBox> */}
             </div>
             <div className="homepage__item homepage__item--big-cards">
               <>

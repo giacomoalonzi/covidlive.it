@@ -28,20 +28,30 @@
         @include font-size(32px, 1);
         @extend %family-bold;
         color: $neutral-200;
+        margin-bottom: $spacer-base;
       }
       p {
-        @include font-size(80px, 1);
         color: $neutral-300;
         position: relative;
         @extend %family-black;
         margin: $spacer-small 0 $spacer-base 0;
         display: inline-block;
+        @include font-size(80px, 1);
+
         span {
-          color: $error;
           @include font-size(16px, 1);
           position: absolute;
           top: -10px;
           right: 0px;
+          &.is-error {
+            color: $error;
+          }
+          &.is-warning {
+            color: $warning;
+          }
+          &.is-success {
+            color: $success;
+          }
         }
       }
       small {
