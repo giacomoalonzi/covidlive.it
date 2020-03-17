@@ -9,7 +9,7 @@ import FakeCarousel from "@Components/fakeCarousel"
 import LineChart from "@Components/lineChart"
 import BarChart from "@Components/barChart"
 import { get, last, slice, range } from "lodash"
-// import MessageBox from "@Components/messageBox"
+import MessageBox from "@Components/messageBox"
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"
 import RowCardList from "@Components/rowCardList"
@@ -182,10 +182,12 @@ const IndexPage = () => {
         <div className="homepage">
           <div className="homepage__wrap">
             <div style={{ marginLeft: "auto", marginRight: "auto" }} className="u-margin-bottom-spacer-huge">
-              {/* <MessageBox type="error">
-                <p>10/03/2020: dati Regione Lombardia parziali.</p>
+              <MessageBox type="error">
+                <p>16/03/2020: dati P.A. Trento e Puglia non pervenuti.</p>
                 <p>11/03/2020: dati Regione Abruzzo non pervenuti.</p>
-              </MessageBox> */}
+                <p>10/03/2020: dati Regione Lombardia parziali.</p>
+                <p>07/03/2020: dati Brescia +300 esiti positivi</p>
+              </MessageBox>
             </div>
             <div className="homepage__item homepage__item--big-cards">
               <>
