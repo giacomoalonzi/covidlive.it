@@ -1,7 +1,7 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}` || ".env",
 })
-
+// config
 module.exports = {
   siteMetadata: {
     title: `Covid Live: la situazione in tempo reale`,
