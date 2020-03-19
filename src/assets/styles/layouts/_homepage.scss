@@ -25,6 +25,14 @@
         flex-basis: calc(50% - 16px);
       }
     }
+    &--updates {
+      text-align: center;
+      padding: $spacer-large 0;
+      p {
+        @include font-size(14px, 1.8);
+        color: $neutral-300;
+      }
+    }
     &--region-chart {
       .homepage-region-chart-cta {
         text-align: center;

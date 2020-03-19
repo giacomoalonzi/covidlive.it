@@ -25,6 +25,9 @@
   &--error {
     background: $error;
     color: white;
+    a {
+      color: white;
+    }
   }
 
   &.is-small {

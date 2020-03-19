@@ -1,23 +1,9 @@
 .faq {
-  &__item {
-    margin-bottom: $spacer-xlarge;
-    h3,
-    p {
-      max-width: 780px;
-    }
-    h3 {
-      margin-bottom: $spacer-small;
-    }
-    p {
-      @include font-size(18px, 1.8);
-    }
-    ul {
-      padding-left: $spacer-large;
-      li {
-        margin: $spacer-base 0;
-        @include font-size(18px, 1.8);
-        list-style: initial;
-      }
-    }
+  margin-bottom: $spacer-xlarge;
+  h3 {
+    margin-bottom: $spacer-small;
+  }
+  p {
+    @include font-size(18px, 1.8);
   }
 }

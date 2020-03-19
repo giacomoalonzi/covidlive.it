@@ -2,6 +2,7 @@ import * as React from "react"
 import { Context as RegionsDataContext } from "@Contexts/regionsData"
 import { Context as NationalTrendDataContext } from "@Contexts/nationalTrendData"
 import Layout from "@Components/layout"
+import { Link } from "gatsby"
 import SEO from "@Components/seo"
 import BigCard from "@Components/bigCard"
 import CardCarousel from "@Components/cardCarousel"
@@ -183,10 +184,9 @@ const IndexPage = () => {
           <div className="homepage__wrap">
             <div style={{ marginLeft: "auto", marginRight: "auto" }} className="u-margin-bottom-spacer-huge">
               <MessageBox type="error">
-                <p>16/03/2020: dati P.A. Trento e Puglia non pervenuti.</p>
-                <p>11/03/2020: dati Regione Abruzzo non pervenuti.</p>
-                <p>10/03/2020: dati Regione Lombardia parziali.</p>
-                <p>07/03/2020: dati Brescia +300 esiti positivi</p>
+                <p>
+                  Alcuni dati potrebbero non essere aggiornati. <Link to="/updates">Scopri di più</Link>.
+                </p>
               </MessageBox>
             </div>
             <div className="homepage__item homepage__item--big-cards">
@@ -194,7 +194,7 @@ const IndexPage = () => {
                 {!todayNationalTrendData ? renderFakeCarousel() : renderCarousel()}
                 {todayNationalTrendData && (
                   <p>
-                    Ultimo aggiornamento:{" "}
+                    *Ultimo aggiornamento:{" "}
                     {format(new Date(parseISO(get(todayNationalTrendData, "date", ""))), "dd/LL/yyyy – H:mm", {
                       locale: it,
                     })}{" "}
