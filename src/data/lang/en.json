@@ -1,0 +1,78 @@
+{
+  "globals": {
+    "header": {
+      "subTitle": "La situazione in Italia in tempo reale",
+      "nav": [
+        {
+          "label": "Faq",
+          "url": "/faq"
+        },
+        {
+          "label": "Link Utili",
+          "url": "/link-utili"
+        },
+        {
+          "label": "Contatti",
+          "url": "/contatti"
+        }
+      ]
+    },
+    "footer": {
+      "licenseCtaLabel": "Licenza",
+      "showLicenseLabel": "Visualizza licenza",
+      "datasetLabel": "Editore / Autore dataset:",
+      "datasetCtaLabel": "Dipartimento della Protezione Civile",
+      "copyright": "Developed with ❤️ by",
+      "copyrightCtaLabel": "@giacomo.alonzi",
+      "contributingCtaLabel": "Contribuisci al progetto"
+    }
+  },
+  "pages": {
+    "homepage": {
+      "title": "Homepage covid it",
+      "messageBoxLabel": "Alcuni dati potrebbero non essere aggiornati",
+      "messageBoxCtaLabel": "Scopri di più",
+      "bigCardInfected": {
+        "title": "Positivi",
+        "additionalContentLabel": "da ieri",
+        "subContentLabel": "Totali fino ad oggi"
+      },
+      "bigCardHealed": {
+        "title": "Guariti",
+        "additionalContentLabel": "da ieri"
+      },
+      "bigCardDeaths": {
+        "title": "Deceduti",
+        "additionalContentLabel": "da ieri",
+        "subContentLabel": "In attesa di conferma ISS"
+      },
+      "lastUpdateLabel": "Ultimo aggiornamento:",
+      "lastUpdateCtaLabel": "Fonte",
+      "allRegions": {
+        "title": "Le regioni più colpite",
+        "regionBlockDataLabels": {
+          "hospitalizedLabel": "Totale ospedalizzati",
+          "intensiveCare": "In terapia intensiva",
+          "hospitalizedWithSymptoms": "Ospedalizzati con sintomi",
+          "homeConfinement": "In isolamento domiciliare",
+          "testPerformed": "Totale tamponi"
+        },
+        "allRegionShowMoreCtaLabel": "Mostra altro",
+        "allRegionShowLessCtaLabel": "Mostra meno"
+      },
+      "lastWeekChartData1": {
+        "title": "Dati ultima settimana",
+        "datasetLabel1": "Positivi",
+        "datasetLabel2": "Guariti",
+        "datasetLabel3": "Deceduti"
+      },
+      "lastWeekChartData2": {
+        "title": "Nuovi positivi ultima settimana",
+        "datasetLabel1": "Nuovi positivi"
+      }
+    },
+    "faq": {
+      "title": "Domande Frequenti"
+    }
+  }
+}

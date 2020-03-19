@@ -2,7 +2,7 @@ import * as React from "react"
 import { Context as RegionsDataContext } from "@Contexts/regionsData"
 import { Context as NationalTrendDataContext } from "@Contexts/nationalTrendData"
 import Layout from "@Components/layout"
-import { Link } from "gatsby"
+import { useIntl, Link } from "gatsby-plugin-intl"
 import SEO from "@Components/seo"
 import BigCard from "@Components/bigCard"
 import CardCarousel from "@Components/cardCarousel"
@@ -17,6 +17,7 @@ import RowCardList from "@Components/rowCardList"
 import { NationalTrendDataType } from "@Types/nationalTrendData"
 
 const IndexPage = () => {
+  const { formatMessage } = useIntl()
   // @ts-ignore
   const { store: regionsDataStore, onGetRegionsData } = React.useContext(RegionsDataContext)
   // @ts-ignore
@@ -153,7 +154,7 @@ const IndexPage = () => {
       <CardCarousel>
         <BigCard
           emoji="😷"
-          title="Positivi"
+          title={formatMessage({ id: "pages.homepage.title" })}
           content={`${get(todayNationalTrendData, "infected", 0).toLocaleString()}`}
           additionalContent={`+${get(todayNationalTrendData, "newInfected", 0).toLocaleString()} da ieri`}
           subContent={`Totali fino ad oggi ${get(todayNationalTrendData, "totalCases", 0).toLocaleString()}`}
