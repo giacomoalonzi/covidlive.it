@@ -1,5 +1,5 @@
 .message-box {
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: $neutral-50;
   line-height: 1.4;
   width: 100%;
@@ -13,19 +13,20 @@
   p {
     @extend %family-bold;
     @include breakpoint(md) {
-      @include font-size(16px, 1.4);
+      @include font-size(14px, 1.6);
     }
     @include breakpoint(iphoneFive) {
-      @include font-size(14px, 1.4);
+      @include font-size(12px, 1.6);
     }
   }
   &--success {
     background: $success;
   }
   &--error {
-    background: $warning;
+    background: $error;
     color: white;
   }
+
   &.is-small {
     padding: $spacer-base;
   }

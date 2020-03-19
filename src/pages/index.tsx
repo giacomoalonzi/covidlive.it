@@ -6,8 +6,8 @@ import SEO from "@Components/seo"
 import BigCard from "@Components/bigCard"
 import CardCarousel from "@Components/cardCarousel"
 import FakeCarousel from "@Components/fakeCarousel"
-import InfectedChart from "@Components/infectedChart"
-import TestPerformedChart from "@Components/testPerformedChart"
+import LineChart from "@Components/lineChart"
+import BarChart from "@Components/barChart"
 import { get, last, slice, range } from "lodash"
 import MessageBox from "@Components/messageBox"
 import { format, parseISO } from "date-fns"
@@ -21,6 +21,7 @@ const IndexPage = () => {
   // @ts-ignore
   const { store: nationalTrendDataStore, onGetNationalTrandData } = React.useContext(NationalTrendDataContext)
   const [regionsDataSorted, setRegionsDataSorted] = React.useState([])
+  const [shouldShowAllRegions, setShouldShowAllRegion] = React.useState<boolean>(false)
   React.useEffect(() => {
     onGetNationalTrandData()
     onGetRegionsData()
@@ -28,23 +29,33 @@ const IndexPage = () => {
 
   React.useEffect(() => {
     const { data } = regionsDataStore
-    const dailyData = data.splice(data.length - 20, data.length)
+    const dailyData = slice(data, data.length - 21, data.length)
     const sortedData = dailyData
       .sort(function(a: any, b: any) {
         return a.infected - b.infected
       })
       .reverse()
-      .splice(0, 10)
 
     setRegionsDataSorted(sortedData)
   }, [regionsDataStore])
 
+  const onShowMoreClick = () => {
+    setShouldShowAllRegion(!shouldShowAllRegions)
+  }
   const { data: nationalTrendData }: { data: [NationalTrendDataType] } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
+  const dayBeforeTodayNationTrendDaata = nationalTrendData[nationalTrendData.length - 2]
+
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
   const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL"))
-  const testsPerformed = lastWeekData.map(i => i.testPerformed)
+  // const testsPerformed = lastWeekData.map(i => i.testPerformed)
+  const differenceFromYesterdayHealed =
+    get(todayNationalTrendData, "healed", 0) - get(dayBeforeTodayNationTrendDaata, "healed", 0)
+  const differenceFromYesterdayDeaths =
+    // @ts-ignore
+    get(todayNationalTrendData, "deaths", 0) - get(dayBeforeTodayNationTrendDaata, "deaths", 0)
   const infected = lastWeekData.map(i => i.infected)
+  const newInfected = lastWeekData.map(i => i.newInfected)
   const healed = lastWeekData.map(i => i.healed)
   const deaths = lastWeekData.map(i => i.deaths)
 
@@ -54,18 +65,18 @@ const IndexPage = () => {
       {
         label: "Positivi",
         fill: false,
-        lineTension: 0.1,
+        lineTension: 0.2,
         backgroundColor: "#E86379",
         borderColor: "#E86379",
         borderCapStyle: "butt",
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderColor: "#E86379",
-        pointBackgroundColor: "#fff",
-        pointBorderWidth: 1,
+        pointBackgroundColor: "#E86379",
+        pointBorderWidth: 4,
         pointHoverRadius: 5,
         pointHoverBackgroundColor: "#E86379",
-        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderColor: "#E86379",
         pointHoverBorderWidth: 5,
         data: infected,
       },
@@ -73,17 +84,17 @@ const IndexPage = () => {
         label: "Guariti",
         fill: false,
         lineTension: 0.1,
-        backgroundColor: "rgba(75,192,192,0.4)",
+        backgroundColor: "#20D6A5",
         borderColor: "#20D6A5",
         borderCapStyle: "butt",
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderColor: "#20D6A5",
-        pointBackgroundColor: "#fff",
-        pointBorderWidth: 1,
+        pointBackgroundColor: "#20D6A5",
+        pointBorderWidth: 4,
         pointHoverRadius: 5,
         pointHoverBackgroundColor: "#20D6A5",
-        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderColor: "#20D6A5",
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
@@ -100,7 +111,7 @@ const IndexPage = () => {
         borderJoinStyle: "miter",
         pointBorderColor: "#000b33",
         pointBackgroundColor: "#000b33",
-        pointBorderWidth: 1,
+        pointBorderWidth: 4,
         pointHoverRadius: 5,
         pointHoverBackgroundColor: "#000b33",
         pointHoverBorderColor: "rgba(220,220,220,1)",
@@ -116,13 +127,10 @@ const IndexPage = () => {
     labels,
     datasets: [
       {
-        label: `Tamponi effettuati`,
-        data: testsPerformed,
-        backgroundColor: "rgba(255,99,132,0.2)",
-        borderColor: "rgba(255,99,132,1)",
-        borderWidth: 1,
-        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-        hoverBorderColor: "rgba(255,99,132,1)",
+        label: `Nuovi positivi`,
+        data: newInfected,
+        backgroundColor: "#fcdca3",
+        hoverBackgroundColor: "#fbc870",
       },
     ],
   }
@@ -145,15 +153,22 @@ const IndexPage = () => {
         <BigCard
           emoji="😷"
           title="Positivi"
-          content={`${get(todayNationalTrendData, "infected", "").toLocaleString()}`}
-          additionalContent={`+${get(todayNationalTrendData, "newInfected", "").toLocaleString()} da ieri`}
-          subContent={`Totali fino ad oggi ${get(todayNationalTrendData, "totalCases", "").toLocaleString()}`}
+          content={`${get(todayNationalTrendData, "infected", 0).toLocaleString()}`}
+          additionalContent={`+${get(todayNationalTrendData, "newInfected", 0).toLocaleString()} da ieri`}
+          subContent={`Totali fino ad oggi ${get(todayNationalTrendData, "totalCases", 0).toLocaleString()}`}
         />
-        <BigCard emoji="😊" title="Guariti" content={get(todayNationalTrendData, "healed", "").toLocaleString()} />
+        <BigCard
+          emoji="😊"
+          additionalContentType="success"
+          additionalContent={`+${differenceFromYesterdayHealed.toLocaleString()} da ieri`}
+          title="Guariti"
+          content={get(todayNationalTrendData, "healed", 0).toLocaleString()}
+        />
         <BigCard
           emoji="😢"
           title="Deceduti"
-          content={get(todayNationalTrendData, "deaths", "").toLocaleString()}
+          additionalContent={`+${differenceFromYesterdayDeaths.toLocaleString()} da ieri`}
+          content={get(todayNationalTrendData, "deaths", 0).toLocaleString()}
           subContent="In attesa di conferma ISS"
         />
       </CardCarousel>
@@ -168,8 +183,10 @@ const IndexPage = () => {
           <div className="homepage__wrap">
             <div style={{ marginLeft: "auto", marginRight: "auto" }} className="u-margin-bottom-spacer-huge">
               <MessageBox type="error">
-                <p>10/03/2020: dati Regione Lombardia parziali.</p>
+                <p>16/03/2020: dati P.A. Trento e Puglia non pervenuti.</p>
                 <p>11/03/2020: dati Regione Abruzzo non pervenuti.</p>
+                <p>10/03/2020: dati Regione Lombardia parziali.</p>
+                <p>07/03/2020: dati Brescia +300 esiti positivi</p>
               </MessageBox>
             </div>
             <div className="homepage__item homepage__item--big-cards">
@@ -190,8 +207,19 @@ const IndexPage = () => {
               </>
             </div>
             <div className="homepage__item homepage__item--region-chart u-margin-top-spacer-xxlarge u-margin-bottom-spacer-xlarge">
-              <h2 className="u-margin-bottom-spacer-large">Le regioni più colpite</h2>
-              <RowCardList list={regionsDataSorted} numberOfFakeCards={10} isLoading={!regionsDataSorted.length} />
+              <div className="container--internal">
+                <h2 className="u-margin-bottom-spacer-large">Le regioni più colpite</h2>
+                <RowCardList
+                  list={!shouldShowAllRegions ? [...regionsDataSorted.slice(0, 10)] : regionsDataSorted}
+                  numberOfFakeCards={10}
+                  isLoading={!regionsDataSorted.length}
+                />
+                <div className="homepage-region-chart-cta">
+                  <a onClick={onShowMoreClick} className="button button--primary">
+                    {!shouldShowAllRegions ? "Mostra altro" : "Mostra meno"}
+                  </a>
+                </div>
+              </div>
             </div>
 
             <div className="homepage__item homepage__item--half u-margin-top-spacer-xlarge u-margin-bottom-spacer-xlarge">
@@ -199,18 +227,28 @@ const IndexPage = () => {
               <div className="card">
                 <div className="card__wrap">
                   <div className="card__item">
-                    <InfectedChart data={infectedChartData} />
+                    <LineChart
+                      data={infectedChartData}
+                      options={{
+                        legend: { position: "bottom", labels: { fontFamily: "Lato", padding: 16, fontStyle: "bold" } },
+                      }}
+                    />
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="homepage__item homepage__item--half u-margin-top-spacer-xlarge u-margin-bottom-spacer-xlarge">
-              <h2 className="u-margin-bottom-spacer-large">Tamponi ultima settimana</h2>
+              <h2 className="u-margin-bottom-spacer-large">Nuovi positivi ultima settimana</h2>
               <div className="card">
                 <div className="card__wrap">
                   <div className="card__item">
-                    <TestPerformedChart data={testPerformedChartData} />
+                    <BarChart
+                      data={testPerformedChartData}
+                      options={{
+                        legend: { display: false },
+                      }}
+                    />
                   </div>
                 </div>
               </div>

@@ -132,7 +132,7 @@ const LinkUtili = () => {
                 </li>
                 <li>
                   <a href="https://solidarietadigitale.agid.gov.it/" rel="noopener noreferrer" target="_blank">
-                    Solidarità Digitale
+                    Solidarietà Digitale
                   </a>
                 </li>
               </ul>
