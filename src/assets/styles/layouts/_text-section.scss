@@ -22,4 +22,16 @@
       }
     }
   }
+  &--faq {
+    max-width: 780px;
+    ul {
+      padding-left: $spacer-large;
+      columns: 1 !important;
+      li {
+        margin: $spacer-base 0;
+        @include font-size(18px, 1.8);
+        list-style: initial;
+      }
+    }
+  }
 }

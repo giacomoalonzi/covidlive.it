@@ -1,0 +1,7 @@
+.updates {
+  p {
+    color: $neutral-300;
+    @extend %family-bold;
+    @include font-size(18px, 1.8);
+  }
+}
