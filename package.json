@@ -22,7 +22,7 @@
     "gatsby-plugin-sass": "^2.1.30",
     "gatsby-plugin-sharp": "^2.4.3",
     "gatsby-plugin-sitemap": "^2.2.29",
-    "gatsby-source-filesystem": "^2.1.55",
+    "gatsby-source-filesystem": "^2.1.57",
     "gatsby-plugin-typescript": "^2.2.3",
     "gatsby-transformer-sharp": "^2.3.18",
     "lodash": "^4.17.15",
