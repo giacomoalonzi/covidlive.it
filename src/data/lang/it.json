@@ -2,20 +2,10 @@
   "globals": {
     "header": {
       "subTitle": "La situazione in Italia in tempo reale",
-      "nav": [
-        {
-          "label": "Faq",
-          "url": "/faq"
-        },
-        {
-          "label": "Link Utili",
-          "url": "/link-utili"
-        },
-        {
-          "label": "Contatti",
-          "url": "/contatti"
-        }
-      ]
+      "nav": {
+        "usefulLinkLabel": "Link utili",
+        "contactLabel": "Contatti"
+      }
     },
     "footer": {
       "licenseCtaLabel": "Licenza",

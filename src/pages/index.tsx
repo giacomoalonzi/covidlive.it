@@ -65,7 +65,7 @@ const IndexPage = () => {
     labels,
     datasets: [
       {
-        label: "Positivi",
+        label: formatMessage({ id: "pages.homepage.lastWeekChartData1.datasetLabel1" }),
         fill: false,
         lineTension: 0.2,
         backgroundColor: "#E86379",
@@ -83,7 +83,7 @@ const IndexPage = () => {
         data: infected,
       },
       {
-        label: "Guariti",
+        label: formatMessage({ id: "pages.homepage.lastWeekChartData1.datasetLabel2" }),
         fill: false,
         lineTension: 0.1,
         backgroundColor: "#20D6A5",
@@ -103,7 +103,7 @@ const IndexPage = () => {
         data: healed,
       },
       {
-        label: "Deceduti",
+        label: formatMessage({ id: "pages.homepage.lastWeekChartData1.datasetLabel3" }),
         fill: false,
         lineTension: 0.1,
         backgroundColor: "rgba(75,192,192,0.4)",
@@ -129,7 +129,7 @@ const IndexPage = () => {
     labels,
     datasets: [
       {
-        label: `Nuovi positivi`,
+        label: formatMessage({ id: "pages.homepage.lastWeekChartData2.datasetLabel1" }),
         data: newInfected,
         backgroundColor: "#fcdca3",
         hoverBackgroundColor: "#fbc870",
@@ -154,24 +154,34 @@ const IndexPage = () => {
       <CardCarousel>
         <BigCard
           emoji="😷"
-          title={formatMessage({ id: "pages.homepage.title" })}
+          title={formatMessage({ id: "pages.homepage.bigCardInfected.title" })}
           content={`${get(todayNationalTrendData, "infected", 0).toLocaleString()}`}
-          additionalContent={`+${get(todayNationalTrendData, "newInfected", 0).toLocaleString()} da ieri`}
-          subContent={`Totali fino ad oggi ${get(todayNationalTrendData, "totalCases", 0).toLocaleString()}`}
+          additionalContent={`+${get(todayNationalTrendData, "newInfected", 0).toLocaleString()} ${formatMessage({
+            id: "pages.homepage.bigCardInfected.additionalContentLabel",
+          })}`}
+          subContent={`${formatMessage({ id: "pages.homepage.bigCardInfected.subContentLabel" })} ${get(
+            todayNationalTrendData,
+            "totalCases",
+            0
+          ).toLocaleString()}`}
         />
         <BigCard
           emoji="😊"
           additionalContentType="success"
-          additionalContent={`+${differenceFromYesterdayHealed.toLocaleString()} da ieri`}
-          title="Guariti"
+          title={formatMessage({ id: "pages.homepage.bigCardHealed.title" })}
+          additionalContent={`+${differenceFromYesterdayHealed.toLocaleString()} ${formatMessage({
+            id: "pages.homepage.bigCardHealed.additionalContentLabel",
+          })}`}
           content={get(todayNationalTrendData, "healed", 0).toLocaleString()}
         />
         <BigCard
           emoji="😢"
-          title="Deceduti"
-          additionalContent={`+${differenceFromYesterdayDeaths.toLocaleString()} da ieri`}
+          title={formatMessage({ id: "pages.homepage.bigCardDeaths.title" })}
+          additionalContent={`+${differenceFromYesterdayDeaths.toLocaleString()} ${formatMessage({
+            id: "pages.homepage.bigCardDeaths.additionalContentLabel",
+          })}`}
           content={get(todayNationalTrendData, "deaths", 0).toLocaleString()}
-          subContent="In attesa di conferma ISS"
+          subContent={formatMessage({ id: "pages.homepage.bigCardDeaths.subContentLabel" })}
         />
       </CardCarousel>
     )
@@ -180,13 +190,14 @@ const IndexPage = () => {
   return (
     <Layout>
       <div>
-        <SEO title="Covid Live: la situazione in tempo reale" />
+        <SEO title={formatMessage({ id: "pages.homepage.title" })} />
         <div className="homepage">
           <div className="homepage__wrap">
             <div style={{ marginLeft: "auto", marginRight: "auto" }} className="u-margin-bottom-spacer-huge">
               <MessageBox type="error">
                 <p>
-                  Alcuni dati potrebbero non essere aggiornati. <Link to="/updates">Scopri di più</Link>.
+                  {formatMessage({ id: "pages.homepage.messageBoxLabel" })}{" "}
+                  <Link to="/updates">{formatMessage({ id: "pages.homepage.messageBoxCtaLabel" })}</Link>.
                 </p>
               </MessageBox>
             </div>
@@ -195,13 +206,13 @@ const IndexPage = () => {
                 {!todayNationalTrendData ? renderFakeCarousel() : renderCarousel()}
                 {todayNationalTrendData && (
                   <p>
-                    *Ultimo aggiornamento:{" "}
+                    {formatMessage({ id: "pages.homepage.lastUpdateLabel" })}
                     {format(new Date(parseISO(get(todayNationalTrendData, "date", ""))), "dd/LL/yyyy – H:mm", {
                       locale: it,
                     })}{" "}
                     –{" "}
                     <a href="http://www.protezionecivile.gov.it/home" rel="noopener noreferrer" target="_blank">
-                      Fonte
+                      {formatMessage({ id: "pages.homepage.lastUpdateCtaLabel" })}
                     </a>{" "}
                   </p>
                 )}
@@ -209,7 +220,9 @@ const IndexPage = () => {
             </div>
             <div className="homepage__item homepage__item--region-chart u-margin-top-spacer-xxlarge u-margin-bottom-spacer-xlarge">
               <div className="container--internal">
-                <h2 className="u-margin-bottom-spacer-large">Le regioni più colpite</h2>
+                <h2 className="u-margin-bottom-spacer-large">
+                  {formatMessage({ id: "pages.homepage.allRegions.title" })}
+                </h2>
                 <RowCardList
                   list={!shouldShowAllRegions ? [...regionsDataSorted.slice(0, 10)] : regionsDataSorted}
                   numberOfFakeCards={10}
@@ -217,14 +230,18 @@ const IndexPage = () => {
                 />
                 <div className="homepage-region-chart-cta">
                   <a onClick={onShowMoreClick} className="button button--primary">
-                    {!shouldShowAllRegions ? "Mostra altro" : "Mostra meno"}
+                    {!shouldShowAllRegions
+                      ? formatMessage({ id: "pages.homepage.allRegions.allRegionShowMoreCtaLabel" })
+                      : formatMessage({ id: "pages.homepage.allRegions.allRegionShowLessCtaLabel" })}
                   </a>
                 </div>
               </div>
             </div>
 
             <div className="homepage__item homepage__item--half u-margin-top-spacer-xlarge u-margin-bottom-spacer-xlarge">
-              <h2 className="u-margin-bottom-spacer-large">Dati ultima settimana</h2>
+              <h2 className="u-margin-bottom-spacer-large">
+                {formatMessage({ id: "pages.homepage.lastWeekChartData1.title" })}
+              </h2>
               <div className="card">
                 <div className="card__wrap">
                   <div className="card__item">
@@ -240,7 +257,9 @@ const IndexPage = () => {
             </div>
 
             <div className="homepage__item homepage__item--half u-margin-top-spacer-xlarge u-margin-bottom-spacer-xlarge">
-              <h2 className="u-margin-bottom-spacer-large">Nuovi positivi ultima settimana</h2>
+              <h2 className="u-margin-bottom-spacer-large">
+                {formatMessage({ id: "pages.homepage.lastWeekChartData2.title" })}
+              </h2>
               <div className="card">
                 <div className="card__wrap">
                   <div className="card__item">

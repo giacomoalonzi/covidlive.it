@@ -1,78 +1,68 @@
 {
   "globals": {
     "header": {
-      "subTitle": "La situazione in Italia in tempo reale",
-      "nav": [
-        {
-          "label": "Faq",
-          "url": "/faq"
-        },
-        {
-          "label": "Link Utili",
-          "url": "/link-utili"
-        },
-        {
-          "label": "Contatti",
-          "url": "/contatti"
-        }
-      ]
+      "subTitle": "Real time monitoring in Italy",
+      "nav": {
+        "usefulLinkLabel": "Useful Links",
+        "contactLabel": "Contact us"
+      }
     },
     "footer": {
-      "licenseCtaLabel": "Licenza",
-      "showLicenseLabel": "Visualizza licenza",
-      "datasetLabel": "Editore / Autore dataset:",
-      "datasetCtaLabel": "Dipartimento della Protezione Civile",
+      "licenseCtaLabel": "License",
+      "showLicenseLabel": "Show license",
+      "datasetLabel": "Publisher / Author dataset:",
+      "datasetCtaLabel": "Department of Civil Protection",
       "copyright": "Developed with ❤️ by",
       "copyrightCtaLabel": "@giacomo.alonzi",
-      "contributingCtaLabel": "Contribuisci al progetto"
+      "contributingCtaLabel": "Contribute"
     }
   },
   "pages": {
     "homepage": {
-      "title": "Homepage covid it",
-      "messageBoxLabel": "Alcuni dati potrebbero non essere aggiornati",
-      "messageBoxCtaLabel": "Scopri di più",
+      "title": "Covid Live: real time monitoring",
+      "messageBoxLabel": "Some data may not be updated.",
+      "messageBoxCtaLabel": "Show more",
       "bigCardInfected": {
-        "title": "Positivi",
-        "additionalContentLabel": "da ieri",
-        "subContentLabel": "Totali fino ad oggi"
+        "title": "Positives",
+        "additionalContentLabel": "since yesterday",
+        "subContentLabel": "Total to date: "
       },
       "bigCardHealed": {
-        "title": "Guariti",
-        "additionalContentLabel": "da ieri"
+        "title": "Healed",
+        "additionalContentLabel": "since yesterday"
       },
       "bigCardDeaths": {
-        "title": "Deceduti",
-        "additionalContentLabel": "da ieri",
-        "subContentLabel": "In attesa di conferma ISS"
+        "title": "Deceased",
+        "additionalContentLabel": "since yesterday",
+        "subContentLabel": "Pending ISS confirmation"
       },
-      "lastUpdateLabel": "Ultimo aggiornamento:",
-      "lastUpdateCtaLabel": "Fonte",
+      "lastUpdateLabel": "Last update:",
+      "lastUpdateCtaLabel": "Source",
       "allRegions": {
-        "title": "Le regioni più colpite",
+        "title": "The most affected regions",
         "regionBlockDataLabels": {
-          "hospitalizedLabel": "Totale ospedalizzati",
-          "intensiveCare": "In terapia intensiva",
-          "hospitalizedWithSymptoms": "Ospedalizzati con sintomi",
-          "homeConfinement": "In isolamento domiciliare",
-          "testPerformed": "Totale tamponi"
+          "hospitalizedLabel": "Total hospitalized",
+          "intensiveCare": "In Intesive care",
+          "hospitalizedWithSymptoms": "Hospitalized with symptoms",
+          "homeConfinement": "In home isolation",
+          "testPerformed": "Total performed test"
         },
-        "allRegionShowMoreCtaLabel": "Mostra altro",
-        "allRegionShowLessCtaLabel": "Mostra meno"
+        "allRegionShowMoreCtaLabel": "Show more",
+        "allRegionShowLessCtaLabel": "Show less"
       },
       "lastWeekChartData1": {
-        "title": "Dati ultima settimana",
-        "datasetLabel1": "Positivi",
-        "datasetLabel2": "Guariti",
-        "datasetLabel3": "Deceduti"
+        "title": "Last week data",
+        "datasetLabel1": "Positives",
+        "datasetLabel2": "Healed",
+        "datasetLabel3": "Deceased"
       },
       "lastWeekChartData2": {
-        "title": "Nuovi positivi ultima settimana",
-        "datasetLabel1": "Nuovi positivi"
+        "title": "New positives last week",
+        "datasetLabel1": "New positives"
       }
     },
     "faq": {
-      "title": "Domande Frequenti"
+      "title": "Frequency asked question"
     }
   }
 }
