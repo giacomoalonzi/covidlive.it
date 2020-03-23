@@ -54,17 +54,24 @@
       }
       nav {
         ul {
+          display: inline-flex;
+          align-items: center;
           li {
+            &:last-of-type {
+              margin-right: 0;
+              a {
+                @include font-size(20px, 1);
+              }
+            }
             a {
+              cursor: pointer;
               color: $neutral-300;
               @extend %family-black;
               @include font-size(14px, 1);
               text-transform: uppercase;
               text-decoration: none;
               margin-right: $spacer-base;
-              &:last-of-type {
-                margin-right: 0;
-              }
+
               color: $neutral-300;
               transition: color 0.1s ease;
               &:hover {

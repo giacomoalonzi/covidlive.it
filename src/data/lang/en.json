@@ -24,16 +24,16 @@
       "messageBoxCtaLabel": "Show more",
       "bigCardInfected": {
         "title": "Positives",
-        "additionalContentLabel": "since yesterday",
+        "additionalContentLabel": "today",
         "subContentLabel": "Total to date: "
       },
       "bigCardHealed": {
-        "title": "Healed",
-        "additionalContentLabel": "since yesterday"
+        "title": "Recovered",
+        "additionalContentLabel": "today"
       },
       "bigCardDeaths": {
         "title": "Deceased",
-        "additionalContentLabel": "since yesterday",
+        "additionalContentLabel": "today",
         "subContentLabel": "Pending ISS confirmation"
       },
       "lastUpdateLabel": "Last update:",
@@ -53,7 +53,7 @@
       "lastWeekChartData1": {
         "title": "Last week data",
         "datasetLabel1": "Positives",
-        "datasetLabel2": "Healed",
+        "datasetLabel2": "Recovered",
         "datasetLabel3": "Deceased"
       },
       "lastWeekChartData2": {
@@ -61,8 +61,70 @@
         "datasetLabel1": "New positives"
       }
     },
-    "faq": {
-      "title": "Frequency asked question"
+    "usefulLinks": {
+      "donationLinks": {
+        "title": "To make a donation",
+        "links": {
+          "link1": {
+            "label": "Lombardy region",
+            "url": "https://www.regione.lombardia.it/wps/portal/istituzionale/HP/DettaglioRedazionale/servizi-e-informazioni/cittadini/salute-e-prevenzione/coronavirus/coronavirus-raccolta-fondi"
+          },
+          "link2": {
+            "label": "Niguarda Hospital in Milan",
+            "url": "https://www.gofundme.com/f/aiutiamo-ospedale-niguarda-covid19"
+          },
+          "link3": {
+            "label": "Luigi Sacco Hospital in Milan",
+            "url": "https://www.gofundme.com/f/aiutiamo-la-rianimazione-dell039ospedale-sacco"
+          },
+          "link4": {
+            "label": "Spallanzani Hospital in Rome",
+            "url": "https://www.ilfoglio.it/sezioni/714/donazioni-spallanzani"
+          },
+          "link5": {
+            "label": "Maggiore Hospital of Parma",
+            "url": "https://www.ao.pr.it/la-squadra-piu-forte-di-parma-dal-parma-calcio-donazione-di-25-000-euro/"
+          },
+          "link6": {
+            "label": "Cotugno hospital in Naples",
+            "url": "https://www.gofundme.com/f/raccolta-fondi-per-il-cotugno-di-napolicovid19"
+          },
+          "link7": {
+            "label": "Sant'Anna hospital in Como",
+            "url": "https://www.gofundme.com/f/aiutami-la-terapia-intensiva-santanna"
+          }
+        },
+        "ctaLabel": "Report other donation options"
+      },
+      "usefulLinks": {
+        "title": "Useful links",
+        "links": {
+          "link1": {
+            "label": "Recommendations for prevention",
+            "url": "http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioOpuscoliNuovoCoronavirus.jsp?lingua=italiano&id=443"
+          },
+          "link2": {
+            "label": "Rules and downloadable form for travel",
+            "url": "https://www.interno.gov.it/it/speciali/coronavirus"
+          },
+          "link3": {
+            "label": "World Health Organization",
+            "url": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports/"
+          },
+          "link4": {
+            "label": "Ministry of Health",
+            "url": "http://www.salute.gov.it/nuovocoronavirus"
+          },
+          "link5": {
+            "label": "Rules, circulars and ordinances",
+            "url": "http://www.salute.gov.it/portale/nuovocoronavirus/archivioNormativaNuovoCoronavirus.jsp"
+          },
+          "link6": {
+            "label": "Digital solidarity",
+            "url": "https://solidarietadigitale.agid.gov.it/"
+          }
+        }
+      }
     }
   }
 }

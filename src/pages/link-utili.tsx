@@ -1,13 +1,17 @@
 import * as React from "react"
 import Layout from "@Components/layout"
 import SEO from "@Components/seo"
+import { useIntl } from "gatsby-plugin-intl"
 const LinkUtili = () => {
+  const { formatMessage } = useIntl()
   return (
     <Layout>
       <SEO title="Link Utili" />
 
       <div className="layout-wrap">
-        <h2 className="u-margin-bottom-spacer-large">Per effettuare una donazione</h2>
+        <h2 className="u-margin-bottom-spacer-large">
+          {formatMessage({ id: "pages.usefulLinks.donationLinks.title" })}
+        </h2>
         <div className="card">
           <div className="card__wrap">
             <div className="card__item">
@@ -15,70 +19,70 @@ const LinkUtili = () => {
                 <ul>
                   <li>
                     <a
-                      href="https://www.regione.lombardia.it/wps/portal/istituzionale/HP/DettaglioRedazionale/servizi-e-informazioni/cittadini/salute-e-prevenzione/coronavirus/coronavirus-raccolta-fondi"
+                      href={formatMessage({ id: "pages.usefulLinks.donationLinks.links.link1.url" })}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Regione Lombardia
+                      {formatMessage({ id: "pages.usefulLinks.donationLinks.links.link1.label" })}
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://www.gofundme.com/f/aiutiamo-ospedale-niguarda-covid19"
+                      href={formatMessage({ id: "pages.usefulLinks.donationLinks.links.link2.url" })}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Ospedale Niguarda di Milano
+                      {formatMessage({ id: "pages.usefulLinks.donationLinks.links.link2.label" })}
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://www.gofundme.com/f/aiutiamo-la-rianimazione-dell039ospedale-sacco"
+                      href={formatMessage({ id: "pages.usefulLinks.donationLinks.links.link3.url" })}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Ospedale Luigi Sacco di Milano
+                      {formatMessage({ id: "pages.usefulLinks.donationLinks.links.link3.label" })}
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://www.ilfoglio.it/sezioni/714/donazioni-spallanzani"
+                      href={formatMessage({ id: "pages.usefulLinks.donationLinks.links.link4.url" })}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Ospedale Spallanzani di Roma
+                      {formatMessage({ id: "pages.usefulLinks.donationLinks.links.link4.label" })}
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://www.ao.pr.it/la-squadra-piu-forte-di-parma-dal-parma-calcio-donazione-di-25-000-euro/"
+                      href={formatMessage({ id: "pages.usefulLinks.donationLinks.links.link5.url" })}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Ospedale Maggiore di Parma
+                      {formatMessage({ id: "pages.usefulLinks.donationLinks.links.link5.label" })}
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://www.gofundme.com/f/raccolta-fondi-per-il-cotugno-di-napolicovid19"
+                      href={formatMessage({ id: "pages.usefulLinks.donationLinks.links.link6.url" })}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Ospedale Cotugno di Napoli
+                      {formatMessage({ id: "pages.usefulLinks.donationLinks.links.link6.label" })}
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://www.gofundme.com/f/aiutami-la-terapia-intensiva-santanna"
+                      href={formatMessage({ id: "pages.usefulLinks.donationLinks.links.link7.url" })}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Ospedale Sant’Anna di Como
+                      {formatMessage({ id: "pages.usefulLinks.donationLinks.links.link7.label" })}
                     </a>
                   </li>
                   <li>
                     <a href="mailto:ciao@covidlive.it" rel="noopener noreferrer" target="_blank">
-                      <strong>Segnala altre possibilità di donazione</strong>
+                      <strong>{formatMessage({ id: "pages.usefulLinks.donationLinks.ctaLabel" })}</strong>
                     </a>
                   </li>
                 </ul>
@@ -86,7 +90,9 @@ const LinkUtili = () => {
             </div>
           </div>
         </div>
-        <h2 className="u-margin-bottom-spacer-large u-margin-top-spacer-large">Link utili</h2>
+        <h2 className="u-margin-bottom-spacer-large u-margin-top-spacer-large">
+          {formatMessage({ id: "pages.usefulLinks.usefulLinks.title" })}
+        </h2>
         <div className="card text-section">
           <div className="card__wrap text__wrap">
             <div className="card__item text__item">
@@ -94,48 +100,56 @@ const LinkUtili = () => {
                 <ul>
                   <li>
                     <a
-                      href="http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioOpuscoliNuovoCoronavirus.jsp?lingua=italiano&id=443 "
+                      href={formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link1.url" })}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Raccomandazioni per la prevenzione
+                      {formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link1.label" })}
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://www.interno.gov.it/it/speciali/coronavirus"
+                      href={formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link2.url" })}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Regole e modulo scaricabile per gli spostamenti
+                      {formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link2.label" })}
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports/"
+                      href={formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link3.url" })}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Organizzazione Mondiale della Sanità
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.salute.gov.it/nuovocoronavirus" rel="noopener noreferrer" target="_blank">
-                      Ministero della Salute
+                      {formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link3.label" })}
                     </a>
                   </li>
                   <li>
                     <a
-                      href="http://www.salute.gov.it/portale/nuovocoronavirus/archivioNormativaNuovoCoronavirus.jsp  "
+                      href={formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link4.url" })}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      Norme, circolari e ordinanze
+                      {formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link4.label" })}
                     </a>
                   </li>
                   <li>
-                    <a href="https://solidarietadigitale.agid.gov.it/" rel="noopener noreferrer" target="_blank">
-                      Solidarietà Digitale
+                    <a
+                      href={formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link5.url" })}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link5.label" })}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link6.url" })}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {formatMessage({ id: "pages.usefulLinks.usefulLinks.links.link6.label" })}
                     </a>
                   </li>
                 </ul>

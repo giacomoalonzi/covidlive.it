@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as PropTypes from "prop-types"
-import { useIntl, Link } from "gatsby-plugin-intl"
+import { useIntl, Link, changeLocale, IntlContextConsumer } from "gatsby-plugin-intl"
 const Header = () => {
   const { formatMessage } = useIntl()
   return (
@@ -23,7 +23,26 @@ const Header = () => {
               <li>
                 {/* <Link to="/faq">FAQ</Link> */}
                 <Link to="/link-utili">{formatMessage({ id: "globals.header.nav.usefulLinkLabel" })}</Link>
+              </li>
+              <li>
                 <a href="mailto:ciao@covidlive.it">{formatMessage({ id: "globals.header.nav.contactLabel" })}</a>
+              </li>
+              <li>
+                <IntlContextConsumer>
+                  {({ language: currentLocale }: { language: string }) => (
+                    <>
+                      {currentLocale === "en" ? (
+                        <a onClick={() => changeLocale("it")}>
+                          <span role="img">🇮🇹</span>
+                        </a>
+                      ) : (
+                        <a onClick={() => changeLocale("en")}>
+                          <span role="img">🇺🇸</span>
+                        </a>
+                      )}
+                    </>
+                  )}
+                </IntlContextConsumer>
               </li>
             </ul>
           </nav>
