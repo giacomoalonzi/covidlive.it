@@ -18,6 +18,10 @@
     }
   },
   "pages": {
+    "notFound": {
+      "title": "Page not found",
+      "ctaLabel": "Back to homepage"
+    },
     "homepage": {
       "title": "Covid Live: real time monitoring",
       "messageBoxLabel": "Some data may not be updated.",

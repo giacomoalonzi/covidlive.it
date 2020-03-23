@@ -18,6 +18,10 @@
     }
   },
   "pages": {
+    "notFound": {
+      "title": "Pagina non trovata",
+      "ctaLabel": "Torna alla home"
+    },
     "homepage": {
       "title": "Covid Live: la situazione in tempo reale",
       "messageBoxLabel": "Alcuni dati potrebbero non essere aggiornati",
