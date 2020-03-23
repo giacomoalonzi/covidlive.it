@@ -60,6 +60,7 @@ const IndexPage = () => {
   const newInfected = lastWeekData.map(i => i.newInfected)
   const healed = lastWeekData.map(i => i.healed)
   const deaths = lastWeekData.map(i => i.deaths)
+  const testPerformed = lastWeekData.map(i => i.testPerformed)
 
   const infectedChartData = {
     labels,
@@ -81,6 +82,24 @@ const IndexPage = () => {
         pointHoverBorderColor: "#E86379",
         pointHoverBorderWidth: 5,
         data: infected,
+      },
+      {
+        label: formatMessage({ id: "pages.homepage.lastWeekChartData1.datasetLabel4" }),
+        fill: false,
+        lineTension: 0.2,
+        backgroundColor: "#fcdca3",
+        borderColor: "#fcdca3",
+        borderCapStyle: "butt",
+        borderDashOffset: 0.0,
+        borderJoinStyle: "miter",
+        pointBorderColor: "#fcdca3",
+        pointBackgroundColor: "#fcdca3",
+        pointBorderWidth: 4,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "#fcdca3",
+        pointHoverBorderColor: "#fcdca3",
+        pointHoverBorderWidth: 5,
+        data: testPerformed,
       },
       {
         label: formatMessage({ id: "pages.homepage.lastWeekChartData1.datasetLabel2" }),

@@ -58,7 +58,8 @@
         "title": "Last week data",
         "datasetLabel1": "Positives",
         "datasetLabel2": "Recovered",
-        "datasetLabel3": "Deceased"
+        "datasetLabel3": "Deceased",
+        "datasetLabel4": "Test performed"
       },
       "lastWeekChartData2": {
         "title": "New positives last week",

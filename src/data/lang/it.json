@@ -58,7 +58,8 @@
         "title": "Dati ultima settimana",
         "datasetLabel1": "Positivi",
         "datasetLabel2": "Guariti",
-        "datasetLabel3": "Deceduti"
+        "datasetLabel3": "Deceduti",
+        "datasetLabel4": "Tamponi"
       },
       "lastWeekChartData2": {
         "title": "Nuovi positivi ultima settimana",
