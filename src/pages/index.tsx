@@ -206,7 +206,7 @@ const IndexPage = () => {
                 {!todayNationalTrendData ? renderFakeCarousel() : renderCarousel()}
                 {todayNationalTrendData && (
                   <p>
-                    {formatMessage({ id: "pages.homepage.lastUpdateLabel" })}
+                    {formatMessage({ id: "pages.homepage.lastUpdateLabel" })}{" "}
                     {format(new Date(parseISO(get(todayNationalTrendData, "date", ""))), "dd/LL/yyyy – H:mm", {
                       locale: it,
                     })}{" "}

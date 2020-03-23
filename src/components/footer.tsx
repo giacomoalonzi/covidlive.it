@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer__wrap">
         <div className="footer__item">
           <p>
-            COVIDLIVE.IT © {new Date().getFullYear()} — {formatMessage({ id: "globals.footer.licenseCtaLabel" })}
+            COVIDLIVE.IT © {new Date().getFullYear()} — {formatMessage({ id: "globals.footer.licenseCtaLabel" })}{" "}
             <a rel="noopener noreferrer" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.en">
               CC-BY-4.0
             </a>{" "}
