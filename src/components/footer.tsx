@@ -29,6 +29,10 @@ const Footer = () => {
               @giacomo.alonzi
             </a>{" "}
             —{" "}
+            <a rel="noopener noreferrer" target="_blank" href="https://www.iubenda.com/privacy-policy/72729546">
+              Privacy policy
+            </a>{" "}
+            —{" "}
             <a href="https://github.com/giacomoalonzi/covidlive.it" rel="noopener noreferrer" target="_blank">
               {formatMessage({ id: "globals.footer.contributingCtaLabel" })}
             </a>
