@@ -1,0 +1,135 @@
+{
+  "globals": {
+    "header": {
+      "subTitle": "La situazione in Italia in tempo reale",
+      "nav": {
+        "usefulLinkLabel": "Link utili",
+        "contactLabel": "Contatti"
+      }
+    },
+    "footer": {
+      "licenseCtaLabel": "Licenza",
+      "showLicenseLabel": "Visualizza licenza",
+      "datasetLabel": "Editore / Autore dataset:",
+      "datasetCtaLabel": "Dipartimento della Protezione Civile",
+      "copyright": "Developed with ❤️ by",
+      "copyrightCtaLabel": "@giacomo.alonzi",
+      "contributingCtaLabel": "Contribuisci al progetto"
+    }
+  },
+  "pages": {
+    "notFound": {
+      "title": "Pagina non trovata",
+      "ctaLabel": "Torna alla home"
+    },
+    "homepage": {
+      "title": "Covid Live: la situazione in tempo reale",
+      "messageBoxLabel": "Alcuni dati potrebbero non essere aggiornati",
+      "messageBoxCtaLabel": "Scopri di più",
+      "bigCardInfected": {
+        "title": "Positivi",
+        "additionalContentLabel": "da ieri",
+        "subContentLabel": "Totali fino ad oggi"
+      },
+      "bigCardHealed": {
+        "title": "Guariti",
+        "additionalContentLabel": "da ieri"
+      },
+      "bigCardDeaths": {
+        "title": "Deceduti",
+        "additionalContentLabel": "da ieri",
+        "subContentLabel": "In attesa di conferma ISS"
+      },
+      "lastUpdateLabel": "Ultimo aggiornamento:",
+      "lastUpdateCtaLabel": "Fonte",
+      "allRegions": {
+        "title": "Le regioni più colpite",
+        "regionBlockDataLabels": {
+          "hospitalizedLabel": "Totale ospedalizzati",
+          "intensiveCare": "In terapia intensiva",
+          "hospitalizedWithSymptoms": "Ospedalizzati con sintomi",
+          "homeConfinement": "In isolamento domiciliare",
+          "testPerformed": "Totale tamponi"
+        },
+        "allRegionShowMoreCtaLabel": "Mostra altro",
+        "allRegionShowLessCtaLabel": "Mostra meno"
+      },
+      "lastWeekChartData1": {
+        "title": "Dati ultima settimana",
+        "datasetLabel1": "Positivi",
+        "datasetLabel2": "Guariti",
+        "datasetLabel3": "Deceduti"
+      },
+      "lastWeekChartData2": {
+        "title": "Nuovi positivi ultima settimana",
+        "datasetLabel1": "Nuovi positivi"
+      }
+    },
+    "usefulLinks": {
+      "title": "Link utili",
+      "donationLinks": {
+        "title": "Per effettuare una donazione",
+        "links": {
+          "link1": {
+            "label": "Regione lombardia",
+            "url": "https://www.regione.lombardia.it/wps/portal/istituzionale/HP/DettaglioRedazionale/servizi-e-informazioni/cittadini/salute-e-prevenzione/coronavirus/coronavirus-raccolta-fondi"
+          },
+          "link2": {
+            "label": "Ospedale Niguarda di Milano",
+            "url": "https://www.gofundme.com/f/aiutiamo-ospedale-niguarda-covid19"
+          },
+          "link3": {
+            "label": "Ospedale Luigi Sacco di Milano",
+            "url": "https://www.gofundme.com/f/aiutiamo-la-rianimazione-dell039ospedale-sacco"
+          },
+          "link4": {
+            "label": "Ospedale Spallanzani di Roma",
+            "url": "https://www.ilfoglio.it/sezioni/714/donazioni-spallanzani"
+          },
+          "link5": {
+            "label": "Ospedale Maggiore di Parma",
+            "url": "https://www.ao.pr.it/la-squadra-piu-forte-di-parma-dal-parma-calcio-donazione-di-25-000-euro/"
+          },
+          "link6": {
+            "label": "Ospedale Cotugno di Napoli",
+            "url": "https://www.gofundme.com/f/raccolta-fondi-per-il-cotugno-di-napolicovid19"
+          },
+          "link7": {
+            "label": "Ospedale Sant’Anna di Como",
+            "url": "https://www.gofundme.com/f/aiutami-la-terapia-intensiva-santanna"
+          }
+        },
+        "ctaLabel": "Segnala altre possibilità di donazione"
+      },
+      "usefulLinks": {
+        "title": "Useful links",
+        "links": {
+          "link1": {
+            "label": "Raccomandazioni per la prevenzione",
+            "url": "http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioOpuscoliNuovoCoronavirus.jsp?lingua=italiano&id=443"
+          },
+          "link2": {
+            "label": "Regole e modulo scaricabile per gli spostamenti",
+            "url": "https://www.interno.gov.it/it/speciali/coronavirus"
+          },
+          "link3": {
+            "label": "Organizzazione Mondiale della Sanità",
+            "url": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports/"
+          },
+          "link4": {
+            "label": "Ministero della Salute",
+            "url": "http://www.salute.gov.it/nuovocoronavirus"
+          },
+          "link5": {
+            "label": "Norme, circolari e ordinanze",
+            "url": "http://www.salute.gov.it/portale/nuovocoronavirus/archivioNormativaNuovoCoronavirus.jsp"
+          },
+          "link6": {
+            "label": "Solidarietà digitale",
+            "url": "https://solidarietadigitale.agid.gov.it/"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import * as React from "react"
 import * as PropTypes from "prop-types"
 import Skeleton from "@Components/skeleton"
+import { useIntl } from "gatsby-plugin-intl"
 
 const chevronSvg = require("@Assets/images/icons/chevron.svg")
 import {
@@ -41,6 +42,7 @@ const RowCardItemAccordion = ({
   selectedAccordionId,
   newInfected,
 }: Props) => {
+  const { formatMessage } = useIntl()
   return (
     <div
       className={`row-card-item ${selectedAccordionId.includes(name) ? "is-selected" : ""} ${
@@ -102,7 +104,9 @@ const RowCardItemAccordion = ({
                     <div className="row-card-table-row">
                       <div className="row-card-table-row__wrap">
                         <div className="row-card-table-row__item">
-                          <p>Totale ospedalizzati</p>
+                          <p>
+                            {formatMessage({ id: "pages.homepage.allRegions.regionBlockDataLabels.hospitalizedLabel" })}
+                          </p>
                         </div>
                         <div className="row-card-table-row__item">
                           <p>{hospitalized.toLocaleString()}</p>
@@ -112,7 +116,9 @@ const RowCardItemAccordion = ({
                     <div className="row-card-table-row">
                       <div className="row-card-table-row__wrap">
                         <div className="row-card-table-row__item">
-                          <p>In terapia intensiva </p>
+                          <p>
+                            {formatMessage({ id: "pages.homepage.allRegions.regionBlockDataLabels.intensiveCare" })}
+                          </p>
                         </div>
                         <div className="row-card-table-row__item">
                           <p>{intensiveCare.toLocaleString()}</p>
@@ -122,7 +128,11 @@ const RowCardItemAccordion = ({
                     <div className="row-card-table-row">
                       <div className="row-card-table-row__wrap">
                         <div className="row-card-table-row__item">
-                          <p>Ospedalizzati con sintomi </p>
+                          <p>
+                            {formatMessage({
+                              id: "pages.homepage.allRegions.regionBlockDataLabels.hospitalizedWithSymptoms",
+                            })}
+                          </p>
                         </div>
                         <div className="row-card-table-row__item">
                           <p>{hospitalizedWithSymptoms.toLocaleString()}</p>
@@ -132,7 +142,11 @@ const RowCardItemAccordion = ({
                     <div className="row-card-table-row">
                       <div className="row-card-table-row__wrap">
                         <div className="row-card-table-row__item">
-                          <p>In isolamento domiciliare </p>
+                          <p>
+                            {formatMessage({
+                              id: "pages.homepage.allRegions.regionBlockDataLabels.homeConfinement",
+                            })}
+                          </p>
                         </div>
                         <div className="row-card-table-row__item">
                           <p>{homeConfinement.toLocaleString()}</p>
@@ -141,7 +155,11 @@ const RowCardItemAccordion = ({
                     </div>
                     <div className="row-card-table-row__wrap">
                       <div className="row-card-table-row__item">
-                        <p>Totale tamponi </p>
+                        <p>
+                          {formatMessage({
+                            id: "pages.homepage.allRegions.regionBlockDataLabels.testPerformed",
+                          })}
+                        </p>
                       </div>
                       <div className="row-card-table-row__item">
                         <p>{testPerformed.toLocaleString()}</p>

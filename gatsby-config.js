@@ -25,6 +25,15 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
     {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/data/lang`,
+        languages: [`en`, `it`],
+        defaultLanguage: `it`,
+        redirect: false,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Covidlive.it`,
