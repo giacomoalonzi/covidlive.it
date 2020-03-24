@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Context as RegionsDataContext } from "@Contexts/regionsData"
 import { Context as NationalTrendDataContext } from "@Contexts/nationalTrendData"
+import { Context as WorldDataContext } from "@Contexts/worldData"
 import Layout from "@Components/layout"
 import { useIntl } from "gatsby-plugin-intl"
 import SEO from "@Components/seo"
@@ -13,7 +14,7 @@ import { get, last, slice, range } from "lodash"
 // import MessageBox from "@Components/messageBox"
 import { format, parseISO } from "date-fns"
 import { it } from "date-fns/locale"
-import RowCardList from "@Components/rowCardList"
+import RowCardAccordionList from "@Components/rowCardAccordionList"
 import { NationalTrendDataType } from "@Types/nationalTrendData"
 
 const IndexPage = () => {
@@ -22,11 +23,15 @@ const IndexPage = () => {
   const { store: regionsDataStore, onGetRegionsData } = React.useContext(RegionsDataContext)
   // @ts-ignore
   const { store: nationalTrendDataStore, onGetNationalTrandData } = React.useContext(NationalTrendDataContext)
+  // @ts-ignore
+  const { store: worldDataStore, onGetWorldData } = React.useContext(WorldDataContext)
   const [regionsDataSorted, setRegionsDataSorted] = React.useState([])
   const [shouldShowAllRegions, setShouldShowAllRegion] = React.useState<boolean>(false)
+  const [shouldShowAllWorldData, setShouldShowAllWorldData] = React.useState<boolean>(false)
   React.useEffect(() => {
     onGetNationalTrandData()
     onGetRegionsData()
+    onGetWorldData()
   }, [])
 
   React.useEffect(() => {
@@ -41,16 +46,20 @@ const IndexPage = () => {
     setRegionsDataSorted(sortedData)
   }, [regionsDataStore])
 
-  const onShowMoreClick = () => {
+  const onShowMoreRegions = () => {
     setShouldShowAllRegion(!shouldShowAllRegions)
   }
+
+  const onShowMoreCountries = () => {
+    setShouldShowAllWorldData(!shouldShowAllWorldData)
+  }
+
   const { data: nationalTrendData }: { data: [NationalTrendDataType] } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
   const dayBeforeTodayNationTrendDaata = nationalTrendData[nationalTrendData.length - 2]
 
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
   const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL"))
-  // const testsPerformed = lastWeekData.map(i => i.testPerformed)
   const differenceFromYesterdayHealed =
     get(todayNationalTrendData, "healed", 0) - get(dayBeforeTodayNationTrendDaata, "healed", 0)
   const differenceFromYesterdayDeaths =
@@ -242,13 +251,13 @@ const IndexPage = () => {
                 <h2 className="u-margin-bottom-spacer-large">
                   {formatMessage({ id: "pages.homepage.allRegions.title" })}
                 </h2>
-                <RowCardList
+                <RowCardAccordionList
                   list={!shouldShowAllRegions ? [...regionsDataSorted.slice(0, 10)] : regionsDataSorted}
                   numberOfFakeCards={10}
                   isLoading={!regionsDataSorted.length}
                 />
                 <div className="homepage-region-chart-cta">
-                  <a onClick={onShowMoreClick} className="button button--primary">
+                  <a onClick={onShowMoreRegions} className="button button--primary">
                     {!shouldShowAllRegions
                       ? formatMessage({ id: "pages.homepage.allRegions.allRegionShowMoreCtaLabel" })
                       : formatMessage({ id: "pages.homepage.allRegions.allRegionShowLessCtaLabel" })}
@@ -289,6 +298,31 @@ const IndexPage = () => {
                       }}
                     />
                   </div>
+                </div>
+              </div>
+            </div>
+            <div className="homepage__item homepage__item--region-chart u-margin-top-spacer-xxlarge u-margin-bottom-spacer-xlarge">
+              <div className="container--internal">
+                <h2 className="u-margin-bottom-spacer-large">
+                  {formatMessage({ id: "pages.homepage.allCountries.title" })}
+                </h2>
+                <RowCardAccordionList
+                  enableAccordion={false}
+                  list={!shouldShowAllWorldData ? [...worldDataStore.data.slice(0, 10)] : worldDataStore.data}
+                  numberOfFakeCards={10}
+                  isLoading={!worldDataStore.data.length}
+                />
+                <p className="u-text-right">
+                  <a rel="noopener noreferrer" target="_blank" href="https://github.com/sharadcodes/covid19-graphql">
+                    <strong>{formatMessage({ id: "pages.homepage.allCountries.dataSourceLabel" })}</strong>
+                  </a>
+                </p>
+                <div className="homepage-region-chart-cta">
+                  <a onClick={onShowMoreCountries} className="button button--primary">
+                    {!shouldShowAllWorldData
+                      ? formatMessage({ id: "pages.homepage.allRegions.allRegionShowMoreCtaLabel" })
+                      : formatMessage({ id: "pages.homepage.allRegions.allRegionShowLessCtaLabel" })}
+                  </a>
                 </div>
               </div>
             </div>

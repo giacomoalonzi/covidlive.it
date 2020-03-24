@@ -2,6 +2,7 @@
   "build": {
     "env": {
       "GATSBY_API_URL": "@covidlive-api-url",
+      "GATSBY_API_WORLD_DATA_URL": "@covidlive-world-api-url",
       "GOOGLE_ANALYTICS": "@covidlive-google-analytics"
     }
   }

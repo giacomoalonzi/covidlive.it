@@ -64,6 +64,10 @@
       "lastWeekChartData2": {
         "title": "New positives last week",
         "datasetLabel1": "New positives"
+      },
+      "allCountries": {
+        "title": "The most affected countries",
+        "dataSourceLabel": "Data source"
       }
     },
     "usefulLinks": {

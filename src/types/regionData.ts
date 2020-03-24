@@ -1,4 +1,4 @@
-export interface RegionDataType {
+export type RegionDataType = {
   id: string
   name: string
   infected: number

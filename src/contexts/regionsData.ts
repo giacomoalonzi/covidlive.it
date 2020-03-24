@@ -9,7 +9,7 @@ type Store = {
   pending: boolean
   error: boolean
   errorMessage: string
-  data: [RegionDataType] | []
+  data: RegionDataType[]
 }
 
 const defaultStore: Store = {
@@ -24,10 +24,12 @@ const onGetRegionsData = (dispatch: Function) => (onComplete: Function = noop, o
   getRegionsData()
     .then(response => {
       dispatch({ type: REGIONS_DATA_SUCCESS, data: response })
+      onComplete()
     })
     .catch(error => {
       console.log(error)
       dispatch({ type: REGIONS_DATA_FAIL, errorMessage: "Something went wrong" })
+      onError()
     })
 }
 
