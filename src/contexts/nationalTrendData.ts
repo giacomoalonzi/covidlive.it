@@ -9,7 +9,7 @@ type Store = {
   pending: boolean
   error: boolean
   errorMessage: string
-  data: [NationalTrendDataType] | []
+  data: NationalTrendDataType[]
 }
 
 const defaultStore: Store = {

@@ -1,4 +1,4 @@
-export interface NationalTrendDataType {
+export type NationalTrendDataType = {
   date: string
   hospitalized: number
   infected: number

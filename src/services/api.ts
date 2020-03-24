@@ -20,9 +20,8 @@ export const getNationalTrendData = () => {
   return httpLocalData.get("/dpc-covid19-ita-andamento-nazionale.json").then(normalizeNationalTrendData)
 }
 export const getWorldData = () => {
-  return httpWorldData
-    .post("/graphql", {
-      query: `
+  return httpWorldData.post("/graphql", {
+    query: `
       {
         countries {
           country
@@ -37,7 +36,5 @@ export const getWorldData = () => {
         } 
       }
     `,
-    })
-    .then(console.log)
+  })
 }
-getWorldData()

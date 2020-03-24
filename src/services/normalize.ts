@@ -1,8 +1,9 @@
 import { get } from "lodash"
 import { NationalTrendDataType } from "@Types/nationalTrendData"
 import { RegionDataType } from "@Types/regionData"
+import { WorldDataType } from "@Types/worldData"
 
-export const normalizeRegionData = (response: any): [RegionDataType] => {
+export const normalizeRegionData = (response: any): RegionDataType[] => {
   const { data } = response
   return data.map((region: any) => ({
     id: get(region, "codice_regione", ""),
@@ -21,7 +22,7 @@ export const normalizeRegionData = (response: any): [RegionDataType] => {
   }))
 }
 
-export const normalizeNationalTrendData = (response: any): [NationalTrendDataType] => {
+export const normalizeNationalTrendData = (response: any): NationalTrendDataType[] => {
   const { data } = response
   return data.map((nation: any) => ({
     date: get(nation, "data", ""),
@@ -35,5 +36,16 @@ export const normalizeNationalTrendData = (response: any): [NationalTrendDataTyp
     intensiveCare: get(nation, "terapia_intensiva", 0),
     testPerformed: get(nation, "tamponi", 0),
     hospitalizedWithSymptoms: get(nation, "ricoverati_con_sintomi", 0),
+  }))
+}
+
+export const normalizeWorldData = (response: any): WorldDataType[] => {
+  const { data } = response
+  return data.map((nation: any) => ({
+    country: get(nation, "country", ""),
+    cases: get(nation, "cases", 0),
+    todayCases: get(nation, "todayCases", 0),
+    deaths: get(nation, "deaths", 0),
+    recovered: get(nation, "recovered", 0),
   }))
 }
