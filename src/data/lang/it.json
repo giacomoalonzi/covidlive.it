@@ -64,6 +64,10 @@
       "lastWeekChartData2": {
         "title": "Nuovi positivi ultima settimana",
         "datasetLabel1": "Nuovi positivi"
+      },
+      "allCountries": {
+        "title": "Le nazioni più colpite",
+        "dataSourceLabel": "Fonte dei dati"
       }
     },
     "usefulLinks": {

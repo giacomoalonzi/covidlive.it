@@ -24,28 +24,28 @@ export const normalizeRegionData = (response: any): RegionDataType[] => {
 
 export const normalizeNationalTrendData = (response: any): NationalTrendDataType[] => {
   const { data } = response
-  return data.map((nation: any) => ({
-    date: get(nation, "data", ""),
-    hospitalized: get(nation, "totale_ospedalizzati", 0),
-    infected: get(nation, "totale_attualmente_positivi", 0), // Total amount of current positive cases (Hospitalised patients + Home confinement)
-    newInfected: get(nation, "nuovi_attualmente_positivi", 0), // News amount of current positive cases (Hospitalised patients + Home confinement)
-    healed: get(nation, "dimessi_guariti", 0),
-    totalCases: get(nation, "totale_casi", 0),
-    deaths: get(nation, "deceduti", 0),
-    homeConfinement: get(nation, "isolamento_domiciliare", 0),
-    intensiveCare: get(nation, "terapia_intensiva", 0),
-    testPerformed: get(nation, "tamponi", 0),
-    hospitalizedWithSymptoms: get(nation, "ricoverati_con_sintomi", 0),
+  return data.map((nationData: any) => ({
+    date: get(nationData, "data", ""),
+    hospitalized: get(nationData, "totale_ospedalizzati", 0),
+    infected: get(nationData, "totale_attualmente_positivi", 0), // Total amount of current positive cases (Hospitalised patients + Home confinement)
+    newInfected: get(nationData, "nuovi_attualmente_positivi", 0), // News amount of current positive cases (Hospitalised patients + Home confinement)
+    healed: get(nationData, "dimessi_guariti", 0),
+    totalCases: get(nationData, "totale_casi", 0),
+    deaths: get(nationData, "deceduti", 0),
+    homeConfinement: get(nationData, "isolamento_domiciliare", 0),
+    intensiveCare: get(nationData, "terapia_intensiva", 0),
+    testPerformed: get(nationData, "tamponi", 0),
+    hospitalizedWithSymptoms: get(nationData, "ricoverati_con_sintomi", 0),
   }))
 }
 
 export const normalizeWorldData = (response: any): WorldDataType[] => {
-  const { data } = response
-  return data.map((nation: any) => ({
-    country: get(nation, "country", ""),
-    cases: get(nation, "cases", 0),
-    todayCases: get(nation, "todayCases", 0),
-    deaths: get(nation, "deaths", 0),
-    recovered: get(nation, "recovered", 0),
+  const { countries } = response.data.data
+  return countries.map((country: any) => ({
+    name: get(country, "country", ""),
+    infected: get(country, "cases", 0),
+    newInfected: get(country, "todayCases", 0),
+    deaths: get(country, "deaths", 0),
+    healed: get(country, "recovered", 0),
   }))
 }

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { normalizeRegionData, normalizeNationalTrendData } from "./normalize"
+import { normalizeRegionData, normalizeNationalTrendData, normalizeWorldData } from "./normalize"
 
 const httpLocalData = axios.create({
   baseURL: process.env.GATSBY_API_URL,
@@ -20,8 +20,9 @@ export const getNationalTrendData = () => {
   return httpLocalData.get("/dpc-covid19-ita-andamento-nazionale.json").then(normalizeNationalTrendData)
 }
 export const getWorldData = () => {
-  return httpWorldData.post("/graphql", {
-    query: `
+  return httpWorldData
+    .post("/graphql", {
+      query: `
       {
         countries {
           country
@@ -36,5 +37,6 @@ export const getWorldData = () => {
         } 
       }
     `,
-  })
+    })
+    .then(normalizeWorldData)
 }

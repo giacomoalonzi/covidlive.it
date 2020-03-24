@@ -1,4 +1,12 @@
 .row-card-item {
+  &--no-accordion {
+    .row-card-item__wrap {
+      .accordion__button {
+        background-color: white !important;
+        cursor: auto !important;
+      }
+    }
+  }
   &.is-selected {
     z-index: 1;
     .row-card-item-chevron {
