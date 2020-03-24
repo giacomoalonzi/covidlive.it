@@ -4,8 +4,8 @@ require("dotenv").config({
 // config
 module.exports = {
   siteMetadata: {
-    title: `Covid Live: la situazione in tempo reale`,
-    description: `Tutti i dati aggiornati sulla diffusione di Covid-19 in Italia`,
+    title: `Covid Live: la situazione in Italia e nel Mondo in tempo reale.`,
+    description: `Tutti i dati aggiornati sulla diffusione di Covid-19 in Italia e nel mondo`,
     author: `@giacomo.alonzi`,
     siteUrl: "https://covidlive.it",
   },
@@ -30,7 +30,7 @@ module.exports = {
         path: `${__dirname}/src/data/lang`,
         languages: [`en`, `it`],
         defaultLanguage: `it`,
-        redirect: false,
+        redirect: true,
       },
     },
     {
