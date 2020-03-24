@@ -30,7 +30,7 @@ module.exports = {
         path: `${__dirname}/src/data/lang`,
         languages: [`en`, `it`],
         defaultLanguage: `it`,
-        redirect: true,
+        redirect: false,
       },
     },
     {
