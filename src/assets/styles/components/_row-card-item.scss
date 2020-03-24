@@ -1,12 +1,6 @@
 .row-card-item {
   &--no-accordion {
     pointer-events: none;
-    .row-card-item__wrap {
-      .accordion__button {
-        background-color: white !important;
-        cursor: auto !important;
-      }
-    }
   }
   &.is-selected {
     z-index: 1;
