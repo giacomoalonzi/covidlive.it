@@ -42,7 +42,6 @@ function SEO({ description, lang, meta, title }: Props): any {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
       //@ts-ignore
       meta={[
         ...meta,
