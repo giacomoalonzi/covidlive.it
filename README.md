@@ -16,4 +16,5 @@ Create an `.env.development` file.
 
 ```
   GATSBY_API_URL=https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json
+  GATSBY_API_WORLD_DATA_URL=https://sharad-gql-covid19.herokuapp.com
 ```
