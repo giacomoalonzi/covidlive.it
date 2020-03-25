@@ -2,7 +2,7 @@
   "globals": {
     "header": {
       "subTitle": "Real time monitoring in Italy and worldwide",
-      "descrioption": "All updated data on the spread of Covid-19 in Italy and Worldwide",
+      "description": "All updated data on the spread of Covid-19 in Italy and Worldwide",
       "nav": {
         "usefulLinkLabel": "Useful Links",
         "contactLabel": "Contact us"
