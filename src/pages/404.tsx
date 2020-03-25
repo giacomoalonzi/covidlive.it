@@ -8,7 +8,7 @@ const NotFoundPage = () => {
     <Layout>
       <SEO
         title={`404: ${formatMessage({ id: "pages.notFound.title" })}`}
-        description={formatMessage({ id: "global.header.description" })}
+        description={formatMessage({ id: "globals.header.description" })}
       />
       <div className="notfound-page">
         <div className="notfound-page__wrap">

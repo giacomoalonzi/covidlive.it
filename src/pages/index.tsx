@@ -220,7 +220,7 @@ const IndexPage = () => {
       <div>
         <SEO
           title={formatMessage({ id: "pages.homepage.title" })}
-          description={formatMessage({ id: "global.header.description" })}
+          description={formatMessage({ id: "globals.header.description" })}
         />
         <div className="homepage">
           <div className="homepage__wrap">
