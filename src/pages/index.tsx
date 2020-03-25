@@ -218,7 +218,10 @@ const IndexPage = () => {
   return (
     <Layout>
       <div>
-        <SEO title={formatMessage({ id: "pages.homepage.title" })} />
+        <SEO
+          title={formatMessage({ id: "pages.homepage.title" })}
+          description={formatMessage({ id: "global.header.description" })}
+        />
         <div className="homepage">
           <div className="homepage__wrap">
             <div style={{ marginLeft: "auto", marginRight: "auto" }} className="u-margin-bottom-spacer-huge">

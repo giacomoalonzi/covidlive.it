@@ -6,7 +6,10 @@ const NotFoundPage = () => {
   const { formatMessage } = useIntl()
   return (
     <Layout>
-      <SEO title={`404: ${formatMessage({ id: "pages.notFound.title" })}`} />
+      <SEO
+        title={`404: ${formatMessage({ id: "pages.notFound.title" })}`}
+        description={formatMessage({ id: "global.header.description" })}
+      />
       <div className="notfound-page">
         <div className="notfound-page__wrap">
           <div className="notfound-page__item">
