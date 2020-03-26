@@ -4,7 +4,7 @@ import SEO from "@Components/seo"
 const Faq = () => {
   return (
     <Layout>
-      <SEO title="Aggiornamenti" />
+      <SEO title="Aggiornamenti" path="/updates/" />
 
       <div className="layout-wrap">
         <div className="updates">

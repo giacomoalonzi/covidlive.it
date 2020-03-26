@@ -6,7 +6,7 @@ import SEO from "@Components/seo"
 const Faq = () => {
   return (
     <Layout>
-      <SEO title="Domande Frequenti" />
+      <SEO title="Domande Frequenti" path="/faq/" />
 
       <div className="layout-wrap">
         <h2 className="u-margin-bottom-spacer-large">Domande Frequenti</h2>

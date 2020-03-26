@@ -218,14 +218,14 @@ const IndexPage = () => {
   return (
     <Layout>
       <div>
-        <SEO title={formatMessage({ id: "pages.homepage.title" })} />
+        <SEO title={formatMessage({ id: "pages.homepage.title" })} path="/" />
         <div className="homepage">
           <div className="homepage__wrap">
             <div style={{ marginLeft: "auto", marginRight: "auto" }} className="u-margin-bottom-spacer-huge">
               {/* <MessageBox type="error">
                 <p>
                   {formatMessage({ id: "pages.homepage.messageBoxLabel" })}{" "}
-                  <Link to="/updates">{formatMessage({ id: "pages.homepage.messageBoxCtaLabel" })}</Link>.
+                  <Link to="/updates/">{formatMessage({ id: "pages.homepage.messageBoxCtaLabel" })}</Link>.
                 </p>
               </MessageBox> */}
             </div>

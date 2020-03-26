@@ -9,17 +9,18 @@ import * as React from "react"
 import * as PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { useIntl } from "gatsby-plugin-intl"
 
 const ogImage = require("@Assets/images/image-og.jpg")
 
 type Props = {
   description?: string
-  lang?: string
   meta?: Array<string>
   title: string
+  path: string
 }
 
-function SEO({ description, lang, meta, title }: Props): any {
+function SEO({ description, meta, title, path }: Props): any {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -28,6 +29,7 @@ function SEO({ description, lang, meta, title }: Props): any {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -36,13 +38,27 @@ function SEO({ description, lang, meta, title }: Props): any {
 
   const metaDescription = description || site.siteMetadata.description
 
+  const intl = useIntl()
+
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: intl.locale,
       }}
       title={title}
       //@ts-ignore
+      link={[
+        {
+          rel: "alternate",
+          hreflang: "it",
+          href: `${site.siteMetadata.siteUrl}/it${path}`,
+        },
+        {
+          rel: "alternate",
+          hreflang: "en",
+          href: `${site.siteMetadata.siteUrl}/en${path}`,
+        },
+      ]}
       meta={[
         ...meta,
         {
@@ -50,12 +66,24 @@ function SEO({ description, lang, meta, title }: Props): any {
           content: metaDescription,
         },
         {
+          property: `og:url`,
+          content: `${site.siteMetadata.siteUrl}/${intl.locale}${path}`,
+        },
+        {
           property: `og:title`,
           content: title,
         },
         {
           property: "og:image",
-          content: ogImage,
+          content: `${site.siteMetadata.siteUrl}${ogImage}`,
+        },
+        {
+          property: "og:image:width",
+          content: 1200,
+        },
+        {
+          property: "og:image:height",
+          content: 630,
         },
         {
           property: `og:description`,
@@ -87,16 +115,15 @@ function SEO({ description, lang, meta, title }: Props): any {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
   meta: [],
   description: ``,
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
-  lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
 }
 
 export default SEO

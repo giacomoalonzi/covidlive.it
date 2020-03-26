@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "name": "covidlive.it",
+  "description": "Covid Live: real time monitoring",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Giacomo Alonzi",
   "dependencies": {
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
@@ -15,7 +14,6 @@
     "gatsby-env-variables": "^2.0.0",
     "gatsby-image": "^2.2.45",
     "gatsby-plugin-alias-imports": "^1.0.5",
-    "gatsby-plugin-flow": "^1.1.21",
     "gatsby-plugin-google-analytics": "^2.1.38",
     "gatsby-plugin-intl": "^0.3.3",
     "gatsby-plugin-manifest": "^2.2.48",
@@ -56,17 +54,16 @@
     "eslint": "^6.8.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
-    "flow-bin": "^0.120.1",
-    "flow-typed": "^3.0.0",
     "gatsby-plugin-config": "^1.0.7",
     "husky": "^4.2.3",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "covid-19"
   ],
-  "license": "MIT",
+  "license": "CC BY 4.0",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -86,9 +83,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/giacomoalonzi/covidlive.it"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/giacomoalonzi/covidlive.it/issues"
   }
 }

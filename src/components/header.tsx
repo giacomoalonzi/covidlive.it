@@ -21,8 +21,8 @@ const Header = () => {
           <nav>
             <ul>
               <li>
-                {/* <Link to="/faq">FAQ</Link> */}
-                <Link to="/link-utili">{formatMessage({ id: "globals.header.nav.usefulLinkLabel" })}</Link>
+                {/* <Link to="/faq/">FAQ</Link> */}
+                <Link to="/link-utili/">{formatMessage({ id: "globals.header.nav.usefulLinkLabel" })}</Link>
               </li>
               <li>
                 <a href="mailto:ciao@covidlive.it">{formatMessage({ id: "globals.header.nav.contactLabel" })}</a>
