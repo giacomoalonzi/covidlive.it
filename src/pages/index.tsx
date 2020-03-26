@@ -311,7 +311,11 @@ const IndexPage = () => {
                 </h2>
                 <RowCardAccordionList
                   enableAccordion={false}
-                  list={!shouldShowAllWorldData ? [...worldDataStore.data.slice(0, 10)] : worldDataStore.data}
+                  list={
+                    !shouldShowAllWorldData && worldDataStore.data.length
+                      ? [...worldDataStore.data.slice(0, 10)]
+                      : worldDataStore.data
+                  }
                   numberOfFakeCards={10}
                   isLoading={!worldDataStore.data.length}
                 />
