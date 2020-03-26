@@ -46,19 +46,24 @@ function SEO({ description, meta, title, path }: Props): any {
         lang: intl.locale,
       }}
       title={title}
-      //@ts-ignore
       link={[
         {
           rel: "alternate",
-          hreflang: "it",
+          hrefLang: "x-default",
+          href: `${site.siteMetadata.siteUrl}${path}`,
+        },
+        {
+          rel: "alternate",
+          hrefLang: "it",
           href: `${site.siteMetadata.siteUrl}/it${path}`,
         },
         {
           rel: "alternate",
-          hreflang: "en",
+          hrefLang: "en",
           href: `${site.siteMetadata.siteUrl}/en${path}`,
         },
       ]}
+      //@ts-ignore
       meta={[
         ...meta,
         {
