@@ -2,6 +2,7 @@
   "globals": {
     "header": {
       "subTitle": "La situazione in Italia e nel Mondo in tempo reale.",
+      "description": "Tutti i dati aggiornati sulla diffusione di Covid-19 in Italia e nel mondo",
       "nav": {
         "usefulLinkLabel": "Link utili",
         "contactLabel": "Contatti"

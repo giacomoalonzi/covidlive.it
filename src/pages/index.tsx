@@ -218,7 +218,11 @@ const IndexPage = () => {
   return (
     <Layout>
       <div>
-        <SEO title={formatMessage({ id: "pages.homepage.title" })} path="/" />
+        <SEO
+          title={formatMessage({ id: "pages.homepage.title" })}
+          description={formatMessage({ id: "globals.header.description" })}
+          path="/"
+        />
         <div className="homepage">
           <div className="homepage__wrap">
             <div style={{ marginLeft: "auto", marginRight: "auto" }} className="u-margin-bottom-spacer-huge">
@@ -308,7 +312,11 @@ const IndexPage = () => {
                 </h2>
                 <RowCardAccordionList
                   enableAccordion={false}
-                  list={!shouldShowAllWorldData ? [...worldDataStore.data.slice(0, 10)] : worldDataStore.data}
+                  list={
+                    !shouldShowAllWorldData && worldDataStore.data.length
+                      ? [...worldDataStore.data.slice(0, 10)]
+                      : worldDataStore.data
+                  }
                   numberOfFakeCards={10}
                   isLoading={!worldDataStore.data.length}
                 />

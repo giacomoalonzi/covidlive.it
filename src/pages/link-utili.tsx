@@ -6,7 +6,11 @@ const LinkUtili = () => {
   const { formatMessage } = useIntl()
   return (
     <Layout>
-      <SEO title={formatMessage({ id: "pages.usefulLinks.title" })} path="/link-utili/" />
+      <SEO
+        title={formatMessage({ id: "pages.usefulLinks.title" })}
+        description={formatMessage({ id: "globals.header.description" })}
+        path="/link-utili/"
+      />
 
       <div className="layout-wrap">
         <h2 className="u-margin-bottom-spacer-large">
