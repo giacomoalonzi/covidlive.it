@@ -8,8 +8,8 @@ export const normalizeRegionData = (response: any): RegionDataType[] => {
   return data.map((region: any) => ({
     id: get(region, "codice_regione", ""),
     name: get(region, "denominazione_regione", ""),
-    infected: get(region, "totale_attualmente_positivi", 0), // Total amount of current positive cases (Hospitalised patients + Home confinement)
-    newInfected: get(region, "nuovi_attualmente_positivi", 0), // News amount of current positive cases (Hospitalised patients + Home confinement)
+    infected: get(region, "totale_positivi", 0), // Total amount of current positive cases (Hospitalised patients + Home confinement)
+    newInfected: get(region, "variazione_totale_positivi", 0), // News amount of current positive cases (Hospitalised patients + Home confinement)
     healed: get(region, "dimessi_guariti", 0),
     totalCases: get(region, "totale_casi", 0),
     testPerformed: get(region, "tamponi", 0),
@@ -27,8 +27,8 @@ export const normalizeNationalTrendData = (response: any): NationalTrendDataType
   return data.map((nationData: any) => ({
     date: get(nationData, "data", ""),
     hospitalized: get(nationData, "totale_ospedalizzati", 0),
-    infected: get(nationData, "totale_attualmente_positivi", 0), // Total amount of current positive cases (Hospitalised patients + Home confinement)
-    newInfected: get(nationData, "nuovi_attualmente_positivi", 0), // News amount of current positive cases (Hospitalised patients + Home confinement)
+    infected: get(nationData, "totale_positivi", 0), // Total amount of current positive cases (Hospitalised patients + Home confinement)
+    newInfected: get(nationData, "variazione_totale_positivi", 0), // News amount of current positive cases (Hospitalised patients + Home confinement)
     healed: get(nationData, "dimessi_guariti", 0),
     totalCases: get(nationData, "totale_casi", 0),
     deaths: get(nationData, "deceduti", 0),
