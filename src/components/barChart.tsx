@@ -28,6 +28,9 @@ const BarChart = ({ data, options }: Props) => {
                     gridLines: {
                       color: "rgba(0, 0, 0, 0)",
                     },
+                    ticks: {
+                      min: 0,
+                    },
                   },
                 ],
               },
