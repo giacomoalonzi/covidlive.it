@@ -71,7 +71,11 @@ const RowCardItemAccordion = ({
                         😷
                       </span>
                       {infected.toLocaleString()}
-                      <small>+{newInfected}</small>
+                      {newInfected > 0 ? (
+                        <small className="is-error">+{newInfected}</small>
+                      ) : (
+                        <small className="is-success">{newInfected}</small>
+                      )}
                     </p>
                   </div>
                   <div className="row-card-item-stat">
