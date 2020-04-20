@@ -184,7 +184,11 @@ const IndexPage = () => {
           emoji="😷"
           title={formatMessage({ id: "pages.homepage.bigCardInfected.title" })}
           content={`${get(todayNationalTrendData, "infected", 0).toLocaleString()}`}
-          additionalContent={`+${get(todayNationalTrendData, "newInfected", 0).toLocaleString()} ${formatMessage({
+          additionalContent={`${get(todayNationalTrendData, "newInfected", 0) > 0 ? "+" : ""}${get(
+            todayNationalTrendData,
+            "newInfected",
+            0
+          ).toLocaleString()} ${formatMessage({
             id: "pages.homepage.bigCardInfected.additionalContentLabel",
           })}`}
           subContent={`${formatMessage({ id: "pages.homepage.bigCardInfected.subContentLabel" })} ${get(
@@ -197,7 +201,9 @@ const IndexPage = () => {
           emoji="😊"
           additionalContentType="success"
           title={formatMessage({ id: "pages.homepage.bigCardHealed.title" })}
-          additionalContent={`+${differenceFromYesterdayHealed.toLocaleString()} ${formatMessage({
+          additionalContent={`${
+            differenceFromYesterdayHealed > 0 ? "+" : ""
+          }${differenceFromYesterdayHealed.toLocaleString()} ${formatMessage({
             id: "pages.homepage.bigCardHealed.additionalContentLabel",
           })}`}
           content={get(todayNationalTrendData, "healed", 0).toLocaleString()}
@@ -205,7 +211,9 @@ const IndexPage = () => {
         <BigCard
           emoji="😢"
           title={formatMessage({ id: "pages.homepage.bigCardDeaths.title" })}
-          additionalContent={`+${differenceFromYesterdayDeaths.toLocaleString()} ${formatMessage({
+          additionalContent={`${
+            differenceFromYesterdayDeaths > 0 ? "+" : ""
+          }${differenceFromYesterdayDeaths.toLocaleString()} ${formatMessage({
             id: "pages.homepage.bigCardDeaths.additionalContentLabel",
           })}`}
           content={get(todayNationalTrendData, "deaths", 0).toLocaleString()}
