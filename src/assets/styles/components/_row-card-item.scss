@@ -118,13 +118,20 @@
 
           right: 0%;
           @include font-size(11px, 1);
-          color: red;
           display: block;
           white-space: nowrap;
           bottom: -80%;
           @include breakpoint(md) {
             top: -80%;
             bottom: 0;
+          }
+
+          &.is-error {
+            color: $error;
+          }
+
+          &.is-success {
+            color: $success;
           }
         }
       }
