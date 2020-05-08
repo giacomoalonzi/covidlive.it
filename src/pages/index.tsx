@@ -56,8 +56,11 @@ const IndexPage = () => {
 
   const { data: nationalTrendData }: { data: [NationalTrendDataType] } = nationalTrendDataStore
   const todayNationalTrendData = last(nationalTrendData)
+  console.log(nationalTrendData)
   const dayBeforeTodayNationTrendDaata = nationalTrendData[nationalTrendData.length - 2]
-
+  const differenceFromYesterdayInfected =
+    get(todayNationalTrendData, "totalCases", 0) - get(dayBeforeTodayNationTrendDaata, "totalCases", 0)
+  console.log(differenceFromYesterdayInfected)
   const lastWeekData = slice(nationalTrendData, nationalTrendData.length - 7)
   const labels = lastWeekData.map(i => format(new Date(parseISO(i.date)), "dd/LL"))
   const differenceFromYesterdayHealed =
@@ -66,7 +69,7 @@ const IndexPage = () => {
     // @ts-ignore
     get(todayNationalTrendData, "deaths", 0) - get(dayBeforeTodayNationTrendDaata, "deaths", 0)
   const infected = lastWeekData.map(i => i.infected)
-  const newInfected = lastWeekData.map(i => i.newInfected)
+  const newInfected = lastWeekData.map(i => i.totalCases)
   const healed = lastWeekData.map(i => i.healed)
   const deaths = lastWeekData.map(i => i.deaths)
   const testPerformed = lastWeekData.map(i => i.testPerformed)
@@ -92,24 +95,24 @@ const IndexPage = () => {
         pointHoverBorderWidth: 5,
         data: infected,
       },
-      {
-        label: formatMessage({ id: "pages.homepage.lastWeekChartData1.datasetLabel4" }),
-        fill: false,
-        lineTension: 0.2,
-        backgroundColor: "#fcdca3",
-        borderColor: "#fcdca3",
-        borderCapStyle: "butt",
-        borderDashOffset: 0.0,
-        borderJoinStyle: "miter",
-        pointBorderColor: "#fcdca3",
-        pointBackgroundColor: "#fcdca3",
-        pointBorderWidth: 4,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: "#fcdca3",
-        pointHoverBorderColor: "#fcdca3",
-        pointHoverBorderWidth: 5,
-        data: testPerformed,
-      },
+      // {
+      //   label: formatMessage({ id: "pages.homepage.lastWeekChartData1.datasetLabel4" }),
+      //   fill: false,
+      //   lineTension: 0.2,
+      //   backgroundColor: "#fcdca3",
+      //   borderColor: "#fcdca3",
+      //   borderCapStyle: "butt",
+      //   borderDashOffset: 0.0,
+      //   borderJoinStyle: "miter",
+      //   pointBorderColor: "#fcdca3",
+      //   pointBackgroundColor: "#fcdca3",
+      //   pointBorderWidth: 4,
+      //   pointHoverRadius: 5,
+      //   pointHoverBackgroundColor: "#fcdca3",
+      //   pointHoverBorderColor: "#fcdca3",
+      //   pointHoverBorderWidth: 5,
+      //   data: testPerformed,
+      // },
       {
         label: formatMessage({ id: "pages.homepage.lastWeekChartData1.datasetLabel2" }),
         fill: false,
@@ -153,7 +156,7 @@ const IndexPage = () => {
     ],
   }
 
-  const testPerformedChartData = {
+  const newInfectedCurrentWeek = {
     labels,
     datasets: [
       {
@@ -184,11 +187,9 @@ const IndexPage = () => {
           emoji="😷"
           title={formatMessage({ id: "pages.homepage.bigCardInfected.title" })}
           content={`${get(todayNationalTrendData, "infected", 0).toLocaleString()}`}
-          additionalContent={`${get(todayNationalTrendData, "newInfected", 0) > 0 ? "+" : ""}${get(
-            todayNationalTrendData,
-            "newInfected",
-            0
-          ).toLocaleString()} ${formatMessage({
+          additionalContent={`${
+            differenceFromYesterdayInfected > 0 ? "+" : ""
+          }${differenceFromYesterdayInfected.toLocaleString()} ${formatMessage({
             id: "pages.homepage.bigCardInfected.additionalContentLabel",
           })}`}
           subContent={`${formatMessage({ id: "pages.homepage.bigCardInfected.subContentLabel" })} ${get(
@@ -304,7 +305,7 @@ const IndexPage = () => {
                 <div className="card__wrap">
                   <div className="card__item">
                     <BarChart
-                      data={testPerformedChartData}
+                      data={newInfectedCurrentWeek}
                       options={{
                         legend: { display: false },
                       }}
