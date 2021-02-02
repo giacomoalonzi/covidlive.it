@@ -36,7 +36,7 @@
         @extend %family-black;
         margin: $spacer-small 0 $spacer-base 0;
         display: inline-block;
-        @include font-size(80px, 1);
+        @include font-size(54px, 1);
 
         span {
           @include font-size(16px, 1);
