@@ -36,7 +36,7 @@
     "react-id-swiper": "^3.0.0",
     "reset-css": "^5.0.1",
     "sort-object": "^3.0.3",
-    "swiper": "^5.3.6"
+    "swiper": "^6.5.1"
   },
   "devDependencies": {
     "@types/chart.js": "^2.9.15",
